@@ -5,7 +5,7 @@
 </head>
 
 <body>
-    <h2>Add New User</h2>
+    <h2>Add New Users</h2>
 
     <form action="http://localhost:8070/users/addUser" method="post">
         <label for="name">Name:</label><br>
