@@ -15,7 +15,8 @@ public class MenuDB {
         Connection con = db.getCon();
 
         try {
-            String query = "SELECT * FROM Menu";
+            String query = "SELECT * FROM menu";
+            System.out.println(query);
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(query);
 
