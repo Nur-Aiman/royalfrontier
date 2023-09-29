@@ -1,8 +1,9 @@
 package com.restaurant_management_system.controller;
-
+import com.google.gson.Gson;
 import com.restaurant_management_system.beans.Menu;
 import com.restaurant_management_system.model.MenuDB;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -26,31 +27,20 @@ public class GetMenu extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-	    MenuDB menuDB = new MenuDB();
-	    List<Menu> menus = menuDB.getAllMenus();
+        MenuDB menuDB = new MenuDB();
+        List<Menu> menus = menuDB.getAllMenus();
 
-	    // Convert menus to JSON format
-	    StringBuilder jsonResponse = new StringBuilder("[");
-	    for (int i = 0; i < menus.size(); i++) {
-	        Menu menu = menus.get(i);
-	        jsonResponse.append("{");
-	        jsonResponse.append("\"id\": ").append(menu.getId()).append(",");
-	        jsonResponse.append("\"menu\": \"").append(menu.getMenu()).append("\",");
-	        jsonResponse.append("\"price\": ").append(menu.getPrice());
-	        jsonResponse.append("}");
-	        
-	        if (i < menus.size() - 1) {  // Not the last item
-	            jsonResponse.append(",");
-	        }
-	    }
-	    jsonResponse.append("]");
+        // Convert the list of menus to JSON
+        Gson gson = new Gson();
+        String jsonMenus = gson.toJson(menus);
 
-	    // Set response type and write the JSON response
-	    response.setContentType("application/json");
-	    response.getWriter().write(jsonResponse.toString());
-	}
+        // Set the content type to JSON
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().write(jsonMenus);
+    }
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
