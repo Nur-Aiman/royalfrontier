@@ -53,7 +53,7 @@
             <form action="../Login" method="post">
                 <div class="form-group">
                     <label for="email">Email:</label>
-                    <input type="text" class="form-control" id="email" name="email" placeholder="Enter Your Real Email">
+                    <input type="text" class="form-control" id="email" name="email" placeholder="Enter Lah Email">
                 </div>
                 <div class="form-group">
                     <label for="password">Password:</label>
