@@ -1,3 +1,7 @@
+/*
+ * Online DB : OK
+*/
+
 package com.restaurant_management_system.controller;
 
 //import com.restaurant_management_system.model.Restaurant;
@@ -50,8 +54,7 @@ public class MakeReservation extends HttpServlet {
         
         ReservationDB reservationDB = new ReservationDB();
         String status = reservationDB.insertReservation(reservationBean);
-
-        request.setAttribute("reservationStatus", status);
-//        request.getRequestDispatcher("jsp/reservationConfirmation.jsp").forward(request, response);
-    }
+        request.getSession().setAttribute("reservationStatus", status);
+        response.sendRedirect("/royalfrontier/jsp/reservation.jsp");
+}
 }

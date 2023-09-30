@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Menu</title>
     <style>
-        /* Base styling */
+     
         body {
             font-family: Arial, sans-serif;
             padding: 40px;
@@ -17,7 +17,7 @@
             color: #444;
         }
 
-        /* Table styling */
+  
         table {
             border-collapse: collapse;
             width: 80%;
@@ -43,7 +43,7 @@
     </style>
     <script>
     window.onload = function() {
-        let cart = {}; // Modify the cart to be an object for tracking quantities
+        let cart = {};
 
         fetch('http://localhost:8079/royalfrontier/GetMenu') 
             .then(response => response.json())
@@ -56,13 +56,13 @@
                     let cellId = row.insertCell(0);
                     let cellMenu = row.insertCell(1);
                     let cellPrice = row.insertCell(2);
-                    let cellAction = row.insertCell(3); // Cell for "Add" button
+                    let cellAction = row.insertCell(3); 
 
                     cellId.innerHTML = menu.id;
                     cellMenu.innerHTML = menu.menu;
                     cellPrice.innerHTML = menu.price;
 
-                    // Add "Add" button
+         
                     let addButton = document.createElement('button');
                     addButton.textContent = 'Add';
                     addButton.addEventListener('click', function() {
@@ -76,17 +76,17 @@
                                 quantity: 1
                             };
                         }
-                        renderCart(); // Update the cart display
+                        renderCart(); 
                     });
                     cellAction.appendChild(addButton);
                 });
             })
             .catch(error => console.error('Error fetching menu data:', error));
         
-        // Function to render the cart items
+   
         function renderCart() {
             const cartList = document.getElementById('cartList');
-            cartList.innerHTML = ''; // Clear the current list
+            cartList.innerHTML = ''; 
 
             for (const itemId in cart) {
                 let listItem = document.createElement('li');
@@ -116,7 +116,7 @@
 </table>
 
 <h2>Cart</h2>
-<ul id="cartList"> <!-- A list for cart items -->
+<ul id="cartList">
 </ul>
 
 </body>

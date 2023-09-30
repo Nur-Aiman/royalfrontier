@@ -1,28 +1,42 @@
 package com.restaurant_management_system.model;
 
 import java.sql.Connection;
-import java.sql.Statement;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import com.restaurant_management_system.beans.user;
 
-import java.sql.SQLException;
-
 public class UserDB {
     
-    String s1 = null;
+    String resultMessage = null;
 
     public String insertUser(user rb) {
         myDatabase db = new myDatabase();
         Connection con = db.getCon();
+        
+       
+        String query = "INSERT INTO `user`(name, email, password) VALUES(?, ?, ?)";
+        
         try {
-            Statement stat = con.createStatement();
-            stat.executeUpdate("INSERT INTO `user`(name, email, password) VALUES('" + rb.getName() + "','" + rb.getEmail()
-                    + "','" + rb.getPassword() + "')");
-            s1 = "Data Insert Successfully";
+            PreparedStatement pstmt = con.prepareStatement(query);
+            pstmt.setString(1, rb.getName());
+            pstmt.setString(2, rb.getEmail());
+            pstmt.setString(3, rb.getPassword());
+
+            pstmt.executeUpdate();
+            resultMessage = "Data Inserted Successfully";
         } catch (SQLException ex) {
             ex.printStackTrace();
+            resultMessage = "Error in insertion: " + ex.getMessage();
+        } finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
-        return s1;
+        return resultMessage;
     }
 }
-

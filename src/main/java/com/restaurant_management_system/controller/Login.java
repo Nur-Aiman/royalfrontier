@@ -1,3 +1,5 @@
+
+
 package com.restaurant_management_system.controller;
 
 import java.io.IOException;
@@ -44,11 +46,11 @@ public class Login extends HttpServlet {
 		HttpSession session = request.getSession();
 		RequestDispatcher dispatcher = null;
 		
-		myDatabase db = new myDatabase(); // Use myDatabase class for connection
+		myDatabase db = new myDatabase(); 
 		Connection con = db.getCon();
 		
 		try {
-			PreparedStatement pst = con.prepareStatement("SELECT * FROM \"user\" WHERE email = ? AND password = ?");
+			PreparedStatement pst = con.prepareStatement("SELECT * FROM `user` WHERE email = ? AND password = ?");
 			pst.setString(1, email);
 			pst.setString(2, password);
 			
@@ -57,7 +59,7 @@ public class Login extends HttpServlet {
 				session.setAttribute("email", rs.getString("email"));
 				session.setAttribute("name", rs.getString("name"));
 				request.setAttribute("loginStatus", "Login successful!");
-				dispatcher = request.getRequestDispatcher("jsp/Welcome.jsp");
+				dispatcher = request.getRequestDispatcher("jsp/welcome.jsp");
 			} else {
 				session.setAttribute("loginStatus", "Login failed. Wrong email or password.");
 			    response.sendRedirect("jsp/login.jsp");

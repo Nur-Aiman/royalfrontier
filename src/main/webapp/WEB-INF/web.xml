@@ -28,6 +28,30 @@
   	<description></description>
   	<servlet-class>com.restaurant_management_system.controller.GetMenu</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ContactUs</servlet-name>
+  	<display-name>ContactUs</display-name>
+  	<description></description>
+  	<servlet-class>com.restaurant_management_system.controller.ContactUs</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AddOrder</servlet-name>
+  	<display-name>AddOrder</display-name>
+  	<description></description>
+  	<servlet-class>com.restaurant_management_system.controller.AddOrder</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AddMenu</servlet-name>
+  	<display-name>AddMenu</display-name>
+  	<description></description>
+  	<servlet-class>com.restaurant_management_system.controller.AddMenu</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>EditMenu</servlet-name>
+  	<display-name>EditMenu</display-name>
+  	<description></description>
+  	<servlet-class>com.restaurant_management_system.controller.EditMenu</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>Register</servlet-name>
   	<url-pattern>/Register</url-pattern>
@@ -43,5 +67,21 @@
   <servlet-mapping>
   	<servlet-name>GetMenu</servlet-name>
   	<url-pattern>/GetMenu</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ContactUs</servlet-name>
+  	<url-pattern>/ContactUs</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AddOrder</servlet-name>
+  	<url-pattern>/AddOrder</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AddMenu</servlet-name>
+  	<url-pattern>/AddMenu</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>EditMenu</servlet-name>
+  	<url-pattern>/EditMenu</url-pattern>
   </servlet-mapping>
 </web-app>

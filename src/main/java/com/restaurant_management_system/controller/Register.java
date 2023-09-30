@@ -1,3 +1,7 @@
+/*
+ * Online DB : OK
+ */
+
 package com.restaurant_management_system.controller;
 
 import com.restaurant_management_system.model.UserDB;
@@ -89,6 +93,7 @@ public class Register extends HttpServlet {
 		// out.println(email);
 		// out.println(password);
 		request.setAttribute("name", name);
-		request.getRequestDispatcher("jsp/Welcome.jsp").forward(request, response);
+//		request.getRequestDispatcher("jsp/Welcome.jsp").forward(request, response);
+		response.sendRedirect("/royalfrontier/jsp/login.jsp");
 	}
 }

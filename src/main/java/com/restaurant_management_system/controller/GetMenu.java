@@ -1,3 +1,7 @@
+/*
+ * Online DB : OK
+ */
+
 package com.restaurant_management_system.controller;
 import com.google.gson.Gson;
 import com.restaurant_management_system.beans.Menu;
@@ -32,11 +36,11 @@ public class GetMenu extends HttpServlet {
         MenuDB menuDB = new MenuDB();
         List<Menu> menus = menuDB.getAllMenus();
 
-        // Convert the list of menus to JSON
+       
         Gson gson = new Gson();
         String jsonMenus = gson.toJson(menus);
 
-        // Set the content type to JSON
+       
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         response.getWriter().write(jsonMenus);

@@ -16,7 +16,7 @@ public class ReservationDB {
         String status = null;
 
         try {
-            String query = "INSERT INTO \"reservation\"(name, email, date_and_time, number_of_pax, special_request) VALUES(?,?,?,?,?)";
+        	String query = "INSERT INTO reservation (name, email, date_and_time, number_of_pax, special_request) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement pst = con.prepareStatement(query);
 
             pst.setString(1, reservation.getName());
