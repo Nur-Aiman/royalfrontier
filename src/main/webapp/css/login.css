@@ -71,7 +71,7 @@ h6 span{
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  color: #ffeba7;
+  color: rgb(255, 255, 0);
   background-color: #102770;
   font-family: 'unicons';
   content: '\eb4f';
@@ -285,7 +285,7 @@ h6 span{
 	transition: all 250ms linear;
 }
 .logo img {
-	height: 26px;
+	height: auto;
 	width: auto;
 	display: block;
 }
