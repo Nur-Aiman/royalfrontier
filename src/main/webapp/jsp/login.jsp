@@ -64,21 +64,21 @@
 											<form action="../Login" method="post">
 												<div class="form-group">
 													<input type="email" name="logemail" class="form-style"
-														placeholder="Your Email" id="logemail" autocomplete="off">
+														placeholder="Enter Email" id="logemail" autocomplete="off">
 													<i class="input-icon uil uil-at"></i>
 												</div>
 												<div class="form-group mt-2">
 													<input type="password" name="logpass" class="form-style"
-														placeholder="Your Password" id="logpass"
+														placeholder="Enter Password" id="logpass"
 														autocomplete="off"> <i
 														class="input-icon uil uil-lock-alt"></i>
 												</div>
 												<input  style="background-color:yellow;  color:black" type="submit" class="btn btn-primary" value="Login">
 												<!-- 											<a href="#" class="btn mt-4">submit</a> -->
 											</form>
-											<p class="mb-0 mt-4 text-center">
-												<a href="#0" class="link">Forgot your password?</a>
-											</p>
+<!-- 											<p class="mb-0 mt-4 text-center"> -->
+<!-- 												<a href="#0" class="link">Forgot your password?</a> -->
+<!-- 											</p> -->
 										</div>
 									</div>
 								</div>
