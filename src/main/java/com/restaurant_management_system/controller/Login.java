@@ -50,23 +50,24 @@ public class Login extends HttpServlet {
 		Connection con = db.getCon();
 		
 		try {
-			PreparedStatement pst = con.prepareStatement("SELECT * FROM `user` WHERE email = ? AND password = ?");
-			pst.setString(1, email);
-			pst.setString(2, password);
-			
-			ResultSet rs = pst.executeQuery();
-			if(rs.next()) {
-				session.setAttribute("email", rs.getString("email"));
-				session.setAttribute("name", rs.getString("name"));
-				request.setAttribute("loginStatus", "Login successful!");
-				dispatcher = request.getRequestDispatcher("jsp/welcome.jsp");
-			} else {
-				session.setAttribute("loginStatus", "Login failed. Wrong email or password.");
-			    response.sendRedirect("jsp/login.jsp");
-}
-			dispatcher.forward(request, response);
-		} catch(Exception ex) {
-			ex.printStackTrace();
+		    PreparedStatement pst = con.prepareStatement("SELECT * FROM `user` WHERE email = ? AND password = ?");
+		    pst.setString(1, email);
+		    pst.setString(2, password);
+
+		    ResultSet rs = pst.executeQuery();
+		    if (rs.next()) {
+		        session.setAttribute("email", rs.getString("email"));
+		        session.setAttribute("name", rs.getString("name"));
+		        request.setAttribute("loginStatus", "Login successful!");
+		        dispatcher = request.getRequestDispatcher("jsp/welcome.jsp");
+		        dispatcher.forward(request, response); // Forward if login is successful
+		    } else {
+		        session.setAttribute("loginStatus", "Login failed. Wrong email or password.");
+		        response.sendRedirect("jsp/login.jsp"); // Redirect if login fails
+		    }
+		} catch (Exception ex) {
+		    ex.printStackTrace();
 		}
+
 	}
 }
