@@ -1,139 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!-- <!DOCTYPE html> -->
-<!-- <html> -->
-<!-- <head> -->
-<!--     <meta charset="UTF-8"> -->
-<!--     <title>Menu</title> -->
-<!--     <style> -->
-     
-<!-- /*         body { */ -->
-<!-- /*             font-family: Arial, sans-serif; */ -->
-<!-- /*             padding: 40px; */ -->
-<!-- /*             background-color: #f7f7f7; */ -->
-<!-- /*         } */ -->
-
-<!-- /*         h2 { */ -->
-<!-- /*             margin-bottom: 20px; */ -->
-<!-- /*             color: #444; */ -->
-<!-- /*         } */ -->
-
-  
-<!-- /*         table { */ -->
-<!-- /*             border-collapse: collapse; */ -->
-<!-- /*             width: 80%; */ -->
-<!-- /*             margin: 0 auto; */ -->
-<!-- /*             background-color: #fff; */ -->
-<!-- /*             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); */ -->
-<!-- /*         } */ -->
-
-<!-- /*         th, td { */ -->
-<!-- /*             border: 1px solid #e0e0e0; */ -->
-<!-- /*             padding: 10px 15px; */ -->
-<!-- /*             text-align: left; */ -->
-<!-- /*         } */ -->
-
-<!-- /*         th { */ -->
-<!-- /*             background-color: #007BFF; */ -->
-<!-- /*             color: #fff; */ -->
-<!-- /*         } */ -->
-
-<!-- /*         tr:hover { */ -->
-<!-- /*             background-color: #f5f5f5; */ -->
-<!-- /*         } */ -->
-<!-- <!--     </style> --> -->
-<!-- <!--     <script> --> -->
-<!-- //     window.onload = function() { -->
-<!-- //         let cart = {}; -->
-
-<!-- //         fetch('http://localhost:8079/royalfrontier/GetMenu')  -->
-<!-- //             .then(response => response.json()) -->
-<!-- //             .then(menuData => { -->
-<!-- //                 const tableBody = document.getElementById('menuTableBody'); -->
-                
-<!-- //                 menuData.forEach(menu => { -->
-<!-- //                     let row = tableBody.insertRow(); -->
-
-<!-- //                     let cellId = row.insertCell(0); -->
-<!-- //                     let cellMenu = row.insertCell(1); -->
-<!-- //                     let cellPrice = row.insertCell(2); -->
-<!-- //                     let cellAction = row.insertCell(3);  -->
-
-<!-- //                     cellId.innerHTML = menu.id; -->
-<!-- //                     cellMenu.innerHTML = menu.menu; -->
-<!-- //                     cellPrice.innerHTML = menu.price; -->
-
-         
-<!-- //                     let addButton = document.createElement('button'); -->
-<!-- //                     addButton.textContent = 'Add'; -->
-<!-- //                     addButton.addEventListener('click', function() { -->
-<!-- //                         if(cart[menu.id]) { -->
-<!-- //                             cart[menu.id].quantity += 1;  -->
-<!-- //                         } else { -->
-<!-- //                             cart[menu.id] = { -->
-<!-- //                                 id: menu.id, -->
-<!-- //                                 name: menu.menu, -->
-<!-- //                                 price: menu.price, -->
-<!-- //                                 quantity: 1 -->
-<!-- //                             }; -->
-<!-- //                         } -->
-<!-- //                         renderCart();  -->
-<!-- //                     }); -->
-<!-- //                     cellAction.appendChild(addButton); -->
-<!-- //                 }); -->
-<!-- //             }) -->
-<!-- //             .catch(error => console.error('Error fetching menu data:', error)); -->
-        
-   
-<!-- //         function renderCart() { -->
-<!-- //             const cartList = document.getElementById('cartList'); -->
-<!-- //             cartList.innerHTML = '';  -->
-
-<!-- //             for (const itemId in cart) { -->
-<!-- //                 let listItem = document.createElement('li'); -->
-<%-- //                 listItem.textContent = `${cart[itemId].name} - Quantity: ${cart[itemId].quantity} - Price: ${cart[itemId].price}`; --%>
-<!-- //                 cartList.appendChild(listItem); -->
-<!-- //             } -->
-<!-- //         } -->
-<!-- //     } -->
-
-<!--     </script> -->
-<!-- </head> -->
-<!-- <body> -->
-
-<!-- <h2>Restaurant Menu</h2> -->
-
-<!-- <table> -->
-<!--     <thead> -->
-<!--         <tr> -->
-<!--             <th>ID</th> -->
-<!--             <th>Menu Item</th> -->
-<!--             <th>Price</th> -->
-<!--             <th>Action</th> -->
-<!--         </tr> -->
-<!--     </thead> -->
-<!--     <tbody id="menuTableBody"> -->
-<!--     </tbody> -->
-<!-- </table> -->
-
-<!-- <h2>Cart</h2> -->
-<!-- <ul id="cartList"> -->
-<!-- </ul> -->
-
-<!-- </body> -->
-<!-- </html> -->
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title>Royal Frontier - Order Menu</title>
+    <title>Royal Fronnbtier - Menu</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="../img/favicon.ico" rel="icon">
+    <link href="img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -158,42 +34,27 @@
 
 <body>
     <div class="container-xxl bg-white p-0">
-        <!-- Spinner Start -->
-<!--         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"> -->
-<!--             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status"> -->
-<!--                 <span class="sr-only">Loading...</span> -->
-<!--             </div> -->
-<!--         </div> -->
-        <!-- Spinner End -->
-
+        
 
         <!-- Navbar & Hero Start -->
         <div class="container-xxl position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
                 <a href="" class="navbar-brand p-0">
                     <h1 class="text-primary m-0"><i class="fa fa-utensils me-3"></i>Restoran</h1>
-                    <!-- <img src="../img/logo.png" alt="Logo"> -->
+                    <!-- <img src="img/logo.png" alt="Logo"> -->
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="fa fa-bars"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0 pe-4">
-                        <a href="index.html" class="nav-item nav-link">Home</a>
-                        <a href="about.html" class="nav-item nav-link">About</a>
-                        <a href="service.html" class="nav-item nav-link">Service</a>
-                        <a href="menu.html" class="nav-item nav-link active">Menu</a>
+                        <a href="index.jsp" class="nav-item nav-link">Home</a>
+                        <a href="menu.jsp" class="nav-item nav-link active">Menu</a>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                            <div class="dropdown-menu m-0">
-                                <a href="booking.html" class="dropdown-item">Booking</a>
-                                <a href="team.html" class="dropdown-item">Our Team</a>
-                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                            </div>
                         </div>
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                        <a href="contactUs.jsp" class="nav-item nav-link">Contact</a>
                     </div>
-                    <a href="" class="btn btn-primary py-2 px-4">Book A Table</a>
+                    <a href="reservation.jsp" class="btn btn-primary py-2 px-4">Reserve A Table</a>
                 </div>
             </nav>
 
@@ -257,7 +118,7 @@
                                     <div class="d-flex align-items-center">
                                         <img class="flex-shrink-0 img-fluid rounded" src="../img/menu-1.jpg" alt="" style="width: 80px;">
                                         <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                           <h5 class="d-flex justify-content-between border-bottom pb-2">
                                                 <span>Chicken Burger</span>
                                                 <span class="text-primary">$115</span>
                                             </h5>
