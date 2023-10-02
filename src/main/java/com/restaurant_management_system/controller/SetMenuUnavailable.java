@@ -19,7 +19,7 @@ public class SetMenuUnavailable extends HttpServlet {
             throws ServletException, IOException {
         // Fetch the 'id' from the POST request body
         int id = Integer.parseInt(request.getParameter("id"));
-        
+        //
         MenuDB menuDB = new MenuDB();
         String result = menuDB.setMenuUnavailableById(id);
 
