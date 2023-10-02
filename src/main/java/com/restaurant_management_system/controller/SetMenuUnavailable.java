@@ -26,6 +26,6 @@ public class SetMenuUnavailable extends HttpServlet {
         PrintWriter out = response.getWriter();
         out.println(result);
     }
-
+// test
     // If you want, you can still have a doGet method or any other methods as needed
 }
