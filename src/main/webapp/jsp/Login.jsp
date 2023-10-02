@@ -62,8 +62,11 @@
 										<div class="section text-center">
 											<h4 class="mb-4 pb-3"  style="color:white;">Log In</h4>
 											<form action="../Login" method="post">
+
 												<div class="form-group">
 													<input type="email" name="email" class="form-style"
+
+							
 														placeholder="Enter Email" id="logemail" autocomplete="off">
 													<i class="input-icon uil uil-at"></i>
 												</div>
