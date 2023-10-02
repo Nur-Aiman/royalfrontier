@@ -15,13 +15,14 @@ public class UserDB {
         Connection con = db.getCon();
         
        
-        String query = "INSERT INTO `user`(name, email, password) VALUES(?, ?, ?)";
+        String query = "INSERT INTO `user`(name, email, password,phone) VALUES(?, ?, ?, ?)";
         
         try {
             PreparedStatement pstmt = con.prepareStatement(query);
             pstmt.setString(1, rb.getName());
             pstmt.setString(2, rb.getEmail());
             pstmt.setString(3, rb.getPassword());
+            pstmt.setString(4, rb.getPhone());
 
             pstmt.executeUpdate();
             resultMessage = "Data Inserted Successfully";
