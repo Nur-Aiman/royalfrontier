@@ -64,6 +64,13 @@
   	<description></description>
   	<servlet-class>com.restaurant_management_system.controller.GetOrderHistory</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>SetMenuUnavailable</servlet-name>
+  	<display-name>SetMenuUnavailable</display-name>
+  	<description></description>
+  	<servlet-class>com.restaurant_management_system.controller.SetMenuUnavailable</servlet-class>
+  </servlet>
+ 
   <servlet-mapping>
   	<servlet-name>Register</servlet-name>
   	<url-pattern>/Register</url-pattern>
@@ -104,4 +111,9 @@
   	<servlet-name>GetOrderHistory</servlet-name>
   	<url-pattern>/GetOrderHistory</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SetMenuUnavailable</servlet-name>
+  	<url-pattern>/SetMenuUnavailable</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

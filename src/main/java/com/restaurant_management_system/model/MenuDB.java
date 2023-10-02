@@ -102,7 +102,7 @@ public class MenuDB {
             String query = "UPDATE menu SET availability = 'unavailable' WHERE id = ? AND availability = 'available'";
             PreparedStatement pstmt = con.prepareStatement(query);
             
-            pstmt.setInt(1, id);  // Set the 'id' to the prepared statement
+            pstmt.setInt(1, id);  
             
             int updatedRows = pstmt.executeUpdate();
 
@@ -115,7 +115,7 @@ public class MenuDB {
             e.printStackTrace();
             return "Error updating menu with ID " + id + " to unavailable.";
         } finally {
-            db.closeConnection(con);  // Ensure the connection is closed after the operation
+            db.closeConnection(con);  
         }
     }
 
