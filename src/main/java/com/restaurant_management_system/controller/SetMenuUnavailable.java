@@ -17,9 +17,9 @@ public class SetMenuUnavailable extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
-        // Fetch the 'id' from the POST request body
+   
         int id = Integer.parseInt(request.getParameter("id"));
-        //
+  
         MenuDB menuDB = new MenuDB();
         String result = menuDB.setMenuUnavailableById(id);
 
@@ -27,5 +27,4 @@ public class SetMenuUnavailable extends HttpServlet {
         out.println(result);
     }
 
-    // If you want, you can still have a doGet method or any other methods as needed
 }

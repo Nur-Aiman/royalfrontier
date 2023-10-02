@@ -57,13 +57,13 @@ public class Login extends HttpServlet {
 		    ResultSet rs = pst.executeQuery();
 		    if (rs.next()) {
 		        session.setAttribute("email", rs.getString("email"));
-		        session.setAttribute("name", rs.getString("name"));
+		        session.setAttribute("password", rs.getString("password"));
 		        request.setAttribute("loginStatus", "Login successful!");
-		        dispatcher = request.getRequestDispatcher("jsp/welcome.jsp");
+		        dispatcher = request.getRequestDispatcher("jsp/GetMenu.jsp");
 		        dispatcher.forward(request, response); // Forward if login is successful
 		    } else {
 		        session.setAttribute("loginStatus", "Login failed. Wrong email or password.");
-		        response.sendRedirect("jsp/login.jsp"); // Redirect if login fails
+		        response.sendRedirect("jsp/Login.jsp"); // Redirect if login fails
 		    }
 		} catch (Exception ex) {
 		    ex.printStackTrace();
