@@ -94,6 +94,31 @@ public class MenuDB {
             db.closeConnection(con);
         }
     }
+    
+    public String setMenuUnavailableById(int id) {
+        myDatabase db = new myDatabase();
+        Connection con = db.getCon();
+        try {
+            String query = "UPDATE menu SET availability = 'unavailable' WHERE id = ? AND availability = 'available'";
+            PreparedStatement pstmt = con.prepareStatement(query);
+            
+            pstmt.setInt(1, id);  // Set the 'id' to the prepared statement
+            
+            int updatedRows = pstmt.executeUpdate();
+
+            if (updatedRows > 0) {
+                return "Menu with ID " + id + " set to unavailable successfully!";
+            } else {
+                return "Menu with ID " + id + " was not available or does not exist!";
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "Error updating menu with ID " + id + " to unavailable.";
+        } finally {
+            db.closeConnection(con);  // Ensure the connection is closed after the operation
+        }
+    }
+
 
     
     
