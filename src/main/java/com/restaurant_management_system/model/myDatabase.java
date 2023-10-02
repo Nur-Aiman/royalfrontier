@@ -9,11 +9,13 @@ public class myDatabase {
 
     public Connection getCon() {
         try {
-         
             Class.forName("com.mysql.cj.jdbc.Driver");
-        
-         
-            con = DriverManager.getConnection("jdbc:mysql://ns87.netcfm.com/xifuhali_royalfrontier", "xifuhali_royalfrontier", "Admin123");
+            
+            String jdbcUrl = "jdbc:mysql://ns87.netcfm.com/xifuhali_royalfrontier?useSSL=false";
+            String dbUser = "xifuhali_royalfrontier";
+            String dbPassword = "Admin123";
+
+            con = DriverManager.getConnection(jdbcUrl, dbUser, dbPassword);
         } catch (ClassNotFoundException ex) {
             System.err.println("Error: Unable to load MySQL driver.");
             ex.printStackTrace();
@@ -25,7 +27,6 @@ public class myDatabase {
         }
         return con;
     }
-
 
     public void closeConnection(Connection conn) {
         if (conn != null) {
