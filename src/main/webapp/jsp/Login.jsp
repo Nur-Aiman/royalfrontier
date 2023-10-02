@@ -100,10 +100,10 @@
         <i class="input-icon uil uil-lock-alt"></i>
     </div>
     <!-- Add a phone number field -->
-<!--     <div class="form-group mt-2"> -->
-<!--         <input type="tel" name="phone" class="form-style" placeholder="Your Phone Number" id="logphone" autocomplete="off"> -->
-<!--         <i class="input-icon uil uil-phone"></i> -->
-<!--     </div> -->
+    <div class="form-group mt-2">
+        <input type="tel" name="phone" class="form-style" placeholder="Your Phone Number" id="logphone" autocomplete="off">
+        <i class="input-icon uil uil-phone"></i>
+    </div>
     <input style="color:black; background-color:yellow;" type="submit" value="Register" class="btn mt-4">
 </form>
 										</div>
