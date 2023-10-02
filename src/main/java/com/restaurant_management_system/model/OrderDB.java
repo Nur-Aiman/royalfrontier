@@ -64,5 +64,30 @@ public class OrderDB {
             db.closeConnection(con);
         }
     }
+    
+    public String updateOrderPaymentStatus(int orderId, String paymentStatus) {
+        myDatabase db = new myDatabase();
+        Connection con = db.getCon();
+
+        try {
+            String query = "UPDATE `order` SET payment_status = ? WHERE order_id = ?";
+            PreparedStatement pstmt = con.prepareStatement(query);
+            pstmt.setString(1, paymentStatus);
+            pstmt.setInt(2, orderId);
+
+            int affectedRows = pstmt.executeUpdate();
+            if (affectedRows > 0) {
+                return "Order payment status updated successfully!";
+            } else {
+                return "Order not found.";
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "Error in updating order payment status.";
+        } finally {
+            db.closeConnection(con);
+        }
+    }
+
 
 }
