@@ -1,47 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!-- <!DOCTYPE html> -->
-<!-- <html> -->
-<!-- <head> -->
-<!--     <meta charset="UTF-8"> -->
-<!--     <title>Make a Reservation</title> -->
-<!-- </head> -->
-<!-- <body> -->
-<!--     <h2>Reservation Form</h2> -->
-<%--     <%  --%>
-  
-<!-- //        String resu	lt = (String) session.getAttribute("reservationStatus"); -->
-<!-- //        if (result != null) { -->
-<!-- //            out.print("<p>" + result + "</p>"); -->
-<!-- //            session.removeAttribute("reservationStatus");  -->
-<!-- //        } -->
-<%--     %> --%>
-<!--     <form action="../MakeReservation" method="post"> -->
-<!--         <label for="name">Name:</label><br> -->
-<!--         <input type="text" id="name" name="name" required><br><br> -->
-        
-<!--         <label for="email">Email:</label><br> -->
-<!--         <input type="email" id="email" name="email" required><br><br> -->
-        
-<!--         <label for="dateAndTime">Reservation Date and Time (YYYY-MM-DD HH:MM:SS):</label><br> -->
-<!--         <input type="text" id="dateAndTime" name="dateAndTime" required><br><br> -->
-
-<!--         <label for="numberOfPax">Number of People:</label><br> -->
-<!--         <input type="number" id="numberOfPax" name="numberOfPax" required><br><br> -->
-        
-<!--         <label for="specialRequest">Special Requests:</label><br> -->
-<!--         <textarea id="specialRequest" name="specialRequest" rows="4" cols="50"></textarea><br><br> -->
-        
-<!--         <input type="submit" value="Submit"> -->
-<!--     </form> -->
-<!-- </body> -->
-<!-- </html> -->
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title>Royal Frontier - Booking Table</title>
+    <title>RF - Booking Table</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -93,13 +56,13 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0 pe-4">
-                         <a href="index.jsp" class="nav-item nav-link">Home</a>
-                        <a href="menu.jsp" class="nav-item nav-link active">Menu</a>
+                         <a href="Index.jsp" class="nav-item nav-link">Home</a>
+                        <a href="Menu.jsp" class="nav-item nav-link active">Menu</a>
                         <div class="nav-item dropdown">
                         </div>
-                        <a href="contactUs.jsp" class="nav-item nav-link">Contact</a>
+                        <a href="ContactUs.jsp" class="nav-item nav-link">Contact</a>
                     </div>
-                    <a href="reservation.jsp" class="btn btn-primary py-2 px-4">Reserve A Table</a>
+                    <a href="Reservation.jsp" class="btn btn-primary py-2 px-4">Reserve A Table</a>
                 </div>
             </nav>
             </nav>

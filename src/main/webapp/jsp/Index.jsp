@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Royal Frontier - Menu</title>
+    <title>RF - Home</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -47,11 +47,11 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0 pe-4">
-                        <a href="index.jsp" class="nav-item nav-link active">Home</a>                
-                        <a href="homeMenu.jsp" class="nav-item nav-link">Menu</a>                     
-                        <a href="contactUs.jsp" class="nav-item nav-link">Contact</a>
+                        <a href="Index.jsp" class="nav-item nav-link active">Home</a>                
+                        <a href="HomeMenu.jsp" class="nav-item nav-link">Menu</a>                     
+                        <a href="ContactUs.jsp" class="nav-item nav-link">Contact</a>
                     </div>
-                    <a href="reservation.jsp" class="btn btn-primary py-2 px-4">Reserve A Table</a>
+                    <a href="Reservation.jsp" class="btn btn-primary py-2 px-4">Reserve A Table</a>
                 </div>
             </nav>
 
