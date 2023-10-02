@@ -7,6 +7,9 @@ import java.sql.ResultSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class OrderDB {
 
     public double fetchPriceById(int id) {
@@ -88,6 +91,43 @@ public class OrderDB {
             db.closeConnection(con);
         }
     }
+    
+    public List<Order> fetchAllOrders() {
+        List<Order> orders = new ArrayList<>();
+        myDatabase db = new myDatabase();
+        Connection con = db.getCon();
+
+        try {
+            String query = "SELECT * FROM `order`";
+            PreparedStatement pstmt = con.prepareStatement(query);
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                Order order = new Order();
+                order.setOrder_id(rs.getInt("order_id"));
+                String[] itemStrings = rs.getString("order_items").split(",");
+                List<Integer> items = new ArrayList<>();
+                for (String item : itemStrings) {
+                    items.add(Integer.parseInt(item));
+                }
+                order.setOrder_items(items);
+                order.setTable_number(rs.getInt("table_number"));
+                order.setDate_and_time(rs.getTimestamp("date_and_time").toLocalDateTime());
+                order.setTotal_price(rs.getDouble("total_price"));
+                order.setCustomer_email(rs.getString("customer_email"));
+                order.setPayment_mode(rs.getString("payment_mode"));
+                order.setPayment_status(rs.getString("payment_status"));
+                orders.add(order);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            db.closeConnection(con);
+        }
+        return orders;
+    }
+    
+    
 
 
 }

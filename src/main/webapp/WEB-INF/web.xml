@@ -58,6 +58,12 @@
   	<description></description>
   	<servlet-class>com.restaurant_management_system.controller.UpdateOrder</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>GetOrderHistory</servlet-name>
+  	<display-name>GetOrderHistory</display-name>
+  	<description></description>
+  	<servlet-class>com.restaurant_management_system.controller.GetOrderHistory</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>Register</servlet-name>
   	<url-pattern>/Register</url-pattern>
@@ -93,5 +99,9 @@
   <servlet-mapping>
   	<servlet-name>UpdateOrder</servlet-name>
   	<url-pattern>/UpdateOrder</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>GetOrderHistory</servlet-name>
+  	<url-pattern>/GetOrderHistory</url-pattern>
   </servlet-mapping>
 </web-app>
