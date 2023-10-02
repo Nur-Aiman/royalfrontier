@@ -128,6 +128,50 @@ public class OrderDB {
     }
     
     
+    public double fetchSalesForToday() {
+        return fetchSalesForPeriod("CURDATE()", "CURDATE() + INTERVAL 1 DAY");
+    }
+
+    public double fetchSalesForThisWeek() {
+        return fetchSalesForPeriod("DATE_SUB(CURDATE(), INTERVAL WEEKDAY(CURDATE()) DAY)", "DATE_ADD(CURDATE(), INTERVAL 7 - WEEKDAY(CURDATE()) DAY)");
+    }
+
+    public double fetchSalesForThisMonth() {
+        return fetchSalesForPeriod("DATE_FORMAT(CURDATE() ,'%Y-%m-01')", "LAST_DAY(CURDATE())");
+    }
+
+    public double fetchSalesForThisYear() {
+        return fetchSalesForPeriod("DATE_FORMAT(CURDATE() ,'%Y-01-01')", "DATE_FORMAT(CURDATE() ,'%Y-12-31')");
+    }
+
+    public double fetchLifetimeSales() {
+        return fetchSalesForPeriod(null, null);
+    }
+
+    private double fetchSalesForPeriod(String startDate, String endDate) {
+        double sales = 0.0;
+        myDatabase db = new myDatabase();
+        Connection con = db.getCon();
+
+        try {
+            StringBuilder query = new StringBuilder("SELECT SUM(total_price) as sales FROM `order`");
+            if (startDate != null && endDate != null) {
+                query.append(" WHERE date_and_time BETWEEN ").append(startDate).append(" AND ").append(endDate);
+            }
+            PreparedStatement pstmt = con.prepareStatement(query.toString());
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                sales = rs.getDouble("sales");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            db.closeConnection(con);
+        }
+        return sales;
+    }
+    
 
 
 }

@@ -17,7 +17,9 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Servlet implementation class GetOrderHistory
@@ -39,11 +41,27 @@ public class GetOrderHistory extends HttpServlet {
         OrderDB orderDB = new OrderDB();
         List<Order> orders = orderDB.fetchAllOrders();
 
+        // Fetch sales amounts
+        double todaySales = orderDB.fetchSalesForToday();
+        double thisWeekSales = orderDB.fetchSalesForThisWeek();
+        double thisMonthSales = orderDB.fetchSalesForThisMonth();
+        double thisYearSales = orderDB.fetchSalesForThisYear();
+        double lifetimeSales = orderDB.fetchLifetimeSales();
+
+        // Prepare a response object
+        Map<String, Object> responseObject = new HashMap<>();
+        responseObject.put("orders", orders);
+        responseObject.put("todaySales", todaySales);
+        responseObject.put("thisWeekSales", thisWeekSales);
+        responseObject.put("thisMonthSales", thisMonthSales);
+        responseObject.put("thisYearSales", thisYearSales);
+        responseObject.put("lifetimeSales", lifetimeSales);
+
         Gson gson = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeSerializer()).create();
-        String ordersJson = gson.toJson(orders);
+        String jsonResponse = gson.toJson(responseObject);
 
         response.setContentType("application/json");
-        response.getWriter().write(ordersJson);
+        response.getWriter().write(jsonResponse);
     }
 
     /**
