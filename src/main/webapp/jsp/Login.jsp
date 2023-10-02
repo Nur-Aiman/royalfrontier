@@ -63,12 +63,12 @@
 											<h4 class="mb-4 pb-3"  style="color:white;">Log In</h4>
 											<form action="../Login" method="post">
 												<div class="form-group">
-													<input type="email" name="email" class="form-style"
+													<input type="email" name="logemail" class="form-style"
 														placeholder="Enter Email" id="logemail" autocomplete="off">
 													<i class="input-icon uil uil-at"></i>
 												</div>
 												<div class="form-group mt-2">
-													<input type="password" name="password" class="form-style"
+													<input type="password" name="logpass" class="form-style"
 														placeholder="Enter Password" id="logpass"
 														autocomplete="off"> <i
 														class="input-icon uil uil-lock-alt"></i>
@@ -87,25 +87,25 @@
 										<div class="section text-center">
 											<h4 class="mb-4 pb-3"  style="color:white;">Sign Up</h4>
 											<form action="../Register" method="post">
-    <div class="form-group">
-        <input type="text" name="name" class="form-style" placeholder="Your Full Name" id="logname" autocomplete="off">
-        <i class="input-icon uil uil-user"></i>
-    </div>
-    <div class="form-group mt-2">
-        <input type="email" name="email" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off">
-        <i class="input-icon uil uil-at"></i>
-    </div>
-    <div class="form-group mt-2">
-        <input type="password" name="password" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off">
-        <i class="input-icon uil uil-lock-alt"></i>
-    </div>
-    <!-- Add a phone number field -->
-    <div class="form-group mt-2">
-        <input type="tel" name="phone" class="form-style" placeholder="Your Phone Number" id="logphone" autocomplete="off">
-        <i class="input-icon uil uil-phone"></i>
-    </div>
-    <input style="color:black; background-color:yellow;" type="submit" value="Register" class="btn mt-4">
-</form>
+												<div class="form-group">
+													<input type="text" name="name" class="form-style"
+														placeholder="Your Full Name" id="logname"
+														autocomplete="off"> <i
+														class="input-icon uil uil-user"></i>
+												</div>
+												<div class="form-group mt-2">
+													<input type="email" name="email" class="form-style"
+														placeholder="Your Email" id="logemail" autocomplete="off">
+													<i class="input-icon uil uil-at"></i>
+												</div>
+												<div class="form-group mt-2">
+													<input type="password" name="password" class="form-style"
+														placeholder="Your Password" id="logpass"
+														autocomplete="off"> <i
+														class="input-icon uil uil-lock-alt"></i>
+												</div>
+												<input  style="color:black; background-color:yellow;" type="submit" value="Register" class="btn mt-4">
+											</form>
 										</div>
 									</div>
 								</div>
