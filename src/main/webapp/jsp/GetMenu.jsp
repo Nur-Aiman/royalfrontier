@@ -172,11 +172,13 @@
 
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="../src/main/webapp/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="../../royalfrontier/css/bootstrap.min.css" rel="stylesheet">
 
 
     <!-- Template Stylesheet -->
-    <link href="../src/main/webapp/css/style.css" rel="stylesheet">
+    <link href="../../royalfrontier/css/style.css" rel="stylesheet">
+
 </head>
 
 
