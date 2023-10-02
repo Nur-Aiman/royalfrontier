@@ -104,6 +104,11 @@
 														autocomplete="off"> <i
 														class="input-icon uil uil-lock-alt"></i>
 												</div>
+												<div class="form-group mt-2">
+													<input type="text" name="phone" class="form-style"
+														placeholder="Your Phone Number" id="logemail" autocomplete="off">
+													<i class="input-icon uil uil-at"></i>
+												</div>
 												<input  style="color:black; background-color:yellow;" type="submit" value="Register" class="btn mt-4">
 											</form>
 										</div>
