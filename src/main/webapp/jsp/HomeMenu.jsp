@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Royal Fronnbtier - Menu</title>
+    <title>RF - Menu</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -48,13 +48,13 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0 pe-4">
-                        <a href="index.jsp" class="nav-item nav-link">Home</a>
-                        <a href="menu.jsp" class="nav-item nav-link active">Menu</a>
+                        <a href="Index.jsp" class="nav-item nav-link">Home</a>
+                        <a href="HomeMenu.jsp" class="nav-item nav-link active">Menu</a>
                         <div class="nav-item dropdown">
                         </div>
-                        <a href="contactUs.jsp" class="nav-item nav-link">Contact</a>
+                        <a href="ContactUs.jsp" class="nav-item nav-link">Contact</a>
                     </div>
-                    <a href="reservation.jsp" class="btn btn-primary py-2 px-4">Reserve A Table</a>
+                    <a href="Reservation.jsp" class="btn btn-primary py-2 px-4">Reserve A Table</a>
                 </div>
             </nav>
 
@@ -79,7 +79,7 @@
             <div class="container">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                     <h5 class="section-title ff-secondary text-center text-primary fw-normal">Food Menu</h5>
-                    <h1 class="mb-5">Most Popular Items</h1>
+                    <h4 class="mb-5">Our menu includes a variety of delicious dishes.</h4>
                 </div>
                 <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
                     <ul class="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
@@ -88,7 +88,7 @@
                                 <i class="fa fa-coffee fa-2x text-primary"></i>
                                 <div class="ps-3">
                                     <small class="text-body">Popular</small>
-                                    <h6 class="mt-n1 mb-0">Breakfast</h6>
+                                    <h6 class="mt-n1 mb-0">Appetizers</h6>
                                 </div>
                             </a>
                         </li>
@@ -97,7 +97,7 @@
                                 <i class="fa fa-hamburger fa-2x text-primary"></i>
                                 <div class="ps-3">
                                     <small class="text-body">Special</small>
-                                    <h6 class="mt-n1 mb-0">Launch</h6>
+                                    <h6 class="mt-n1 mb-0">Main Courses</h6>
                                 </div>
                             </a>
                         </li>
@@ -106,7 +106,7 @@
                                 <i class="fa fa-utensils fa-2x text-primary"></i>
                                 <div class="ps-3">
                                     <small class="text-body">Lovely</small>
-                                    <h6 class="mt-n1 mb-0">Dinner</h6>
+                                    <h6 class="mt-n1 mb-0">Desserts</h6>
                                 </div>
                             </a>
                         </li>
@@ -119,8 +119,8 @@
                                         <img class="flex-shrink-0 img-fluid rounded" src="../img/menu-1.jpg" alt="" style="width: 80px;">
                                         <div class="w-100 d-flex flex-column text-start ps-4">
                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
+                                                <span>Chicken Burger A</span>
+                                                
                                             </h5>
                                             <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
                                         </div>
@@ -131,8 +131,8 @@
                                         <img class="flex-shrink-0 img-fluid rounded" src="../img/menu-2.jpg" alt="" style="width: 80px;">
                                         <div class="w-100 d-flex flex-column text-start ps-4">
                                             <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
+                                                <span>Chicken Burger B</span>
+                                              
                                             </h5>
                                             <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
                                         </div>
@@ -143,8 +143,8 @@
                                         <img class="flex-shrink-0 img-fluid rounded" src="../img/menu-3.jpg" alt="" style="width: 80px;">
                                         <div class="w-100 d-flex flex-column text-start ps-4">
                                             <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
+                                                <span>Chicken Burger C</span>
+                                                
                                             </h5>
                                             <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
                                         </div>
@@ -155,8 +155,8 @@
                                         <img class="flex-shrink-0 img-fluid rounded" src="../img/menu-4.jpg" alt="" style="width: 80px;">
                                         <div class="w-100 d-flex flex-column text-start ps-4">
                                             <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
+                                                <span>Chicken Burger D</span>
+                                                
                                             </h5>
                                             <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
                                         </div>
@@ -167,8 +167,8 @@
                                         <img class="flex-shrink-0 img-fluid rounded" src="../img/menu-5.jpg" alt="" style="width: 80px;">
                                         <div class="w-100 d-flex flex-column text-start ps-4">
                                             <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
+                                                <span>Chicken Burger E</span>
+                                                
                                             </h5>
                                             <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
                                         </div>
@@ -179,8 +179,8 @@
                                         <img class="flex-shrink-0 img-fluid rounded" src="../img/menu-6.jpg" alt="" style="width: 80px;">
                                         <div class="w-100 d-flex flex-column text-start ps-4">
                                             <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
+                                                <span>Chicken Burger F</span>
+                                                
                                             </h5>
                                             <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
                                         </div>
@@ -191,8 +191,8 @@
                                         <img class="flex-shrink-0 img-fluid rounded" src="../img/menu-7.jpg" alt="" style="width: 80px;">
                                         <div class="w-100 d-flex flex-column text-start ps-4">
                                             <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
+                                                <span>Chicken Burger G</span>
+                                                
                                             </h5>
                                             <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
                                         </div>
@@ -203,8 +203,8 @@
                                         <img class="flex-shrink-0 img-fluid rounded" src="../img/menu-8.jpg" alt="" style="width: 80px;">
                                         <div class="w-100 d-flex flex-column text-start ps-4">
                                             <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
+                                                <span>Chicken Burger H</span>
+                                                
                                             </h5>
                                             <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
                                         </div>
@@ -219,8 +219,8 @@
                                         <img class="flex-shrink-0 img-fluid rounded" src="../img/menu-1.jpg" alt="" style="width: 80px;">
                                         <div class="w-100 d-flex flex-column text-start ps-4">
                                             <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
+                                                <span>Chicken Burger I</span>
+                                                
                                             </h5>
                                             <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
                                         </div>
@@ -231,8 +231,8 @@
                                         <img class="flex-shrink-0 img-fluid rounded" src="../img/menu-2.jpg" alt="" style="width: 80px;">
                                         <div class="w-100 d-flex flex-column text-start ps-4">
                                             <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
+                                                <span>Chicken Burger J</span>
+                                                
                                             </h5>
                                             <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
                                         </div>
@@ -243,8 +243,8 @@
                                         <img class="flex-shrink-0 img-fluid rounded" src="../img/menu-3.jpg" alt="" style="width: 80px;">
                                         <div class="w-100 d-flex flex-column text-start ps-4">
                                             <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
+                                                <span>Chicken Burger K</span>
+                                                
                                             </h5>
                                             <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
                                         </div>
@@ -255,8 +255,8 @@
                                         <img class="flex-shrink-0 img-fluid rounded" src="../img/menu-4.jpg" alt="" style="width: 80px;">
                                         <div class="w-100 d-flex flex-column text-start ps-4">
                                             <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
+                                                <span>Chicken Burger L</span>
+                                                
                                             </h5>
                                             <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
                                         </div>
@@ -267,8 +267,8 @@
                                         <img class="flex-shrink-0 img-fluid rounded" src="../img/menu-5.jpg" alt="" style="width: 80px;">
                                         <div class="w-100 d-flex flex-column text-start ps-4">
                                             <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
+                                                <span>Chicken Burger M</span>
+                                                
                                             </h5>
                                             <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
                                         </div>
@@ -279,8 +279,8 @@
                                         <img class="flex-shrink-0 img-fluid rounded" src="../img/menu-6.jpg" alt="" style="width: 80px;">
                                         <div class="w-100 d-flex flex-column text-start ps-4">
                                             <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
+                                                <span>Chicken Burger N</span>
+                                               
                                             </h5>
                                             <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
                                         </div>
@@ -291,8 +291,8 @@
                                         <img class="flex-shrink-0 img-fluid rounded" src="../img/menu-7.jpg" alt="" style="width: 80px;">
                                         <div class="w-100 d-flex flex-column text-start ps-4">
                                             <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
+                                                <span>Chicken Burger N</span>
+                                               
                                             </h5>
                                             <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
                                         </div>
@@ -303,8 +303,8 @@
                                         <img class="flex-shrink-0 img-fluid rounded" src="../img/menu-8.jpg" alt="" style="width: 80px;">
                                         <div class="w-100 d-flex flex-column text-start ps-4">
                                             <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
+                                                <span>Chicken Burger O</span>
+                                                
                                             </h5>
                                             <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
                                         </div>
@@ -319,8 +319,8 @@
                                         <img class="flex-shrink-0 img-fluid rounded" src="../img/menu-1.jpg" alt="" style="width: 80px;">
                                         <div class="w-100 d-flex flex-column text-start ps-4">
                                             <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
+                                                <span>Chicken Burger P</span>
+                                               
                                             </h5>
                                             <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
                                         </div>
@@ -331,8 +331,8 @@
                                         <img class="flex-shrink-0 img-fluid rounded" src="../img/menu-2.jpg" alt="" style="width: 80px;">
                                         <div class="w-100 d-flex flex-column text-start ps-4">
                                             <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
+                                                <span>Chicken Burger Q</span>
+                                               
                                             </h5>
                                             <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
                                         </div>
@@ -343,8 +343,8 @@
                                         <img class="flex-shrink-0 img-fluid rounded" src="../img/menu-3.jpg" alt="" style="width: 80px;">
                                         <div class="w-100 d-flex flex-column text-start ps-4">
                                             <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
+                                                <span>Chicken Burger R</span>
+                                                
                                             </h5>
                                             <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
                                         </div>
@@ -355,8 +355,8 @@
                                         <img class="flex-shrink-0 img-fluid rounded" src="../img/menu-4.jpg" alt="" style="width: 80px;">
                                         <div class="w-100 d-flex flex-column text-start ps-4">
                                             <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
+                                                <span>Chicken Burger S</span>
+                                                
                                             </h5>
                                             <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
                                         </div>
@@ -367,7 +367,7 @@
                                         <img class="flex-shrink-0 img-fluid rounded" src="../img/menu-5.jpg" alt="" style="width: 80px;">
                                         <div class="w-100 d-flex flex-column text-start ps-4">
                                             <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
+                                                <span>Chicken Burger T</span>
                                                 <span class="text-primary">$115</span>
                                             </h5>
                                             <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
@@ -379,8 +379,8 @@
                                         <img class="flex-shrink-0 img-fluid rounded" src="../img/menu-6.jpg" alt="" style="width: 80px;">
                                         <div class="w-100 d-flex flex-column text-start ps-4">
                                             <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
+                                                <span>Chicken Burger U</span>
+                                                
                                             </h5>
                                             <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
                                         </div>
@@ -391,8 +391,8 @@
                                         <img class="flex-shrink-0 img-fluid rounded" src="../img/menu-7.jpg" alt="" style="width: 80px;">
                                         <div class="w-100 d-flex flex-column text-start ps-4">
                                             <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
+                                                <span>Chicken Burger V</span>
+                                                
                                             </h5>
                                             <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
                                         </div>
@@ -403,8 +403,8 @@
                                         <img class="flex-shrink-0 img-fluid rounded" src="../img/menu-8.jpg" alt="" style="width: 80px;">
                                         <div class="w-100 d-flex flex-column text-start ps-4">
                                             <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
+                                                <span>Chicken Burger W</span>
+                                                
                                             </h5>
                                             <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
                                         </div>
