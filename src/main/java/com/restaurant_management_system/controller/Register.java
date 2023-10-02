@@ -61,6 +61,8 @@ public class Register extends HttpServlet {
 					user.setName(rs.getString("name"));
 					user.setEmail(rs.getString("email"));
 					user.setPassword(rs.getString("password"));
+					user.setPhone(rs.getString("phone"));
+
 					userlist.add(user);
 				}
 				request.setAttribute("UserData", userlist);
@@ -79,11 +81,15 @@ public class Register extends HttpServlet {
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
+		String phone = request.getParameter("phone");
+
 		
 		user rb = new user();
 		rb.setName(name);
 		rb.setEmail(email);
 		rb.setPassword(password);
+		rb.setPhone(phone);
+
 		
 		UserDB ud = new UserDB();
 		String s1 = ud.insertUser(rb);
