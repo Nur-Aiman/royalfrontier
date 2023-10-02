@@ -3,7 +3,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Login Form</title>
+<title>Royal Frontier - Login</title>
 
 
 <link
