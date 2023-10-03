@@ -12,14 +12,14 @@ import java.util.Arrays;
 
 public class OrderDB {
 	
-	public String updateOrderStatus(int orderId, String orderStatus) {
+	public String updateOrderStatus(int orderId, List<String> orderStatuses) {
 	    myDatabase db = new myDatabase();
 	    Connection con = db.getCon();
 
 	    try {
 	        String query = "UPDATE `order` SET order_status = ? WHERE order_id = ?";
 	        PreparedStatement pstmt = con.prepareStatement(query);
-	        pstmt.setString(1, orderStatus);
+	        pstmt.setString(1, String.join(",", orderStatuses));
 	        pstmt.setInt(2, orderId);
 
 	        int affectedRows = pstmt.executeUpdate();
@@ -35,6 +35,8 @@ public class OrderDB {
 	        db.closeConnection(con);
 	    }
 	}
+
+
 
 
     public double fetchPriceById(int id) {
@@ -65,14 +67,14 @@ public class OrderDB {
         Connection con = db.getCon();
 
         try {
-            String query = "INSERT INTO `order` (order_items, table_number, date_and_time, total_price, customer_email, payment_mode, payment_status) " +
-                           "VALUES (?, ?, ?, ?, ?, ?, ?)";
+            String query = "INSERT INTO `order` (order_items, table_number, date_and_time, total_price, customer_email, payment_mode, order_status, payment_status) " +
+                           "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement pstmt = con.prepareStatement(query);
 
-        
+            // Set order items
             String orderItemsString = order.getOrder_items().stream()
-                .map(String::valueOf)
-                .collect(Collectors.joining(","));
+                                          .map(String::valueOf)
+                                          .collect(Collectors.joining(","));
             pstmt.setString(1, orderItemsString);
 
             pstmt.setInt(2, order.getTable_number());
@@ -80,11 +82,16 @@ public class OrderDB {
             pstmt.setDouble(4, order.getTotal_price());
             pstmt.setString(5, order.getCustomer_email());
             pstmt.setString(6, order.getPayment_mode());
-            pstmt.setString(7, order.getPayment_status());
+
+            // Set order status
+            String orderStatusString = order.getOrder_status().stream()
+                                           .collect(Collectors.joining(","));
+            pstmt.setString(7, orderStatusString);
+
+            pstmt.setString(8, order.getPayment_status());
 
             pstmt.executeUpdate();
-
-           return "Order added successfully!";
+            return "Order added successfully!";
         } catch (Exception e) {
             e.printStackTrace();
             return "Error in adding order.";
@@ -92,6 +99,7 @@ public class OrderDB {
             db.closeConnection(con);
         }
     }
+
     
     public String updateOrderPaymentStatus(int orderId, String paymentStatus) {
         myDatabase db = new myDatabase();
@@ -130,18 +138,26 @@ public class OrderDB {
             while (rs.next()) {
                 Order order = new Order();
                 order.setOrder_id(rs.getInt("order_id"));
+
+                // Handle extraction of order items
                 String[] itemStrings = rs.getString("order_items").split(",");
                 List<Integer> items = new ArrayList<>();
                 for (String item : itemStrings) {
                     items.add(Integer.parseInt(item));
                 }
                 order.setOrder_items(items);
+
                 order.setTable_number(rs.getInt("table_number"));
                 order.setDate_and_time(rs.getTimestamp("date_and_time").toLocalDateTime());
                 order.setTotal_price(rs.getDouble("total_price"));
                 order.setCustomer_email(rs.getString("customer_email"));
                 order.setPayment_mode(rs.getString("payment_mode"));
-                order.setOrder_status(rs.getString("order_status"));
+
+                // Handle extraction of order status
+                String[] statusStrings = rs.getString("order_status").split(",");
+                List<String> statuses = Arrays.asList(statusStrings);
+                order.setOrder_status(statuses);
+
                 order.setPayment_status(rs.getString("payment_status"));
                 orders.add(order);
             }
@@ -152,6 +168,7 @@ public class OrderDB {
         }
         return orders;
     }
+
     
     
     public double fetchSalesForToday() {

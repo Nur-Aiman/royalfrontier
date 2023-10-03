@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class UpdateOrderStatus extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -23,9 +26,13 @@ public class UpdateOrderStatus extends HttpServlet {
         OrderDB orderDB = new OrderDB();
 
         int orderId = Integer.parseInt(request.getParameter("order_id"));
-        String orderStatus = request.getParameter("order_status"); // expected to be "served"
 
-        String result = orderDB.updateOrderStatus(orderId, orderStatus);
+        // Convert comma-separated status string to a List
+        List<String> orderStatuses = Arrays.stream(request.getParameter("order_statuses").split(","))
+                                           .collect(Collectors.toList());
+
+        String result = orderDB.updateOrderStatus(orderId, orderStatuses);
         response.getWriter().write(result);
     }
+
 }

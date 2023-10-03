@@ -13,7 +13,7 @@ public class Order {
     private double total_price;
     private String customer_email;
     private String payment_mode;
-    private String order_status;
+    private List<String> order_status;
     private String payment_status;
 
     public Order() {
@@ -96,11 +96,11 @@ public class Order {
 		this.payment_status = payment_status;
 	}
 	
-	public String getOrder_status() {
+	public List<String> getOrder_status() {
 	    return order_status;
 	}
 
-	public void setOrder_status(String order_status) {
+	public void setOrder_status(List<String> order_status) {
 	    this.order_status = order_status;
 	}
 
