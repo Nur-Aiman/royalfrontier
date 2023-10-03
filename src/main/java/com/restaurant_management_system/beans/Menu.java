@@ -5,18 +5,21 @@ public class Menu {
     private int id;
     private String menu;
     private double price;
+    private String imageURL;
     private String description;
     private String availability;
 
     public Menu() {}
 
-    public Menu(int id, String menu, double price, String description, String availability) {
+    public Menu(int id, String menuName, double price, String imageURL, String availability) {
+        // Initialize the instance variables with the provided values
         this.id = id;
-        this.menu = menu;
+        this.menu = menuName;
         this.price = price;
-        this.description = description; 
+        this.imageURL = imageURL;
         this.availability = availability;
     }
+
 
  
 
@@ -58,5 +61,13 @@ public class Menu {
 
     public void setAvailability(String availability) {
         this.availability = availability;
+    }
+    
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
     }
 }
