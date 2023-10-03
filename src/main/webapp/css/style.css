@@ -565,3 +565,35 @@ span {
     color: #007bff;
     font-weight: bold;
 }
+
+/* Style for the "+" (add) button */
+.add-button {
+    background-color: #4caf50; /* Green color */
+    color: #fff; /* White text color */
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Style for the "-" (remove) button */
+.remove-button {
+    background-color: #ff4d4d; /* Red color */
+    color: #fff; /* White text color */
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Style for the quantity input field */
+.quantity-input {
+    width: 50px; /* Adjust width as needed */
+    text-align: center;
+}
+
+
