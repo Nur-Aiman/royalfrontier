@@ -26,8 +26,9 @@ public class MenuDB {
                     rs.getInt("id"),
                     rs.getString("menu"),
                     rs.getDouble("price"),
-                    rs.getString("description"),
-                    rs.getString("availability") 
+                    rs.getString("imageURL"),
+                    rs.getString("availability"),
+                    rs.getString("description")
                 );
                 menuList.add(menu);
             }

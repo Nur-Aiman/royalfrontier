@@ -530,8 +530,8 @@ h1 {
     display: inline-block;
     vertical-align: top;
     box-sizing: border-box;
-    flex: 0 0 calc(31% - 4%); /* Distribute equal height among menu boxes */
-    max-height: calc(50vh - 4%); /* Limit the height based on screen height */
+    flex: 0 0 calc(31% - 4%);
+    max-height: calc(30vh - 4%);
 }
 
 /* Style for menu images */
@@ -611,12 +611,13 @@ span {
     font-size: 1.6vw;
 }
 
-/* Media query for smaller screens */
+/* Media query for smaller screens (max-width: 768px) */
 @media screen and (max-width: 768px) {
     .menu-box {
-        width: calc(50% - 4%); /* Two menu boxes per row on smaller screens */
+        width: calc(40% - 4%) !important; /* Two menu boxes per row on smaller screens */
     }
 }
+
 
 /* Style for the total-quantity section */
 .total-quantity {

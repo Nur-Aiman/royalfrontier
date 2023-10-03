@@ -17,56 +17,69 @@
 <!-- Include your CSS stylesheets for a fancy and elegant design -->
 <link rel="stylesheet" href="../css/style.css">
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu</title>
-    <!-- Include your CSS stylesheets for a fancy and elegant design -->
-    <link rel="stylesheet" href="../style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu</title>
+<!-- Include your CSS stylesheets for a fancy and elegant design -->
+<link rel="stylesheet" href="../style.css">
 
 </head>
 
 <body>
-    <div class="menu-container">
-        <h1>Our Menu</h1>
-        <div class="menu-boxes">
-            <%@ page import="java.util.List"%>
-            <%@ page import="com.restaurant_management_system.beans.Menu"%>
-            <%
-                MenuDB menuDB = new MenuDB();
-                List<Menu> menus = menuDB.getAllMenus();
-            %>
-            <div class="total-quantity">
-                Total Quantity: <span id="totalQuantity">0</span>
-                <button class="cart-button" onclick="goToCheckout()">Cart</button>
-            </div>
-            <% for (Menu menu : menus) { %>
-                <div class="menu-box">
-                    <img src="<
-                    %=menu.getImageURL()%>" alt="<%=menu.getMenu()%>">
-                    <h2><%=menu.getMenu()%></h2>
-                    <p>
-                        Price: RM <%= String.format("%.2f", menu.getPrice()) %>
-                    </p>
-                    <p>
-                        Availability: <%=menu.getAvailability()%>
-                    </p>
-                    <!-- Quantity Field with Add and Remove Buttons -->
-                    <div class="quantity-field">
-                        <button class="remove-button" onclick="decrementQuantity(<%=menu.getId()%>)">-</button>
-                        <input type="number" id="quantity<%=menu.getId()%>" value="0" class="quantity-input" oninput="updateTotalPrice(<%=menu.getId()%>); updateCart();">
-                        <button class="add-button" onclick="incrementQuantity(<%=menu.getId()%>)">+</button>
-                    </div>
-                    <!-- Total Price Calculations -->
-                    <p>
-                        Total Price: <span>RM</span><span id="totalPrice<%=menu.getId()%>">0.00</span>
-                    </p>
-                    <input type="hidden" id="menuPrice<%=menu.getId()%>" value="<%=menu.getPrice()%>">
-                </div>
-            <% } %>
-        </div>
-    </div>
+	<div class="menu-container">
+		<h1>Our Menu</h1>
+		<div class="menu-boxes">
+			<%@ page import="java.util.List"%>
+			<%@ page import="com.restaurant_management_system.beans.Menu"%>
+			<%
+			MenuDB menuDB = new MenuDB();
+			List<Menu> menus = menuDB.getAllMenus();
+			%>
 
-    <script>
+			<%
+			for (Menu menu : menus) {
+			%>
+			<div class="menu-box">
+				<img src="<%=menu.getImageURL()%>" >
+				<h2><%=menu.getMenu()%></h2>
+				<p>
+					Price: RM
+					<%=String.format("%.2f", menu.getPrice())%>
+				</p>
+				<p>
+					Availability:
+					<%=menu.getAvailability()%>
+				</p>
+				<!-- Quantity Field with Add and Remove Buttons -->
+				<div class="quantity-field">
+					<button class="remove-button"
+						onclick="decrementQuantity(<%=menu.getId()%>)">-</button>
+					<input type="number" id="quantity<%=menu.getId()%>" value="0"
+						class="quantity-input"
+						oninput="updateTotalPrice(<%=menu.getId()%>); updateCart();">
+					<button class="add-button"
+						onclick="incrementQuantity(<%=menu.getId()%>)">+</button>
+				</div>
+				<!-- Total Price Calculations -->
+				<p>
+					Total Price: <span>RM</span><span id="totalPrice<%=menu.getId()%>">0.00</span>
+				</p>
+				<input type="hidden" id="menuPrice<%=menu.getId()%>"
+					value="<%=menu.getPrice()%>">
+			</div>
+			<%
+			}
+			%>
+		</div>
+		<div class="total-quantity">
+			Total Quantity: <span id="totalQuantity">0</span>
+			<button class="cart-button" onclick="goToCheckout()">Cart</button>
+		</div>
+	</div>
+	<br>
+	<br>
+
+	<script>
         var totalQuantity = 0;
 
         function incrementQuantity(menuId) {
@@ -103,11 +116,11 @@
 
         function updateCart() {
             totalQuantity = 0;
-            <% for (Menu menu : menus) { %>
+            <%for (Menu menu : menus) {%>
                 var quantityField<%=menu.getId()%> = document.getElementById("quantity<%=menu.getId()%>");
                 var currentQuantity<%=menu.getId()%> = parseInt(quantityField<%=menu.getId()%>.value);
                 totalQuantity += currentQuantity<%=menu.getId()%>;
-            <% } %>
+            <%}%>
             document.getElementById("totalQuantity").innerText = totalQuantity;
         }
 
@@ -122,60 +135,10 @@
     </script>
 
 
-	<div class="container-xxl bg-white p-0">
-		<!-- Spinner Start -->
-		<!--         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"> -->
-		<!--             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status"> -->
-		<!--                 <span class="sr-only">Loading...</span> -->
-		<!--             </div> -->
-		<!--         </div> -->
-		<!-- Spinner End -->
-		<script>
-        window.onload = function() {
-            fetch('/royalfrontier/GetMenu')
-                .then(response => response.json())
-                .then(menuData => {
-                    const tableBody = document.getElementById('menuTableBody');
 
 
-                    menuData.forEach(menu => {
-                        let row = tableBody.insertRow();
 
-
-                        let cellId = row.insertCell(0);
-                        let cellMenu = row.insertCell(1);
-                        let cellPrice = row.insertCell(2);
-                        let cellAvailability = row.insertCell(3);
-
-
-                        cellId.innerHTML = menu.id;
-                        cellMenu.innerHTML = menu.menu;
-                        cellPrice.innerHTML = menu.price;
-                        cellAvailability.innerHTML = menu.availability;
-                    });
-                })
-                .catch(error => console.error('Error fetching menu data:', error));
-        }
-    </script>
-		</head>
-		<body>
-
-
-			<h2>Restaurant Menu</h2>
-
-
-			<table>
-				<thead>
-					<tr>
-						<th>ID</th>
-						<th>Menu Item</th>
-						<th>Price</th>
-						<th>Availability</th>
-					</tr>
-				</thead>
-				<tbody id="menuTableBody">
-				</tbody>
-			</table>
+		
 
 
 
