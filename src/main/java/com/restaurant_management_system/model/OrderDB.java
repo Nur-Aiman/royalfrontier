@@ -11,6 +11,31 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class OrderDB {
+	
+	public String updateOrderStatus(int orderId, String orderStatus) {
+	    myDatabase db = new myDatabase();
+	    Connection con = db.getCon();
+
+	    try {
+	        String query = "UPDATE `order` SET order_status = ? WHERE order_id = ?";
+	        PreparedStatement pstmt = con.prepareStatement(query);
+	        pstmt.setString(1, orderStatus);
+	        pstmt.setInt(2, orderId);
+
+	        int affectedRows = pstmt.executeUpdate();
+	        if (affectedRows > 0) {
+	            return "Order status updated successfully!";
+	        } else {
+	            return "Order not found.";
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        return "Error in updating order status.";
+	    } finally {
+	        db.closeConnection(con);
+	    }
+	}
+
 
     public double fetchPriceById(int id) {
         double price = 0.0;
@@ -59,7 +84,7 @@ public class OrderDB {
 
             pstmt.executeUpdate();
 
-            return "Order added successfully!";
+           return "Order added successfully!";
         } catch (Exception e) {
             e.printStackTrace();
             return "Error in adding order.";
@@ -116,6 +141,7 @@ public class OrderDB {
                 order.setTotal_price(rs.getDouble("total_price"));
                 order.setCustomer_email(rs.getString("customer_email"));
                 order.setPayment_mode(rs.getString("payment_mode"));
+                order.setOrder_status(rs.getString("order_status"));
                 order.setPayment_status(rs.getString("payment_status"));
                 orders.add(order);
             }

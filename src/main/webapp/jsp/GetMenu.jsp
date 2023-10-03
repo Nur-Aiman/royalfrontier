@@ -14,7 +14,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Menu</title>
 <!-- Include your CSS stylesheets for a fancy and elegant design -->
-<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 	<div class="menu-container">
@@ -866,7 +866,7 @@ pageEncoding="UTF-8"%>
 <!-- </ul> -->
 <!-- </body> -->
 <!-- </html> -->
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="utf-8">

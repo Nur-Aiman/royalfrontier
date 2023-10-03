@@ -70,6 +70,12 @@
   	<description></description>
   	<servlet-class>com.restaurant_management_system.controller.SetMenuUnavailable</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>UpdateOrderStatus</servlet-name>
+  	<display-name>UpdateOrderStatus</display-name>
+  	<description></description>
+  	<servlet-class>com.restaurant_management_system.controller.UpdateOrderStatus</servlet-class>
+  </servlet>
  
   <servlet-mapping>
   	<servlet-name>Register</servlet-name>
@@ -114,6 +120,10 @@
   <servlet-mapping>
   	<servlet-name>SetMenuUnavailable</servlet-name>
   	<url-pattern>/SetMenuUnavailable</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UpdateOrderStatus</servlet-name>
+  	<url-pattern>/UpdateOrderStatus</url-pattern>
   </servlet-mapping>
   
 </web-app>
