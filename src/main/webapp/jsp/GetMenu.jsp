@@ -10,99 +10,135 @@
 
 
 <head>
-<meta charset="utf-8">
-<title>Royal Frontier - Order Menu</title>
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<meta content="" name="keywords">
-<meta content="" name="description">
-
-
-<!-- Favicon -->
-<link href="../img/favicon.ico" rel="icon">
-
-
-<!-- Google Web Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-	href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Pacifico&display=swap"
-	rel="stylesheet">
-
-
-<!-- Icon Font Stylesheet -->
-<link
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
-	rel="stylesheet">
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
-	rel="stylesheet">
-
-
-<!-- Libraries Stylesheet -->
-<link href="lib/animate/animate.min.css" rel="stylesheet">
-<link href="lib/owlcarousel/assets/owl.carousel.min.css"
-	rel="stylesheet">
-<link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css"
-	rel="stylesheet" />
-
-
-<!-- Customized Bootstrap Stylesheet -->
-
-<link href="../../royalfrontier/css/bootstrap.min.css" rel="stylesheet">
-
-
-<!-- Template Stylesheet -->
-<link href="../../royalfrontier/css/style.css" rel="stylesheet">
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu</title>
+<!-- Include your CSS stylesheets for a fancy and elegant design -->
+<link rel="stylesheet" href="../style.css">
 </head>
-
-
 <body>
 	<div class="menu-container">
 		<h1>Our Menu</h1>
 
 		<div class="menu-boxes">
-
 			<%@ page import="java.util.List"%>
 			<%@ page import="com.restaurant_management_system.beans.Menu"%>
-			<%@ page import="com.restaurant_management_system.model.MenuDB"%>
-			<%@ page import="com.restaurant_management_system.beans.Menu"%>
-			<%-- Include the menu items dynamically using JSP --%>
+
 			<%
 			MenuDB menuDB = new MenuDB();
 			List<Menu> menus = menuDB.getAllMenus();
 
 			for (Menu menu : menus) {
+				int menuId = menu.getId(); // Get the menuId
 			%>
 			<div class="menu-box">
 				<img src="<%=menu.getImageURL()%>" alt="<%=menu.getMenu()%>">
 				<h2><%=menu.getMenu()%></h2>
-				<p>
-					Price:
-					<%=menu.getPrice()%></p>
+			<p>
+    Price: RM <%= String.format("%.2f", menu.getPrice()) %>
+</p>
+
 				<p>
 					Availability:
 					<%=menu.getAvailability()%></p>
 
-				<!-- Add to Cart Button with JavaScript to count items -->
-				<button class="add-to-cart-button"
-					onclick="addToCart(<%=menu.getId()%>)">Add to Cart</button>
-				<span id="itemCount<%=menu.getId()%>">0</span>
+
+				<!-- Quantity Field with Add and Remove Buttons -->
+				<div class="quantity-field">
+					<button class="remove-button"
+						onclick="decrementQuantity(<%=menuId%>)">-</button>
+					<input type="number" id="quantity<%=menuId%>" value="0"
+						class="quantity-input" oninput="updateTotalPrice(<%=menuId%>)">
+					
+					<button class="add-button" onclick="incrementQuantity(<%=menuId%>)">+</button>
+					
+				</div>
+
+
+				<!-- Total Price Calculation -->
+				<p>
+					Total Price: <span>RM</span></span><span id="totalPrice<%=menuId%>">0.00</span>
+				</p>
+				<input type="hidden" id="menuPrice<%=menuId%>"
+					value="<%=menu.getPrice()%>">
+
+<!-- 				Add to Cart Button -->
+<!-- 				<button class="add-to-cart-button" -->
+<%-- 					onclick="addToCart(<%=menuId%>, <%=menu.getPrice()%>)">Add --%>
+<!-- 					to Cart</button> -->
+				
+
+
 			</div>
 			<%
 			}
 			%>
 		</div>
+
+		<!-- Total Quantity Field on Top of Cart Button -->
+		<div class="total-quantity">
+			Total Quantity: <span id="totalQuantity">0</span>
+			<button class="cart-button">Cart</button>
+		</div>
 	</div>
 
-	<!-- JavaScript to handle adding items to the cart -->
+	<!-- JavaScript to handle quantity and total price calculation -->
 	<script>
-        function addToCart(menuId) {
-            var itemCountSpan = document.getElementById("itemCount" + menuId);
-            var currentItemCount = parseInt(itemCountSpan.innerText);
-            itemCountSpan.innerText = currentItemCount + 1;
-        }
-    </script>
+	function incrementQuantity(menuId) {
+	    var quantityField = document.getElementById("quantity" + menuId);
+	    var currentQuantity = parseInt(quantityField.value);
+	    if (currentQuantity >= 0) {
+	        quantityField.value = currentQuantity + 1 ;
+	        updateTotalPrice(menuId); // Update the total price when the quantity changes
+	    }
+	}
+
+	function decrementQuantity(menuId) {
+	    var quantityField = document.getElementById("quantity" + menuId);
+	    var currentQuantity = parseInt(quantityField.value);
+	    if (currentQuantity > 0) {
+	        quantityField.value = currentQuantity - 1;
+	        updateTotalPrice(menuId); // Update the total price when the quantity changes
+	    }
+	}
+
+
+// 	function updateTotalPrice(menuId) {
+// 	    var quantityField = document.getElementById("quantity" + menuId);
+
+// 	    var totalPrice = quantityField.value * price;
+// 	    var totalPriceSpan = document.getElementById("totalPrice" + menuId);
+// 	    totalPriceSpan.innerText = totalPrice;
+
+// 	    // Optionally, you can add code to update the total cart price here
+// 	}
+
+	function updateTotalPrice(menuId) {
+	    var quantityField = document.getElementById("quantity" + menuId);
+	    var priceField = document.getElementById("menuPrice" + menuId);
+	    var totalPriceSpan = document.getElementById("totalPrice" + menuId);
+
+	    var quantity = parseInt(quantityField.value);
+	    var price = parseFloat(priceField.value);
+
+	    var totalPrice = quantity * price;
+	    totalPriceSpan.innerText = totalPrice.toFixed(2); // Format the price to display two decimal places
+	}
+
+	function addToCart(menuId, menuPrice) {
+	    var quantityField = document.getElementById("quantity" + menuId);
+	    var currentQuantity = parseInt(quantityField.value);
+
+	    // Update the total quantity
+	    var totalQuantitySpan = document.getElementById("totalQuantity");
+	    var currentTotalQuantity = parseInt(totalQuantitySpan.innerText);
+	    totalQuantitySpan.innerText = currentTotalQuantity + currentQuantity;
+
+	    // Optionally, you can add the item to the cart or perform any other action here
+	}
+
+</script>
+
 	<div class="container-xxl bg-white p-0">
 		<!-- Spinner Start -->
 		<!--         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"> -->
