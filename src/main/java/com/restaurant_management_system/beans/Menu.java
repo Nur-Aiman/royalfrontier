@@ -11,13 +11,14 @@ public class Menu {
 
     public Menu() {}
 
-    public Menu(int id, String menuName, double price, String imageURL, String availability) {
+    public Menu(int id, String menuName, double price, String imageURL, String availability, String description) {
         // Initialize the instance variables with the provided values
         this.id = id;
         this.menu = menuName;
         this.price = price;
         this.imageURL = imageURL;
         this.availability = availability;
+        this.description = description;
     }
 
 
