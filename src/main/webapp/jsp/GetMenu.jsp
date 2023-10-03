@@ -10,134 +10,117 @@
 
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Menu</title>
 <!-- Include your CSS stylesheets for a fancy and elegant design -->
 <link rel="stylesheet" href="../css/style.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <!-- Include your CSS stylesheets for a fancy and elegant design -->
+    <link rel="stylesheet" href="../style.css">
+
 </head>
+
 <body>
-	<div class="menu-container">
-		<h1>Our Menu</h1>
+    <div class="menu-container">
+        <h1>Our Menu</h1>
+        <div class="menu-boxes">
+            <%@ page import="java.util.List"%>
+            <%@ page import="com.restaurant_management_system.beans.Menu"%>
+            <%
+                MenuDB menuDB = new MenuDB();
+                List<Menu> menus = menuDB.getAllMenus();
+            %>
+            <div class="total-quantity">
+                Total Quantity: <span id="totalQuantity">0</span>
+                <button class="cart-button" onclick="goToCheckout()">Cart</button>
+            </div>
+            <% for (Menu menu : menus) { %>
+                <div class="menu-box">
+                    <img src="<
+                    %=menu.getImageURL()%>" alt="<%=menu.getMenu()%>">
+                    <h2><%=menu.getMenu()%></h2>
+                    <p>
+                        Price: RM <%= String.format("%.2f", menu.getPrice()) %>
+                    </p>
+                    <p>
+                        Availability: <%=menu.getAvailability()%>
+                    </p>
+                    <!-- Quantity Field with Add and Remove Buttons -->
+                    <div class="quantity-field">
+                        <button class="remove-button" onclick="decrementQuantity(<%=menu.getId()%>)">-</button>
+                        <input type="number" id="quantity<%=menu.getId()%>" value="0" class="quantity-input" oninput="updateTotalPrice(<%=menu.getId()%>); updateCart();">
+                        <button class="add-button" onclick="incrementQuantity(<%=menu.getId()%>)">+</button>
+                    </div>
+                    <!-- Total Price Calculations -->
+                    <p>
+                        Total Price: <span>RM</span><span id="totalPrice<%=menu.getId()%>">0.00</span>
+                    </p>
+                    <input type="hidden" id="menuPrice<%=menu.getId()%>" value="<%=menu.getPrice()%>">
+                </div>
+            <% } %>
+        </div>
+    </div>
 
-		<div class="menu-boxes">
-			<%@ page import="java.util.List"%>
-			<%@ page import="com.restaurant_management_system.beans.Menu"%>
+    <script>
+        var totalQuantity = 0;
 
-			<%
-			MenuDB menuDB = new MenuDB();
-			List<Menu> menus = menuDB.getAllMenus();
+        function incrementQuantity(menuId) {
+            var quantityField = document.getElementById("quantity" + menuId);
+            var currentQuantity = parseInt(quantityField.value);
+            if (currentQuantity >= 0) {
+                quantityField.value = currentQuantity + 1;
+                updateTotalPrice(menuId);
+                updateCart();
+            }
+        }
 
-			for (Menu menu : menus) {
-				int menuId = menu.getId(); // Get the menuId
-			%>
-			<div class="menu-box">
-				<img src="<%=menu.getImageURL()%>" alt="<%=menu.getMenu()%>">
-				<h2><%=menu.getMenu()%></h2>
-			<p>
-    Price: RM <%= String.format("%.2f", menu.getPrice()) %>
-</p>
+        function decrementQuantity(menuId) {
+            var quantityField = document.getElementById("quantity" + menuId);
+            var currentQuantity = parseInt(quantityField.value);
+            if (currentQuantity > 0) {
+                quantityField.value = currentQuantity - 1;
+                updateTotalPrice(menuId);
+                updateCart();
+            }
+        }
 
-				<p>
-					Availability:
-					<%=menu.getAvailability()%></p>
+        function updateTotalPrice(menuId) {
+            var quantityField = document.getElementById("quantity" + menuId);
+            var priceField = document.getElementById("menuPrice" + menuId);
+            var totalPriceSpan = document.getElementById("totalPrice" + menuId);
 
+            var quantity = parseInt(quantityField.value);
+            var price = parseFloat(priceField.value);
 
-				<!-- Quantity Field with Add and Remove Buttons -->
-				<div class="quantity-field">
-					<button class="remove-button"
-						onclick="decrementQuantity(<%=menuId%>)">-</button>
-					<input type="number" id="quantity<%=menuId%>" value="0"
-						class="quantity-input" oninput="updateTotalPrice(<%=menuId%>)">
-					
-					<button class="add-button" onclick="incrementQuantity(<%=menuId%>)">+</button>
-					
-				</div>
+            var totalPrice = quantity * price;
+            totalPriceSpan.innerText = totalPrice.toFixed(2);
+        }
 
+        function updateCart() {
+            totalQuantity = 0;
+            <% for (Menu menu : menus) { %>
+                var quantityField<%=menu.getId()%> = document.getElementById("quantity<%=menu.getId()%>");
+                var currentQuantity<%=menu.getId()%> = parseInt(quantityField<%=menu.getId()%>.value);
+                totalQuantity += currentQuantity<%=menu.getId()%>;
+            <% } %>
+            document.getElementById("totalQuantity").innerText = totalQuantity;
+        }
 
-				<!-- Total Price Calculations -->
-				<p>
-					Total Price: <span>RM</span></span><span id="totalPrice<%=menuId%>">0.00</span>
-				</p>
-				<input type="hidden" id="menuPrice<%=menuId%>"
-					value="<%=menu.getPrice()%>">
+        function goToCheckout() {
+            // Implement your checkout logic here
+        }
 
-<!-- 				Add to Cart Button -->
-<!-- 				<button class="add-to-cart-button" -->
-<%-- 					onclick="addToCart(<%=menuId%>, <%=menu.getPrice()%>)">Add --%>
-<!-- 					to Cart</button> -->
-				
+        // Initialize the total quantity on page load
+        window.onload = function() {
+            updateCart();
+        };
+    </script>
 
-
-			</div>
-			<%
-			}
-			%>
-		</div>
-
-		<!-- Total Quantity Field on Top of Cart Button -->
-		<div class="total-quantity">
-			Total Quantity: <span id="totalQuantity">0</span>
-			<button class="cart-button">Cart</button>
-		</div>
-	</div>
-
-	<!-- JavaScript to handle quantity and total price calculation -->
-	<script>
-	function incrementQuantity(menuId) {
-	    var quantityField = document.getElementById("quantity" + menuId);
-	    var currentQuantity = parseInt(quantityField.value);
-	    if (currentQuantity >= 0) {
-	        quantityField.value = currentQuantity + 1 ;
-	        updateTotalPrice(menuId); // Update the total price when the quantity changes
-	    }
-	}
-
-	function decrementQuantity(menuId) {
-	    var quantityField = document.getElementById("quantity" + menuId);
-	    var currentQuantity = parseInt(quantityField.value);
-	    if (currentQuantity > 0) {
-	        quantityField.value = currentQuantity - 1;
-	        updateTotalPrice(menuId); // Update the total price when the quantity changes
-	    }
-	}
-
-
-// 	function updateTotalPrice(menuId) {
-// 	    var quantityField = document.getElementById("quantity" + menuId);
-
-// 	    var totalPrice = quantityField.value * price;
-// 	    var totalPriceSpan = document.getElementById("totalPrice" + menuId);
-// 	    totalPriceSpan.innerText = totalPrice;
-
-// 	    // Optionally, you can add code to update the total cart price here
-// 	}
-
-	function updateTotalPrice(menuId) {
-	    var quantityField = document.getElementById("quantity" + menuId);
-	    var priceField = document.getElementById("menuPrice" + menuId);
-	    var totalPriceSpan = document.getElementById("totalPrice" + menuId);
-
-	    var quantity = parseInt(quantityField.value);
-	    var price = parseFloat(priceField.value);
-
-	    var totalPrice = quantity * price;
-	    totalPriceSpan.innerText = totalPrice.toFixed(2); // Format the price to display two decimal places
-	}
-
-	function addToCart(menuId, menuPrice) {
-	    var quantityField = document.getElementById("quantity" + menuId);
-	    var currentQuantity = parseInt(quantityField.value);
-
-	    // Update the total quantity
-	    var totalQuantitySpan = document.getElementById("totalQuantity");
-	    var currentTotalQuantity = parseInt(totalQuantitySpan.innerText);
-	    totalQuantitySpan.innerText = currentTotalQuantity + currentQuantity;
-
-	    // Optionally, you can add the item to the cart or perform any other action here
-	}
-
-</script>
 
 	<div class="container-xxl bg-white p-0">
 		<!-- Spinner Start -->
