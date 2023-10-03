@@ -55,7 +55,7 @@
 				</div>
 
 
-				<!-- Total Price Calculation -->
+				<!-- Total Price Calculations -->
 				<p>
 					Total Price: <span>RM</span></span><span id="totalPrice<%=menuId%>">0.00</span>
 				</p>
