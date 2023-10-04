@@ -22,12 +22,13 @@ public class ContactUsDB {
 			//stat.executeUpdate("insert into contactus(name,email,subject, message, date) values('" + cd.getName() + "','" + cd.getEmail()
 			//		+ "','" + cd.getSubject() + "','" + cd.getMessage() + "','"+cd.getDate()+"')");
 			//s1 = "Data Insert Successfully";
-			PreparedStatement pstmt = con.prepareStatement("INSERT INTO contactus (name, email, subject, message, date) VALUES (?, ?, ?, ?, ?)");
+			PreparedStatement pstmt = con.prepareStatement("INSERT INTO contactus (name, email, phone, subject, message, date) VALUES (?, ?, ?, ?, ?, ?)");
 			pstmt.setString(1, cd.getName());
 			pstmt.setString(2, cd.getEmail());
-			pstmt.setString(3, cd.getSubject());
-			pstmt.setString(4, cd.getMessage());
-			pstmt.setObject(5, cd.getDate());
+			pstmt.setString(3, cd.getPhone());
+			pstmt.setString(4, cd.getSubject());
+			pstmt.setString(5, cd.getMessage());
+			pstmt.setObject(6, cd.getDate());
 			pstmt.executeUpdate();
 
 		} catch (SQLException ex) {
