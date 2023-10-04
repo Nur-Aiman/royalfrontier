@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 public class Contact {
 private String name;
 private String email;
+private String phone;
 private String subject;
 private String message;
 private LocalDateTime date;
@@ -18,6 +19,12 @@ private LocalDateTime date;
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 	public String getSubject() {
 		return subject;
