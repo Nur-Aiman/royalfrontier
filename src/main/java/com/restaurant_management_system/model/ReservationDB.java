@@ -14,7 +14,7 @@ public class ReservationDB {
         myDatabase db = new myDatabase();
         Connection con = db.getCon();
         String status = null;
-
+        System.out.println("masuk sini 2");
         try {
         	String query = "INSERT INTO reservation (name, email, date_and_time, number_of_pax, special_request) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement pst = con.prepareStatement(query);
@@ -35,7 +35,10 @@ public class ReservationDB {
             ex.printStackTrace();
         } finally {
             db.closeConnection(con);
+            System.out.println("masuk sini 3");
         }
         return status;
     }
 }
+
+

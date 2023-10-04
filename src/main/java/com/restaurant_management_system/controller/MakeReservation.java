@@ -46,8 +46,35 @@ public class MakeReservation extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("name");
         String email = request.getParameter("email");
-        Timestamp dateAndTime = Timestamp.valueOf(request.getParameter("dateAndTime"));
-        int numberOfPax = Integer.parseInt(request.getParameter("numberOfPax"));
+        ///Timestamp dateAndTime = Timestamp.valueOf(request.getParameter("dateAndTime"));
+	        
+	        String dateAndTimeStr = request.getParameter("dateAndTime");
+	        Timestamp dateAndTime = null;
+	
+	        if (dateAndTimeStr != null && !dateAndTimeStr.isEmpty()) {
+	            try {
+	                dateAndTime = Timestamp.valueOf(dateAndTimeStr);
+	            } catch (IllegalArgumentException e) {
+	                // Handle the case when the dateAndTime parameter is in an invalid format
+	                // You can log the error, set a default value, or return an error response
+	            }
+	        }
+
+        ////int numberOfPax = Integer.parseInt(request.getParameter("numberOfPax"));
+	        
+	        String numberOfPaxStr = request.getParameter("numberOfPax");
+	        int numberOfPax = 0; // Default value or another appropriate value if the parameter is missing or invalid
+
+	        if (numberOfPaxStr != null && !numberOfPaxStr.isEmpty()) {
+	            try {
+	                numberOfPax = Integer.parseInt(numberOfPaxStr);
+	            } catch (NumberFormatException e) {
+	                // Handle the case when numberOfPax parameter is not a valid integer
+	                // You can log the error, set a default value, or return an error response
+	            }
+	        }
+			
+	    System.out.println("masuk sini");
         String specialRequest = request.getParameter("specialRequest");
 
         Reservation reservationBean = new Reservation(name, email, dateAndTime, numberOfPax, specialRequest);
@@ -55,6 +82,8 @@ public class MakeReservation extends HttpServlet {
         ReservationDB reservationDB = new ReservationDB();
         String status = reservationDB.insertReservation(reservationBean);
         request.getSession().setAttribute("reservationStatus", status);
-        response.sendRedirect("/royalfrontier/jsp/reservation.jsp");
+        response.sendRedirect("/royalfrontier/jsp/Reservation.jsp");  ////tukar project name kpd royalfrontier
 }
 }
+
+

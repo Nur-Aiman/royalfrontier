@@ -1,26 +1,53 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<!-- <!DOCTYPE html> -->
+<!-- <html> -->
+<!-- <head> -->
+<!-- <meta charset="UTF-8"> -->
+<!-- <title>Contact Us</title> -->
+<!-- </head> -->
+<!-- <body> -->
+<!-- <h2>Contact Us Form</h2> -->
+<%-- <% --%>
+<!-- // String result = (String) session.getAttribute("result"); -->
+<!-- // if (result != null) { -->
+<!-- // out.print("<p>" + result + "</p>"); -->
+<!-- // session.removeAttribute("result"); -->
+<!-- // } -->
+<%-- %> --%>
+<!-- <form action="../ContactUs" method="post"> -->
+<!-- <label for="name">Name:</label><br> -->
+<!-- <input type="text" id="name" name="name" required><br><br> -->
+<!-- <label for="email">Email:</label><br> -->
+<!-- <input type="email" id="email" name="email" required><br><br> -->
+<!-- <label for="subject">Subject:</label><br> -->
+<!-- <input type="text" id="subject" name="subject" required><br><br> -->
+<!-- <label for="message">Message:</label><br> -->
+<!-- <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br> -->
+<!-- <input type="hidden" id="date" name="date" value=""> -->
+<!-- <input type="submit" value="Submit"> -->
+<!-- </form> -->
+<!-- <script> -->
+<!-- document.getElementById("date").value = new Date().toISOString().slice(0,19);-->
+<!-- </script> -->
+<!-- </body> -->
+<!-- </html> -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="utf-8">
-<title>RF - Contact Us</title>
+<title>Restoran - Bootstrap Restaurant Template</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="" name="keywords">
 <meta content="" name="description">
-
 <!-- Favicon -->
 <link href="img/favicon.ico" rel="icon">
-
 <!-- Google Web Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
 	href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Pacifico&display=swap"
 	rel="stylesheet">
-
 <!-- Icon Font Stylesheet -->
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
@@ -28,23 +55,18 @@
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
 	rel="stylesheet">
-
 <!-- Libraries Stylesheet -->
 <link href="lib/animate/animate.min.css" rel="stylesheet">
 <link href="lib/owlcarousel/assets/owl.carousel.min.css"
 	rel="stylesheet">
 <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css"
 	rel="stylesheet" />
-
 <!-- Customized Bootstrap Stylesheet -->
 <link href="../css/bootstrap.min.css" rel="stylesheet">
-
 <!-- Template Stylesheet -->
 <link href="../css/style.css" rel="stylesheet">
 </head>
-
 <body>
-
 	<!-- Navbar & Hero Start -->
 	<div class="container-xxl position-relative p-0">
 		<nav
@@ -60,34 +82,39 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<div class="navbar-nav ms-auto py-0 pe-4">
-					<a href="Index.jsp" class="nav-item nav-link">Home</a> <a
-						href="HomeMenu.jsp" class="nav-item nav-link">Menu</a>
+					<a href="index.html" class="nav-item nav-link">Home</a> <a
+						href="about.html" class="nav-item nav-link">About</a> <a
+						href="service.html" class="nav-item nav-link">Service</a> <a
+						href="menu.html" class="nav-item nav-link">Menu</a>
+					<div class="nav-item dropdown">
+						<a href="#" class="nav-link dropdown-toggle"
+							data-bs-toggle="dropdown">Pages</a>
+						<div class="dropdown-menu m-0">
+							<a href="booking.html" class="dropdown-item">Booking</a> <a
+								href="team.html" class="dropdown-item">Our Team</a> <a
+								href="testimonial.html" class="dropdown-item">Testimonial</a>
+						</div>
+					</div>
+					<a href="contact.html" class="nav-item nav-link active">Contact</a>
 				</div>
-				<a href="ContactUs.jsp" class="nav-item nav-link active">Contact
-					Us</a>
+				<a href="" class="btn btn-primary py-2 px-4">Book A Table</a>
 			</div>
-			<a href="Reservation.jsp" class="btn btn-primary py-2 px-4">Reserve
-				A Table</a>
-	</div>
-	</nav>
-
-	<div class="container-xxl py-5 bg-dark hero-header mb-5">
-		<div class="container text-center my-5 pt-5 pb-4">
-			<h1 class="display-3 text-white mb-3 animated slideInDown">Contact
-				Us</h1>
-			<nav aria-label="breadcrumb">
-				<ol class="breadcrumb justify-content-center text-uppercase">
-					<li class="breadcrumb-item"><a href="#">Home</a></li>
-					<li class="breadcrumb-item"><a href="#">Pages</a></li>
-					<li class="breadcrumb-item text-white active" aria-current="page">Contact</li>
-				</ol>
-			</nav>
+		</nav>
+		<div class="container-xxl py-5 bg-dark hero-header mb-5">
+			<div class="container text-center my-5 pt-5 pb-4">
+				<h1 class="display-3 text-white mb-3 animated slideInDown">Contact
+					Us</h1>
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb justify-content-center text-uppercase">
+						<li class="breadcrumb-item"><a href="#">Home</a></li>
+						<li class="breadcrumb-item"><a href="#">Pages</a></li>
+						<li class="breadcrumb-item text-white active" aria-current="page">Contact</li>
+					</ol>
+				</nav>
+			</div>
 		</div>
 	</div>
-	</div>
 	<!-- Navbar & Hero End -->
-
-
 	<!-- Contact Start -->
 	<div class="container-xxl py-5">
 		<div class="container">
@@ -95,7 +122,7 @@
 				<h5
 					class="section-title ff-secondary text-center text-primary fw-normal">Contact
 					Us</h5>
-				<h4 class="mb-5">Contact For Any Query</h4>
+				<h1 class="mb-5">Contact For Any Query</h1>
 			</div>
 			<div class="row g-4">
 				<div class="col-12">
@@ -104,21 +131,21 @@
 							<h5
 								class="section-title ff-secondary fw-normal text-start text-primary">Booking</h5>
 							<p>
-								<i class="fa fa-envelope-open text-primary me-2"></i>royalfrontierbook@gmail.com
+								<i class="fa fa-envelope-open text-primary me-2"></i>book@example.com
 							</p>
 						</div>
 						<div class="col-md-4">
 							<h5
 								class="section-title ff-secondary fw-normal text-start text-primary">General</h5>
 							<p>
-								<i class="fa fa-envelope-open text-primary me-2"></i>royalfrontierinfo@gmail.com
+								<i class="fa fa-envelope-open text-primary me-2"></i>info@example.com
 							</p>
 						</div>
 						<div class="col-md-4">
 							<h5
 								class="section-title ff-secondary fw-normal text-start text-primary">Technical</h5>
 							<p>
-								<i class="fa fa-envelope-open text-primary me-2"></i>royalfrontiertech@gmail.com
+								<i class="fa fa-envelope-open text-primary me-2"></i>tech@example.com
 							</p>
 						</div>
 					</div>
@@ -131,38 +158,40 @@
 				</div>
 				<div class="col-md-6">
 					<div class="wow fadeInUp" data-wow-delay="0.2s">
-						<form>
+						<form action="../ContactUs" method="post" id="my-form">
 							<div class="row g-3">
 								<div class="col-md-6">
 									<div class="form-floating">
-										<input type="text" class="form-control" id="name"
+										<input type="text" class="form-control" name="name" id="name"
 											placeholder="Your Name"> <label for="name">Your
 											Name</label>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-floating">
-										<input type="email" class="form-control" id="email"
-											placeholder="Your Email"> <label for="email">Your
-											Email</label>
+										<input type="email" class="form-control" name="email"
+											id="email" placeholder="Your Email"> <label
+											for="email">Your Email</label>
 									</div>
 								</div>
 								<div class="col-12">
 									<div class="form-floating">
-										<input type="text" class="form-control" id="subject"
-											placeholder="Subject"> <label for="subject">Subject</label>
+										<input type="text" class="form-control" name="subject"
+											id="subject" placeholder="Subject"> <label
+											for="subject">Subject</label>
 									</div>
 								</div>
 								<div class="col-12">
 									<div class="form-floating">
 										<textarea class="form-control"
-											placeholder="Leave a message here" id="message"
-											style="height: 150px"></textarea>
+											placeholder="Leave a message here" name="message"
+											id="message" style="height: 150px"></textarea>
 										<label for="message">Message</label>
 									</div>
 								</div>
 								<div class="col-12">
-									<button class="btn btn-primary w-100 py-3" type="submit">Send
+									<button onclick="showSweetAlert()"
+										class="btn btn-primary w-100 py-3" type="submit" value="">Send
 										Message</button>
 								</div>
 							</div>
@@ -173,8 +202,6 @@
 		</div>
 	</div>
 	<!-- Contact End -->
-
-
 	<!-- Footer Start -->
 	<div
 		class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn"
@@ -240,10 +267,10 @@
 					<div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
 						&copy; <a class="border-bottom" href="#">Your Site Name</a>, All
 						Right Reserved.
-
 						<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
 						Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML
-							Codex</a><br> <br> Distributed By <a class="border-bottom"
+							Codex</a><br>
+						<br> Distributed By <a class="border-bottom"
 							href="https://themewagon.com" target="_blank">ThemeWagon</a>
 					</div>
 					<div class="col-md-6 text-center text-md-end">
@@ -257,14 +284,44 @@
 		</div>
 	</div>
 	<!-- Footer End -->
-
-
 	<!-- Back to Top -->
 	<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i
 		class="bi bi-arrow-up"></i></a>
 	</div>
-
 	<!-- JavaScript Libraries -->
+	<script>
+	 function showSweetAlert(){
+	 	 Swal.fire({
+		 position: 'center',
+		 icon: 'success',
+		 title: 'Your work has been saved',
+		 showConfirmButton: false,
+		 timer: 2500
+		 })
+	
+}
+	 // grab the form from the DOM
+	 const form = document.getElementById("#my-form");
+	 // listen to the 'submit' event on the form
+	 form.addEventListener('submit', evt => {
+	 // prevent the submit event
+	 evt.preventDefault();
+	
+	 // display an alert
+	 swal('Are you sure?', {
+	 buttons: true
+	 }).then(val => {
+	 // when the promise resolves,
+	 // check the value that was passed
+	 if (val) {
+	 // if the value is true,
+	 // actually submit the form
+	 form.submit();
+	 }
+	 });
+	 })
+</script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -276,9 +333,8 @@
 	<script src="lib/tempusdominus/js/moment.min.js"></script>
 	<script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
 	<script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
 	<!-- Template Javascript -->
 	<script src="js/main.js"></script>
 </body>
-
 </html>
+

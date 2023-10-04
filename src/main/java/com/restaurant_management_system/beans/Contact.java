@@ -1,15 +1,12 @@
 package com.restaurant_management_system.beans;
 
 import java.time.LocalDateTime;
-
 public class Contact {
-    private String name;
-    private String email;
-    private String subject;
-    private String message;
-    private LocalDateTime date;
-    
-    
+private String name;
+private String email;
+private String subject;
+private String message;
+private LocalDateTime date;
 	public String getName() {
 		return name;
 	}
@@ -40,5 +37,6 @@ public class Contact {
 	public void setDate(LocalDateTime date) {
 		this.date = date;
 	}
-
 }
+
+

@@ -12,42 +12,50 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+///import java.time.LocalDateTime; 
 
 public class ContactUs extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public ContactUs() {
-        super();
-    }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public ContactUs() {
+		super();
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.getRequestDispatcher("/jsp/contactUs.jsp").forward(request, response);
 	}
 
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    String name = request.getParameter("name");
-	    String email = request.getParameter("email");
-	    String subject = request.getParameter("subject");
-	    String message = request.getParameter("message");
-	    LocalDateTime date = LocalDateTime.parse(request.getParameter("date"));
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String name = request.getParameter("name");
+		String email = request.getParameter("email");
+		String subject = request.getParameter("subject");
+		String message = request.getParameter("message");
 
-	    Contact contact = new Contact();
-	    contact.setName(name);
-	    contact.setEmail(email);
-	    contact.setSubject(subject);
-	    contact.setMessage(message);
-	    contact.setDate(date);
+		DateTimeFormatter date = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+		String now = date.format(LocalDateTime.now());
+		LocalDateTime dateTime = LocalDateTime.parse(now, date);
 
-	    ContactUsDB contactUsDB = new ContactUsDB();
-	    String result = contactUsDB.messageContact(contact);
+		Contact contact = new Contact();
+		contact.setName(name);
+		contact.setEmail(email);
+		contact.setSubject(subject);
+		contact.setMessage(message);
+		contact.setDate(dateTime);
 
-	    
-	    request.getSession().setAttribute("result", result);
+		ContactUsDB contactUsDB = new ContactUsDB();
+		String result = contactUsDB.messageContact(contact);
 
-	   
-	    response.sendRedirect("/royalfrontier/jsp/contactUs.jsp");
+		request.getSession().setAttribute("result", result);
+
+		response.sendRedirect("jsp/ContactUs.jsp");
 	}
 
 }
+
+
