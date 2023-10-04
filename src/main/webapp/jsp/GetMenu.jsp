@@ -5,6 +5,7 @@
 <%@ page import="com.restaurant_management_system.beans.Menu"%>
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,13 +22,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Menu</title>
 <!-- Include your CSS stylesheets for a fancy and elegant design -->
-<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../css/style.css">
 
 </head>
 
 <body>
 	<div class="menu-container">
 		<h1>Our Menu</h1>
+		
+		 <!-- Search and Sort Section -->
+        <div class="search-sort">
+            <input type="text" id="searchInput" placeholder="Search by menu name" oninput="searchMenus()">
+            <label for="sortSelect">Sort by:</label>
+            <select id="sortSelect" onchange="sortMenus()">
+                <option value="menu">Menu Name</option>
+                <option value="price">Price (Low to High)</option>
+                <option value="availability">Availability</option>
+            </select>
+        </div>
+
+        <div class="menu-boxes">
+            <!-- Your menu items here -->
+        </div>
 		<div class="menu-boxes">
 			<%@ page import="java.util.List"%>
 			<%@ page import="com.restaurant_management_system.beans.Menu"%>
@@ -80,6 +96,10 @@
 	<br>
 
 	<script>
+	
+	
+
+    
         var totalQuantity = 0;
 
         function incrementQuantity(menuId) {
