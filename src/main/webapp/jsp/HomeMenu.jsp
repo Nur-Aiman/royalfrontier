@@ -197,11 +197,11 @@
 							<div class="col-lg-3 col-md-6">
 								<h4
 									class="section-title ff-secondary text-start text-primary fw-normal mb-4">Company</h4>
-								<a class="btn btn-link" href="">About Us</a> <a
-									class="btn btn-link" href="">Contact Us</a> <a
-									class="btn btn-link" href="">Reservation</a> <a
-									class="btn btn-link" href="">Privacy Policy</a> <a
-									class="btn btn-link" href="">Terms & Condition</a>
+								<a class="btn btn-link" href="Index.jsp">About Us</a> <a
+									class="btn btn-link" href="ContactUs.jsp">Contact Us</a> <a
+									class="btn btn-link" href="Reservation.jsp">Reservation</a> <a
+									class="btn btn-link" href="PrivacyPolicy.jsp">Privacy Policy</a> <a
+									class="btn btn-link" href="TandC">Terms & Condition</a>
 							</div>
 							<div class="col-lg-3 col-md-6">
 								<h4

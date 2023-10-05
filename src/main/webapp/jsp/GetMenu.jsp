@@ -457,9 +457,9 @@
 					<div class="col-lg-3 col-md-6">
 						<h4
 							class="section-title ff-secondary text-start text-primary fw-normal mb-4">Company</h4>
-						<a class="btn btn-link" href="">About Us</a> <a
-							class="btn btn-link" href="">Contact Us</a> <a
-							class="btn btn-link" href="">Reservation</a> <a
+						<a class="btn btn-link" href="Index.jsp">About Us</a> <a
+							class="btn btn-link" href="ContactUs">Contact Us</a> <a
+							class="btn btn-link" href="Reservation.jsp">Reservation</a> <a
 							class="btn btn-link" href="">Privacy Policy</a> <a
 							class="btn btn-link" href="">Terms & Condition</a>
 					</div>
@@ -524,6 +524,7 @@
 							<div class="footer-menu">
 								<a href="">Home</a> <a href="">Cookies</a> <a href="">Help</a> <a
 									href="">FQAs</a>
+									
 							</div>
 						</div>
 					</div>
