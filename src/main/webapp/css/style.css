@@ -643,3 +643,36 @@ span {
     background-color: #0056b3;
 }
 
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+/* Modal Content */
+.modal-content {
+    display: block;
+    margin: 10% auto;
+    max-width: 60%; /* Adjust this value for the size you want */
+    max-height: auto; /* Adjust this value for the size you want */
+    overflow: auto;
+}
+
+/* Close Button */
+.close {
+    color: white;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+

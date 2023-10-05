@@ -124,6 +124,25 @@
 			</div>
 		</div>
 	</div>
+	
+	<!-- Add this JavaScript code before the closing </body> tag -->
+<script>
+// Function to get URL parameter by name
+function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+}
+
+// Get the table number from the URL and store it in local storage
+var tableNumber = getUrlParameter('tableNumber');
+if (tableNumber) {
+    // Store the table number in local storage
+    localStorage.setItem('tableNumber', tableNumber);
+}
+</script>
+	
 
 </body>
 
