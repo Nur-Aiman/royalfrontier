@@ -76,6 +76,12 @@
   	<description></description>
   	<servlet-class>com.restaurant_management_system.controller.UpdateOrderStatus</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>GetAvailableTime</servlet-name>
+  	<display-name>GetAvailableTime</display-name>
+  	<description></description>
+  	<servlet-class>com.restaurant_management_system.controller.GetAvailableTime</servlet-class>
+  </servlet>
  
   <servlet-mapping>
   	<servlet-name>Register</servlet-name>
@@ -124,6 +130,10 @@
   <servlet-mapping>
   	<servlet-name>UpdateOrderStatus</servlet-name>
   	<url-pattern>/UpdateOrderStatus</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>GetAvailableTime</servlet-name>
+  	<url-pattern>/GetAvailableTime</url-pattern>
   </servlet-mapping>
   
 </web-app>

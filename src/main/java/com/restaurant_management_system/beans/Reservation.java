@@ -1,19 +1,30 @@
 package com.restaurant_management_system.beans;
 import java.sql.Timestamp;
+
+
 public class Reservation {
-private String name;
-private String email;
-private Timestamp dateAndTime;
-private int numberOfPax;
-private String specialRequest;
+    private String name;
+    private String email;
+    private String phoneNumber; 
+    private Timestamp dateAndTime;
+    private int tableNumber;    
+    private String specialRequest;
+
+
 public Reservation() {}
-public Reservation(String name, String email, Timestamp dateAndTime, int numberOfPax, String specialRequest) {
+
+public Reservation(String name, String email, String phoneNumber, Timestamp dateAndTime, 
+        int tableNumber, String specialRequest) {
 this.name = name;
 this.email = email;
+this.phoneNumber = phoneNumber; 
 this.dateAndTime = dateAndTime;
-this.numberOfPax = numberOfPax;
+this.tableNumber = tableNumber; 
 this.specialRequest = specialRequest;
 }
+
+
+
 	public String getName() {
 		return name;
 	}
@@ -32,17 +43,27 @@ this.specialRequest = specialRequest;
 	public void setDateAndTime(Timestamp dateAndTime) {
 		this.dateAndTime = dateAndTime;
 	}
-	public int getNumberOfPax() {
-		return numberOfPax;
-	}
-	public void setNumberOfPax(int numberOfPax) {
-		this.numberOfPax = numberOfPax;
-	}
+	
 	public String getSpecialRequest() {
 		return specialRequest;
 	}
 	public void setSpecialRequest(String specialRequest) {
 		this.specialRequest = specialRequest;
 	}
+	 public String getPhoneNumber() {
+	        return phoneNumber;
+	    }
+
+	    public void setPhoneNumber(String phoneNumber) {
+	        this.phoneNumber = phoneNumber;
+	    }
+
+	    public int getTableNumber() {
+	        return tableNumber;
+	    }
+
+	    public void setTableNumber(int tableNumber) {
+	        this.tableNumber = tableNumber;
+	    }
 }
 
