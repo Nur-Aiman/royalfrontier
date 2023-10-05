@@ -3,7 +3,7 @@
 
 <head>
 <meta charset="utf-8">
-<title>RF - Admin Manage Order</title>
+<title>RF - Admin Manage</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="" name="keywords">
 <meta content="" name="description">
@@ -30,54 +30,48 @@
 		class="d-md-flex d-sm-block justify-content-between">
 		<input type="hidden" name="command" value="select-orders">
 		<h1 class="h5 align-self-center col-3">Search Order</h1>
-<!-- 		<div -->
-<!-- 			class="btn-group align-self-center col-12 col-sm-12 col-md-8 col-lg-6"> -->
-<!-- 			<select name="searchType" class="btn btn-outline-dark col-3 col-sm-3"> -->
-<!-- 				<option value="orderId">Order ID</option> -->
-<!-- 				<option value="product">Product</option> -->
-<!-- 				<option value="product">Quantity</option> -->
-<!-- 				<option value="total">Total</option> -->
-<!-- 				<option value="Payment">Payment</option> -->
-<!-- 				<option value="created">Date & Time</option> -->
-<!-- 				<option value="status">Status</option> -->
-<!-- 				<option value="customer">Customer</option> -->
-<!-- 			</select> <input type="search" name="searchBy" class="col-6 col-sm-6"> -->
-<!-- 			<input type="submit" value="Search" -->
-<!-- 				class="btn btn-outline-dark col-3 col-sm-3"> -->
-<!-- 		</div> -->
-
-<div
-		class="d-md-flex d-none justify-content-md-between justify-content-sm-center align-content-center border-bottom border-2 my-2 bg-dark text-light p-3 rounded-3">
-		<div class="col-2 text-sm-center text-md-start align-self-center">
-			<h1 class="h5 fw-bold">Order ID</h1>
+		<div
+			class="btn-group align-self-center col-12 col-sm-12 col-md-8 col-lg-6">
+			<select name="searchType" class="btn btn-outline-dark col-3 col-sm-3">
+				<option value="order_id">// ID</option>
+				<option value="order_items">// Order Menu</option>
+				<option value="table_number">// Table Number</option>
+				<option value="date_and_time">// Date & Time</option> 
+				<option value="total_price">// Total Price</option>
+				<option value="customer_email">// Email</option>
+				<option value="payment_mode">// Payment Mode</option>
+				<option value="order_status">// Order Status</option>
+				<option value="payment_status">// Payment Status</option>
+			</select> <input type="search" name="searchBy" class="col-6 col-sm-6">
+			<input type="submit" value="Search"
+				class="btn btn-outline-dark col-3 col-sm-3">
 		</div>
-		<div class="col-2 align-self-center">
-			<h1 class="h5 fw-bold">Created</h1>
-		</div>
-		<div class="col-3 align-self-center">
-			<h1 class="h5 fw-bold">Customer</h1>
-		</div>
-		<div class="col-2 align-self-center">
-			<h1 class="h5 fw-bold">Show details</h1>
-		</div>
-		<div class="col-2 align-self-center">
-			<h1 class="h5 fw-bold">Status</h1>
-		</div>
-	</div>
 	</form>
 	<div
 		class="d-md-flex d-none justify-content-md-between justify-content-sm-center align-content-center border-bottom border-2 my-2 bg-dark text-light p-3 rounded-3">
 		<div class="col-2 text-sm-center text-md-start align-self-center">
-			<h1 class="h5 fw-bold">Order ID</h1>
+			<h1 class="h5 fw-bold">ID</h1>
 		</div>
 		<div class="col-2 align-self-center">
-			<h1 class="h5 fw-bold">Created</h1>
+			<h1 class="h5 fw-bold">Order Menu</h1>
+		</div>
+		<div class="col-2 align-self-center">
+			<h1 class="h5 fw-bold">Table Number</h1>
+		</div>
+		<div class="col-2 align-self-center">
+			<h1 class="h5 fw-bold">Date & Time</h1>
 		</div>
 		<div class="col-3 align-self-center">
-			<h1 class="h5 fw-bold">Customer</h1>
+			<h1 class="h5 fw-bold">Total Price</h1>
+		</div>
+		<div class="col-3 align-self-center">
+			<h1 class="h5 fw-bold">Email</h1>
+		</div>
+		<div class="col-3 align-self-center">
+			<h1 class="h5 fw-bold">Payment Mode</h1>
 		</div>
 		<div class="col-2 align-self-center">
-			<h1 class="h5 fw-bold">Show details</h1>
+			<h1 class="h5 fw-bold">Payment Status</h1>
 		</div>
 		<div class="col-2 align-self-center">
 			<h1 class="h5 fw-bold">Status</h1>
@@ -87,7 +81,15 @@
 		class="d-md-flex d-sm-block justify-content-md-between justify-content-sm-center text-center border-bottom border-2 my-2 bg-light p-2 rounded-3">
 		<div
 			class="col-md-2 text-sm-center text-md-start align-self-center my-2">
-			<h1 class="h6">2F456DA</h1>
+			<h1 class="h6">101</h1>
+		</div>
+		<div
+			class="col-md-2 text-sm-center text-md-start align-self-center my-2">
+			<h1 class="h6">Spagetty Tomyam</h1>
+		</div>
+		<div
+			class="col-md-2 text-sm-center text-md-start align-self-center my-2">
+			<h1 class="h6">15</h1>
 		</div>
 		<div
 			class="col-md-2 text-sm-center text-md-start align-self-center my-2">
