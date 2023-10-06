@@ -88,6 +88,24 @@
   	<description></description>
   	<servlet-class>com.restaurant_management_system.controller.GetAvailableTable</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>SalesReport</servlet-name>
+  	<display-name>SalesReport</display-name>
+  	<description></description>
+  	<servlet-class>com.restaurant_management_system.controller.SalesReport</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ForgotPassword</servlet-name>
+  	<display-name>ForgotPassword</display-name>
+  	<description></description>
+  	<servlet-class>com.restaurant_management_system.controller.ForgotPassword</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ResetPassword</servlet-name>
+  	<display-name>ResetPassword</display-name>
+  	<description></description>
+  	<servlet-class>com.restaurant_management_system.controller.ResetPassword</servlet-class>
+  </servlet>
  
   <servlet-mapping>
   	<servlet-name>Register</servlet-name>
@@ -144,6 +162,18 @@
   <servlet-mapping>
   	<servlet-name>GetAvailableTable</servlet-name>
   	<url-pattern>/GetAvailableTable</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SalesReport</servlet-name>
+  	<url-pattern>/SalesReport</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ForgotPassword</servlet-name>
+  	<url-pattern>/ForgotPassword</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ResetPassword</servlet-name>
+  	<url-pattern>/ResetPassword</url-pattern>
   </servlet-mapping>
   
 </web-app>
