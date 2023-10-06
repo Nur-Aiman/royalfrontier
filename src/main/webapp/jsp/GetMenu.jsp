@@ -12,7 +12,7 @@
 
 <head>
 <meta charset="utf-8">
-<title>Royal Frontier - Order Menu</title>
+<title>RF - Order Menu</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="" name="keywords">
 <meta content="" name="description">
@@ -91,7 +91,7 @@
 
 		<div class="container-xxl py-5 bg-dark hero-header mb-5">
 			<div class="container text-center my-5 pt-5 pb-4">
-				<h1  class="display-3 text-white mb-3 animated slideInDown">Food
+				<h1 class="display-3 text-white mb-3 animated slideInDown">Food
 					Menu</h1>
 				<!-- 						<nav aria-label="breadcrumb"> -->
 				<!-- 							<ol class="breadcrumb justify-content-center text-uppercase"> -->
@@ -114,9 +114,8 @@
 		<div class="container">
 			<div class="text-center wow fadeInUp" data-wow-delay="0.1s">
 				<h5
-					class="section-title ff-secondary text-center text-primary fw-normal" id="foodmenu">Food
-					Menu</h5>
-				<h1 class="mb-5">Most Popular Items</h1>
+					class="section-title ff-secondary text-center text-primary fw-normal"
+					id="foodmenu">Food Menu</h5>
 			</div>
 			<div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
 				<ul
@@ -147,27 +146,27 @@
 								<small class="text-body">Lovely</small>
 								<h6 class="mt-n1 mb-0">Desserts</h6>
 							</div>
-							
+
 					</a></li>
-					
+
 				</ul>
 				<!-- Add this within the HTML body where you want to display the user's email -->
-<div class="user-email">
-    Welcome, <span id="userEmailPlaceholder"></span>
-</div>
-<br>
-<div class="table-number">
-    Table Number: <span id="tableNumberPlaceholder"></span>
-</div>
+				<div class="user-email">
+					Welcome, <span id="userEmailPlaceholder"></span>
+				</div>
+				<br>
+				<div class="table-number">
+					Table Number: <span id="tableNumberPlaceholder"></span>
+				</div>
 
-				
+
 				<div class="total-quantity">
-						Total Quantity: <span id="totalQuantity">0</span>
-						<button class="cart-button" onclick="checkout()">Checkout</button>
+					Total Quantity: <span id="totalQuantity">0</span>
+					<button class="cart-button" onclick="checkout()">Checkout</button>
 
-					</div>
-					<br><br>
-				
+				</div>
+				<br> <br>
+
 				<div class="menu-container">
 					<h1>Our Menu</h1>
 
@@ -198,15 +197,22 @@
 						for (Menu menu : menus) {
 						%>
 						<div class="menu-box">
-							 <img src="<%=menu.getImageURL()%>" onclick="openModal('<%=menu.getImageURL()%>')">
+							<img src="<%=menu.getImageURL()%>"
+								onclick="openModal('<%=menu.getImageURL()%>')">
 							<h2><%=menu.getMenu()%></h2>
 							<p>
-								Price: RM
+								<!-- Price:  -->
+								RM
 								<%=String.format("%.2f", menu.getPrice())%>
 							</p>
 							<p>
-								Availability:
+								<!-- 								Availability: -->
 								<%=menu.getAvailability()%>
+							</p>
+
+							<p>
+								<!-- 								Description: -->
+								<%=menu.getDescription()%>
 							</p>
 							<!-- Quantity Field with Add and Remove Buttons -->
 							<div class="quantity-field">
@@ -230,14 +236,14 @@
 						}
 						%>
 					</div>
-					
+
 				</div>
 				<br> <br>
 
 				<script>
 	
 				   // Retrieve the user's email from the session
-			    var userEmail = '<%= (String) session.getAttribute("email") %>';
+			    var userEmail = '<%=(String) session.getAttribute("email")%>';
 			    
 
 			    // Check if the user is logged in and their email is available
@@ -275,7 +281,7 @@
          // Gather additional information
            var tableNumber = document.getElementById("tableNumberPlaceholder").textContent; // Table Number
             var currentDateAndTime = new Date().toISOString(); // Current date and time in ISO 8601 format
-            var customerEmail = '<%= (String) session.getAttribute("userEmailPlaceholder") %>'; // Customer's email (assuming it's retrieved from the session)
+            var customerEmail = '<%=(String) session.getAttribute("userEmailPlaceholder")%>'; // Customer's email (assuming it's retrieved from the session)
 
             <%for (Menu menu : menus) {%>
                 var quantityField<%=menu.getId()%> = document.getElementById("quantity<%=menu.getId()%>");
@@ -385,7 +391,7 @@
         }
         
      // Retrieve the user's email from the session
-        var userEmail = '<%= (String) session.getAttribute("email") %>';
+        var userEmail = '<%=(String) session.getAttribute("email")%>';
 
         // Check if the user is logged in and their email is available
         if (userEmail && userEmail.trim() !== '') {
@@ -418,7 +424,8 @@
 
 
 				<!-- Back to Top -->
-				<a href="#foodmenu" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i
+				<a href="#foodmenu"
+					class="btn btn-lg btn-primary btn-lg-square back-to-top"><i
 					class="bi bi-arrow-up"></i></a>
 			</div>
 
@@ -450,9 +457,9 @@
 					<div class="col-lg-3 col-md-6">
 						<h4
 							class="section-title ff-secondary text-start text-primary fw-normal mb-4">Company</h4>
-						<a class="btn btn-link" href="">About Us</a> <a
-							class="btn btn-link" href="">Contact Us</a> <a
-							class="btn btn-link" href="">Reservation</a> <a
+						<a class="btn btn-link" href="Index.jsp">About Us</a> <a
+							class="btn btn-link" href="ContactUs">Contact Us</a> <a
+							class="btn btn-link" href="Reservation.jsp">Reservation</a> <a
 							class="btn btn-link" href="">Privacy Policy</a> <a
 							class="btn btn-link" href="">Terms & Condition</a>
 					</div>
@@ -517,6 +524,7 @@
 							<div class="footer-menu">
 								<a href="">Home</a> <a href="">Cookies</a> <a href="">Help</a> <a
 									href="">FQAs</a>
+									
 							</div>
 						</div>
 					</div>
@@ -530,8 +538,6 @@
 			<span class="close" onclick="closeModal()">&times;</span> <img
 				class="modal-content" id="modalImg">
 		</div>
-		
-		
 </body>
 
 
