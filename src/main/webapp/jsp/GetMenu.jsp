@@ -116,6 +116,8 @@
 				<h5
 					class="section-title ff-secondary text-center text-primary fw-normal"
 					id="foodmenu">Food Menu</h5>
+
+
 			</div>
 			<div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
 				<ul
@@ -165,7 +167,10 @@
 					<button class="cart-button" onclick="checkout()">Checkout</button>
 
 				</div>
-				<br> <br>
+
+				<br>
+				<br>
+
 
 				<div class="menu-container">
 					<h1>Our Menu</h1>
@@ -230,7 +235,9 @@
 									id="totalPrice<%=menu.getId()%>">0.00</span>
 							</p>
 							<input type="hidden" id="menuPrice<%=menu.getId()%>"
-								value="<%=menu.getPrice()%>">
+								value="<%=menu.getPrice()%>"> <input type="hidden"
+								name="imageURL" id="imageURL" value="">
+
 						</div>
 						<%
 						}
@@ -239,12 +246,18 @@
 
 				</div>
 				<br> <br>
+				
+				
 
 				<script>
 	
 				   // Retrieve the user's email from the session
 			    var userEmail = '<%=(String) session.getAttribute("email")%>';
+
+			    var tableNumber = '<%=(String) session.getAttribute("tableNumber")%>';
+
 			    
+
 
 			    // Check if the user is logged in and their email is available
 			    if (userEmail && userEmail.trim() !== '') {
@@ -277,9 +290,11 @@
         function checkout() {
             // Create an array to store the order details
             var orderDetails = [];
-            
-         // Gather additional information
-           var tableNumber = document.getElementById("tableNumberPlaceholder").textContent; // Table Number
+            var order_items = [];
+            var tableNumber = document.getElementById("tableNumberPlaceholder").textContent; // Table Number
+            sessionStorage.setItem('tableNumber', tableNumber);
+
+            // Gather additional information
             var currentDateAndTime = new Date().toISOString(); // Current date and time in ISO 8601 format
             var customerEmail = '<%=(String) session.getAttribute("userEmailPlaceholder")%>'; // Customer's email (assuming it's retrieved from the session)
 
@@ -288,15 +303,21 @@
                 var currentQuantity<%=menu.getId()%> = parseInt(quantityField<%=menu.getId()%>.value);
                 if (currentQuantity<%=menu.getId()%> > 0) {
                     // Add menu item details to the order
+                    var imageURL<%=menu.getId()%> = '<%=menu.getImageURL()%>';
                     orderDetails.push({
                         id: <%=menu.getId()%>,
                         name: "<%=menu.getMenu()%>",
                         price: <%=menu.getPrice()%>,
-                        quantity: currentQuantity<%=menu.getId()%>
+                        quantity: currentQuantity<%=menu.getId()%>,
+                        imageURL: imageURL<%=menu.getId()%> // Include imageURL in the order details
                     });
+                    // Push the menu ID into the order_items array for each selected item
+                    for (var i = 0; i < currentQuantity<%=menu.getId()%>; i++) {
+                        order_items.push(<%=menu.getId()%>);
+                    }
                 }
             <%}%>
-            
+
             // Include additional information in the order details
             orderDetails.push({
                 table_number: tableNumber,
@@ -306,10 +327,16 @@
 
             // Store the orderDetails array in a session variable
             sessionStorage.setItem('orderDetails', JSON.stringify(orderDetails));
+            // Store the order_items array in a session variable
+            sessionStorage.setItem('order_items', JSON.stringify(order_items));
+            // Store the table number in a session variable
+            sessionStorage.setItem('tableNumber', tableNumber);
 
             // Redirect the user to checkout.jsp
-            window.location.href = "jsp/Checkout.jsp";
+            window.location.href = "Checkout?tableNumber="+tableNumber;
         }
+
+	
 
 
         function updateTotalPrice(menuId) {
