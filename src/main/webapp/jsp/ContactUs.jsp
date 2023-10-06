@@ -36,7 +36,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Restoran - Bootstrap Restaurant Template</title>
+<title>RF - Checkout</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="" name="keywords">
 <meta content="" name="description">
@@ -120,9 +120,10 @@
 		<div class="container">
 			<div class="text-center wow fadeInUp" data-wow-delay="0.1s">
 				<h5
-					class="section-title ff-secondary text-center text-primary fw-normal">Contact
-					Us</h5>
-				<h1 class="mb-5">Contact For Any Query</h1>
+					class="section-title ff-secondary text-center text-primary fw-normal">CONTACT US FOR ANY QUERY</h5> 
+					<br>
+					<br>
+<!-- 				<h1 class="mb-5">Contact For Any Query</h1> -->
 			</div>
 			<div class="row g-4">
 				<div class="col-12">
@@ -131,21 +132,21 @@
 							<h5
 								class="section-title ff-secondary fw-normal text-start text-primary">Booking</h5>
 							<p>
-								<i class="fa fa-envelope-open text-primary me-2"></i>book@example.com
+								<i class="fa fa-envelope-open text-primary me-2"></i>royalfrontierbooking@gmail.com
 							</p>
 						</div>
 						<div class="col-md-4">
 							<h5
 								class="section-title ff-secondary fw-normal text-start text-primary">General</h5>
 							<p>
-								<i class="fa fa-envelope-open text-primary me-2"></i>info@example.com
+								<i class="fa fa-envelope-open text-primary me-2"></i>royalfrontierinfo@gmail.com
 							</p>
 						</div>
 						<div class="col-md-4">
 							<h5
 								class="section-title ff-secondary fw-normal text-start text-primary">Technical</h5>
 							<p>
-								<i class="fa fa-envelope-open text-primary me-2"></i>tech@example.com
+								<i class="fa fa-envelope-open text-primary me-2"></i>royalfrontiertech@gmail.com
 							</p>
 						</div>
 					</div>

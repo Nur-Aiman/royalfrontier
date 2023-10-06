@@ -12,7 +12,7 @@
 
 <head>
 <meta charset="utf-8">
-<title>Royal Frontier - Order Menu</title>
+<title>RF - Order Menu</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="" name="keywords">
 <meta content="" name="description">
@@ -116,7 +116,8 @@
 				<h5
 					class="section-title ff-secondary text-center text-primary fw-normal"
 					id="foodmenu">Food Menu</h5>
-				<h1 class="mb-5">Most Popular Items</h1>
+
+
 			</div>
 			<div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
 				<ul
@@ -166,8 +167,10 @@
 					<button class="cart-button" onclick="checkout()">Checkout</button>
 
 				</div>
+
 				<br>
 				<br>
+
 
 				<div class="menu-container">
 					<h1>Our Menu</h1>
@@ -203,12 +206,18 @@
 								onclick="openModal('<%=menu.getImageURL()%>')">
 							<h2><%=menu.getMenu()%></h2>
 							<p>
-								Price: RM
+								<!-- Price:  -->
+								RM
 								<%=String.format("%.2f", menu.getPrice())%>
 							</p>
 							<p>
-								Availability:
+								<!-- 								Availability: -->
 								<%=menu.getAvailability()%>
+							</p>
+
+							<p>
+								<!-- 								Description: -->
+								<%=menu.getDescription()%>
 							</p>
 							<!-- Quantity Field with Add and Remove Buttons -->
 							<div class="quantity-field">
@@ -244,7 +253,9 @@
 	
 				   // Retrieve the user's email from the session
 			    var userEmail = '<%=(String) session.getAttribute("email")%>';
+
 			    var tableNumber = '<%=(String) session.getAttribute("tableNumber")%>';
+
 			    
 
 
@@ -285,7 +296,7 @@
 
             // Gather additional information
             var currentDateAndTime = new Date().toISOString(); // Current date and time in ISO 8601 format
-            var customerEmail = '<%= (String) session.getAttribute("userEmailPlaceholder") %>'; // Customer's email (assuming it's retrieved from the session)
+            var customerEmail = '<%=(String) session.getAttribute("userEmailPlaceholder")%>'; // Customer's email (assuming it's retrieved from the session)
 
             <%for (Menu menu : menus) {%>
                 var quantityField<%=menu.getId()%> = document.getElementById("quantity<%=menu.getId()%>");
@@ -473,9 +484,9 @@
 					<div class="col-lg-3 col-md-6">
 						<h4
 							class="section-title ff-secondary text-start text-primary fw-normal mb-4">Company</h4>
-						<a class="btn btn-link" href="">About Us</a> <a
-							class="btn btn-link" href="">Contact Us</a> <a
-							class="btn btn-link" href="">Reservation</a> <a
+						<a class="btn btn-link" href="Index.jsp">About Us</a> <a
+							class="btn btn-link" href="ContactUs">Contact Us</a> <a
+							class="btn btn-link" href="Reservation.jsp">Reservation</a> <a
 							class="btn btn-link" href="">Privacy Policy</a> <a
 							class="btn btn-link" href="">Terms & Condition</a>
 					</div>
@@ -540,6 +551,7 @@
 							<div class="footer-menu">
 								<a href="">Home</a> <a href="">Cookies</a> <a href="">Help</a> <a
 									href="">FQAs</a>
+									
 							</div>
 						</div>
 					</div>

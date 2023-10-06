@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Order and Menu Details</title>
+    <title>RF - Order & Menu Details</title>
     
     <style>
         body {
