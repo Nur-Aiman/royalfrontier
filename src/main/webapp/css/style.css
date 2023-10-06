@@ -4,6 +4,99 @@
     --light: #F1F8FF;
     --dark: #0F172B;
 }
+body {
+    margin-top: 20px;
+    background-color: #f1f3f7;
+}
+
+.avatar-lg {
+    height: 5rem;
+    width: 5rem;
+}
+
+.font-size-18 {
+    font-size: 18px !important;
+}
+
+.text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.w-xl {
+    min-width: 160px;
+}
+
+.card {
+    margin-bottom: 24px;
+    -webkit-box-shadow: 0 2px 3px #e4e8f0;
+    box-shadow: 0 2px 3px #e4e8f0;
+}
+
+.card {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid #eff0f2;
+    border-radius: 1rem;
+}
+
+/* Add your custom styles here */
+
+/* Example custom styles for Checkout page */
+
+.container {
+    margin-top: 20px;
+}
+
+.card-body {
+    padding: 1.25rem 1.5rem;
+}
+
+.card-header {
+    background-color: transparent;
+    border-bottom: 1px solid #eff0f2;
+    padding: 0.75rem 1.5rem;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.table td, .table th {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #eff0f2;
+}
+
+.table th {
+    text-align: left;
+}
+
+.text-end {
+    text-align: right;
+}
+
+.bg-light {
+    background-color: #f8f9fa;
+}
+
+/* Add more custom styles as needed */
 
 .ff-secondary {
     font-family: 'Pacifico', cursive;
@@ -676,3 +769,53 @@ span {
     cursor: pointer;
 }
 
+/* Add your custom CSS styles here */
+
+.checkout-heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.order-summary {
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+}
+
+.total-price {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.payment-heading {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.payment-form {
+    margin-top: 10px;
+}
+
+.payment-option {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.submit-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.user-email,
+.table-number,
+.date-time {
+    font-size: 16px;
+    margin-top: 10px;
+}
