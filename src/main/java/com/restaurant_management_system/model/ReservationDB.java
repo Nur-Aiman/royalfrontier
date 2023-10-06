@@ -21,9 +21,9 @@ public class ReservationDB {
 
             pst.setString(1, reservation.getName());
             pst.setString(2, reservation.getEmail());
-            pst.setString(3, reservation.getPhoneNumber());  // Add the phone number
+            pst.setString(3, reservation.getPhoneNumber());  
             pst.setTimestamp(4, reservation.getDateAndTime());
-            pst.setInt(5, reservation.getTableNumber());      // Add the table number
+            pst.setInt(5, reservation.getTableNumber());      
             pst.setString(6, reservation.getSpecialRequest());
             int result = pst.executeUpdate();
             if (result > 0) {
