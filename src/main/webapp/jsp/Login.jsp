@@ -24,7 +24,9 @@
 </head>
 
 
+
 <body>
+
 
 	<a  href="../index.jsp" class="logo" target="_blank"> <img style="width: 20%; height: 20%;"
 		src="https://i.imgur.com/jLxNPym.png" alt="">
