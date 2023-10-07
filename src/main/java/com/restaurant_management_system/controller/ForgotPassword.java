@@ -20,7 +20,7 @@ public class ForgotPassword extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) 
         throws ServletException, IOException {
-        request.getRequestDispatcher("ForgotPassword.jsp").forward(request, response);
+        request.getRequestDispatcher("jsp/ResetPassword.jsp").forward(request, response);
     }
 
     @Override
@@ -42,18 +42,18 @@ public class ForgotPassword extends HttpServlet {
         UserDB userDB = new UserDB();
         boolean isPasswordUpdated = userDB.updatePasswordByPhone(phone, newPassword);
 
-        response.setContentType("text/plain");
-        PrintWriter out = response.getWriter();
-
+        // Instead of writing a response, set an attribute and redirect
         if (isPasswordUpdated) {
-            out.write("Password reset successfully. Please check your phone for the new password.");
+            request.getSession().setAttribute("passwordResetStatus", 
+                "Password reset successfully. Please check your phone for the new password.");
         } else {
-            out.write("Error occurred during password reset. Please try again.");
+            request.getSession().setAttribute("passwordResetStatus", 
+                "Error occurred during password reset. Please try again.");
         }
-
-        out.flush();
-        out.close();
+        
+        response.sendRedirect("jsp/ResetPassword.jsp");
     }
+
 
     private String generateRandomPassword() {
         int length = 8;

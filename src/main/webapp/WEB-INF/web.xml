@@ -106,6 +106,12 @@
   	<description></description>
   	<servlet-class>com.restaurant_management_system.controller.ResetPassword</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ViewReservation</servlet-name>
+  	<display-name>ViewReservation</display-name>
+  	<description></description>
+  	<servlet-class>com.restaurant_management_system.controller.ViewReservation</servlet-class>
+  </servlet>
  
   <servlet-mapping>
   	<servlet-name>Register</servlet-name>
@@ -174,6 +180,10 @@
   <servlet-mapping>
   	<servlet-name>ResetPassword</servlet-name>
   	<url-pattern>/ResetPassword</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ViewReservation</servlet-name>
+  	<url-pattern>/ViewReservation</url-pattern>
   </servlet-mapping>
   
 </web-app>

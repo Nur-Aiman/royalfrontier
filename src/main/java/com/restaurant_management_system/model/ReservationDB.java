@@ -3,7 +3,10 @@ package com.restaurant_management_system.model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.restaurant_management_system.beans.Reservation;
 
@@ -39,6 +42,38 @@ public class ReservationDB {
         }
         return status;
     }
+    
+
+
+ // Inside ReservationDB class
+
+    public List<Reservation> getAllReservations() {
+        myDatabase db = new myDatabase();
+        Connection con = db.getCon();
+        List<Reservation> reservations = new ArrayList<>();
+        try {
+            String query = "SELECT * FROM reservation";
+            PreparedStatement pst = con.prepareStatement(query);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                Reservation reservation = new Reservation();
+                reservation.setName(rs.getString("name"));
+                reservation.setEmail(rs.getString("email"));
+                reservation.setPhoneNumber(rs.getString("phone_number"));
+                reservation.setDateAndTime(rs.getTimestamp("date_and_time"));
+                reservation.setTableNumber(rs.getInt("table_number"));
+                reservation.setSpecialRequest(rs.getString("special_request"));
+                reservations.add(reservation);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            db.closeConnection(con);
+        }
+        return reservations;
+    }
+
+
 }
 
 
