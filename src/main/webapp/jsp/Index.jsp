@@ -56,19 +56,19 @@
 					data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
 					<span class="fa fa-bars"></span>
 				</button>
-				
+
+
+
 				<div class="collapse navbar-collapse" id="navbarCollapse">
-				
 					<div class="navbar-nav ms-auto py-0 pe-4">
-					
-						<a href="Index.jsp" class="nav-item nav-link active">Home</a> <a
-							href="HomeMenu.jsp" class="nav-item nav-link">Menu</a>
+						<a href="Index.jsp" class="nav-item active nav-link" style="font-weight: bold;">Home</a>
 						<div class="nav-item dropdown"></div>
-						<a href="ContactUs.jsp" class="nav-item nav-link">Contact</a>
+						<a href="ContactUs.jsp" class="nav-item nav-link" style="font-weight: bold;">Contact</a>
 					</div>
-					<a href="Reservation.jsp" class="btn btn-primary py-2 px-4">Reserve
-						A Table</a>
+					<a href="HomeMenu.jsp" class="btn btn-primary py-2 px-4" style="font-weight: bold;"
+						style="color: black;">Menu </a>
 				</div>
+
 			</nav>
 
 
@@ -78,18 +78,23 @@
 					<div class="row align-items-center g-5">
 						<div class="col-lg-6 text-center text-lg-start">
 							<h1 class="display-3 text-white animated slideInLeft">
-								Welcome to <br> Royal Frontier</h1>
+								Welcome to <br> Royal Frontier
+							</h1>
 							<p class="text-white animated mb-4 pb-2">Experience the
-								epitome of elegance and indulge in the finest cuisine at our
-								Royal Frontier Restaurant.</p>
-								<p class="text-white animated mb-4 pb-2">Join us and be a part of a culinary
-								journey that transcends ordinary dining.</p>
+								pinnacle of elegance and savor the finest Western cuisine at our
+								Royal Frontier Restaurant. Join us and embark on a culinary
+								journey that transcends breakfast, lunch, and dinner
+								experiences.</p>
+							<p class="text-white animated mb-4 pb-2">Can walk in or please make
+								a reservation for a table.<br>You can only order a menu
+								once you are at the restaurant. Thank you >_<</p>
+								
 
 						</div>
 						<div class="col-lg-6 text-center text-lg-end overflow-hidden">
 							<img class="img-fluid" src="../img/hero.png" alt="">
 						</div>
-						<br> <a href="Reservation.jsp" style="color: black;"
+						<br> <a href="Reservation.jsp"  style="color: black;"
 							class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">
 							I would like to make a reservation for a table</a>
 
@@ -102,7 +107,7 @@
 
 
 	<!-- About Start -->
-	<div class="container-xxl py-5">
+	<div class="container-xxl py-0">
 		<div class="container">
 			<div class="row g-5 align-items-center">
 				<!-- 					<div class="col-lg-6"> -->

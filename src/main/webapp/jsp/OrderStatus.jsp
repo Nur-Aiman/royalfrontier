@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>RF - Order & Menu Details</title>
+<title>Chef Order</title>
 <style>
 body {
 	font-family: Arial, sans-serif;
