@@ -31,7 +31,8 @@
                     </div>
                     <div class="card-body">
                         <p class="text-center">Enter your registered phone number to reset your password.</p>
-                        <form action="/ForgotPassword" method="post">
+                        
+                        <form action="../ForgotPassword" method="post">
                             <div class="form-group">
                                 <label for="phone">Phone Number:</label>
                                 <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter Phone Number">
@@ -40,6 +41,7 @@
                                 <input type="submit" class="btn btn-primary" value="Reset Password">
                             </div>
                         </form>
+                        
                     </div>
                 </div>
             </div>
