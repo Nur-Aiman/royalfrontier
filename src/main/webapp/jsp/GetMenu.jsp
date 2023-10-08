@@ -1,15 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <%@ page import="com.restaurant_management_system.model.MenuDB"%>
 <%@ page import="com.restaurant_management_system.beans.Menu"%>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
-
-
 <head>
 <meta charset="utf-8">
 <title>RF - Order Menu</title>
@@ -41,21 +35,17 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <!-- Template Stylesheet -->
 <link href="css/style.css" rel="stylesheet">
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Menu</title>
 <!-- Include your CSS stylesheets for a fancy and elegant design -->
 <link rel="stylesheet" href="css/style.css">
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Menu</title>
 <!-- Include your CSS stylesheets for a fancy and elegant design -->
 <link rel="stylesheet" href="css/style.css">
-
 </head>
-
 <body>
 	<!-- Navbar & Hero Start -->
 	<div class="container-xxl position-relative p-0">
@@ -81,14 +71,10 @@
 								href="testimonial.html" class="dropdown-item">Desserts</a>
 						</div>
 					</div>
-
 					<a href="ContactUs.jsp" class="nav-item nav-link">Contact Us</a> <a
 						href="Login.jsp" class="nav-item nav-link">Logout</a>
-
 				</div>
 		</nav>
-
-
 		<div class="container-xxl py-5 bg-dark hero-header mb-5">
 			<div class="container text-center my-5 pt-5 pb-4">
 				<h1 class="display-3 text-white mb-3 animated slideInDown">Food
@@ -105,10 +91,6 @@
 		</div>
 	</div>
 	<!-- Navbar & Hero End -->
-
-
-
-
 	<!-- Menu Start -->
 	<div class="container-xxl py-5">
 		<div class="container">
@@ -146,9 +128,7 @@
 								<small class="text-body">Lovely</small>
 								<h6 class="mt-n1 mb-0">Desserts</h6>
 							</div>
-
 					</a></li>
-
 				</ul>
 				<!-- Add this within the HTML body where you want to display the user's email -->
 				<div class="user-email">
@@ -158,18 +138,14 @@
 				<div class="table-number">
 					Table Number: <span id="tableNumberPlaceholder"></span>
 				</div>
-
-
 				<div class="total-quantity">
 					Total Quantity: <span id="totalQuantity">0</span>
 					<button class="cart-button" onclick="checkout()">Checkout</button>
-
 				</div>
-				<br> <br>
-
+				<br>
+				<br>
 				<div class="menu-container">
 					<h1>Our Menu</h1>
-
 					<!-- Search and Sort Section -->
 					<div class="search-sort">
 						<input type="text" id="searchInput"
@@ -181,7 +157,6 @@
 							<option value="availability">Availability</option>
 						</select>
 					</div>
-
 					<div class="menu-boxes">
 						<!-- Your menu items here -->
 					</div>
@@ -192,7 +167,6 @@
 						MenuDB menuDB = new MenuDB();
 						List<Menu> menus = menuDB.getAllMenus();
 						%>
-
 						<%
 						for (Menu menu : menus) {
 						%>
@@ -201,7 +175,7 @@
 								onclick="openModal('<%=menu.getImageURL()%>')">
 							<h2><%=menu.getMenu()%></h2>
 							<p>
-								<!-- Price:  -->
+								<!-- Price: -->
 								RM
 								<%=String.format("%.2f", menu.getPrice())%>
 							</p>
@@ -209,7 +183,6 @@
 								<!-- 								Availability: -->
 								<%=menu.getAvailability()%>
 							</p>
-
 							<p>
 								<!-- 								Description: -->
 								<%=menu.getDescription()%>
@@ -230,207 +203,183 @@
 									id="totalPrice<%=menu.getId()%>">0.00</span>
 							</p>
 							<input type="hidden" id="menuPrice<%=menu.getId()%>"
-								value="<%=menu.getPrice()%>">
+								value="<%=menu.getPrice()%>"> <input type="hidden"
+								name="imageURL" id="imageURL" value="">
 						</div>
 						<%
 						}
 						%>
 					</div>
-
 				</div>
 				<br> <br>
-
+				
+				
 				<script>
 	
-				   // Retrieve the user's email from the session
-			    var userEmail = '<%=(String) session.getAttribute("email")%>';
-			    
-
-			    // Check if the user is logged in and their email is available
-			    if (userEmail && userEmail.trim() !== '') {
-			        document.getElementById("userEmailPlaceholder").textContent = userEmail;
-			    }
-
-
-    
-        var totalQuantity = 0;
-
-        function incrementQuantity(menuId) {
-            var quantityField = document.getElementById("quantity" + menuId);
-            var currentQuantity = parseInt(quantityField.value);
-            if (currentQuantity >= 0) {
-                quantityField.value = currentQuantity + 1;
-                updateTotalPrice(menuId);
-                updateCart();
-            }
-        }
-
-        function decrementQuantity(menuId) {
-            var quantityField = document.getElementById("quantity" + menuId);
-            var currentQuantity = parseInt(quantityField.value);
-            if (currentQuantity > 0) {
-                quantityField.value = currentQuantity - 1;
-                updateTotalPrice(menuId);
-                updateCart();
-            }
-        }
-        function checkout() {
-            // Create an array to store the order details
-            var orderDetails = [];
-            
-         // Gather additional information
-           var tableNumber = document.getElementById("tableNumberPlaceholder").textContent; // Table Number
-            var currentDateAndTime = new Date().toISOString(); // Current date and time in ISO 8601 format
-            var customerEmail = '<%=(String) session.getAttribute("userEmailPlaceholder")%>'; // Customer's email (assuming it's retrieved from the session)
-
-            <%for (Menu menu : menus) {%>
-                var quantityField<%=menu.getId()%> = document.getElementById("quantity<%=menu.getId()%>");
-                var currentQuantity<%=menu.getId()%> = parseInt(quantityField<%=menu.getId()%>.value);
-                if (currentQuantity<%=menu.getId()%> > 0) {
-                    // Add menu item details to the order
-                    orderDetails.push({
-                        id: <%=menu.getId()%>,
-                        name: "<%=menu.getMenu()%>",
-                        price: <%=menu.getPrice()%>,
-                        quantity: currentQuantity<%=menu.getId()%>
-                    });
-                }
-            <%}%>
-            
-            // Include additional information in the order details
-            orderDetails.push({
-                table_number: tableNumber,
-                date_and_time: currentDateAndTime, // Include the current date and time
-                customer_email: customerEmail
-            });
-
-            // Store the orderDetails array in a session variable
-            sessionStorage.setItem('orderDetails', JSON.stringify(orderDetails));
-
-            // Redirect the user to checkout.jsp
-            window.location.href = "jsp/Checkout.jsp";
-        }
-
-
-        function updateTotalPrice(menuId) {
-            var quantityField = document.getElementById("quantity" + menuId);
-            var priceField = document.getElementById("menuPrice" + menuId);
-            var totalPriceSpan = document.getElementById("totalPrice" + menuId);
-
-            var quantity = parseInt(quantityField.value);
-            var price = parseFloat(priceField.value);
-
-            var totalPrice = quantity * price;
-            totalPriceSpan.innerText = totalPrice.toFixed(2);
-        }
-
-        function updateCart() {
-            totalQuantity = 0;
-            <%for (Menu menu : menus) {%>
-                var quantityField<%=menu.getId()%> = document.getElementById("quantity<%=menu.getId()%>");
-                var currentQuantity<%=menu.getId()%> = parseInt(quantityField<%=menu.getId()%>.value);
-                totalQuantity += currentQuantity<%=menu.getId()%>;
-            <%}%>
-            document.getElementById("totalQuantity").innerText = totalQuantity;
-        }
-
-        function goToCheckout() {
-            // Check if there are items in the cart
-            if (totalQuantity > 0) {
-                // Gather additional user information (e.g., name, address, payment details)
-                var userName = document.getElementById("userName").value;
-                var userAddress = document.getElementById("userAddress").value;
-                var paymentMethod = document.getElementById("paymentMethod").value;
-
-                // Create an object with the data to send to the server
-                var requestData = {
-                    order_items: selectedMenuItems, // An array of selected menu items
-                    table_number: userAddress,      // The user's table number
-                    date_and_time: new Date().toISOString(), // Current date and time
-                    customer_email: userName,      // The user's email
-                    payment_mode: paymentMethod,   // The payment mode
-                    payment_status: "pending"     // Default payment status
-                };
-
-                // Send the data to the AddOrder servlet using AJAX
-                $.ajax({
-                    type: "POST",
-                    url: "../AddOrder", // Replace with the actual URL of your servlet
-                    data: JSON.stringify(requestData),
-                    contentType: "application/json",
-                    success: function(response) {
-                        // Handle the server response (e.g., show a confirmation message)
-                        alert('Order placed successfully!');
-                        
-                        // Clear the cart
-                        clearCart();
-                    },
-                    error: function(error) {
-                        // Handle errors (e.g., show an error message)
-                        console.error('Error:', error);
-                    }
-                });
-            } else {
-                alert('Your cart is empty. Please add items before checking out.');
-            }
-        }
-
-        
-     // Open the modal with the clicked image
-        function openModal(imgSrc) {
-            var modal = document.getElementById("myModal");
-            var modalImg = document.getElementById("modalImg");
-            modal.style.display = "block";
-            modalImg.src = imgSrc;
-        }
-
-        // Close the modal
-        function closeModal() {
-            var modal = document.getElementById("myModal");
-            modal.style.display = "none";
-        }
-        
-     // Retrieve the user's email from the session
-        var userEmail = '<%=(String) session.getAttribute("email")%>';
-
-        // Check if the user is logged in and their email is available
-        if (userEmail && userEmail.trim() !== '') {
-            document.getElementById("userEmailPlaceholder").textContent = userEmail;
-        }
-
-        // Retrieve the table number from local storage
-        var tableNumber = localStorage.getItem('tableNumber');
-
-        // Check if the table number is available
-        if (tableNumber) {
-            // Display the table number in the designated element
-            document.getElementById("tableNumberPlaceholder").textContent = tableNumber;
-        } else {
-            // Handle the case when the table number is not available
-            console.log('Table Number not found in local storage');
-        }
-
-
-
-        // Initialize the total quantity on page load
-        window.onload = function() {
-            updateCart();
-        };
-    </script>
-
-
-
-
-
-
+				 // Retrieve the user's email from the session
+			 var userEmail = '<%=(String) session.getAttribute("email")%>';
+			 var tableNumber = '<%=(String) session.getAttribute("tableNumber")%>';
+			
+			 // Check if the user is logged in and their email is available
+			 if (userEmail && userEmail.trim() !== '') {
+			 document.getElementById("userEmailPlaceholder").textContent = userEmail;
+			 }
+var totalQuantity = 0;
+function incrementQuantity(menuId) {
+var quantityField = document.getElementById("quantity" + menuId);
+var currentQuantity = parseInt(quantityField.value);
+if (currentQuantity >= 0) {
+quantityField.value = currentQuantity + 1;
+updateTotalPrice(menuId);
+updateCart();
+}
+}
+function decrementQuantity(menuId) {
+var quantityField = document.getElementById("quantity" + menuId);
+var currentQuantity = parseInt(quantityField.value);
+if (currentQuantity > 0) {
+quantityField.value = currentQuantity - 1;
+updateTotalPrice(menuId);
+updateCart();
+}
+}
+function checkout() {
+// Create an array to store the order details
+var orderDetails = [];
+var order_items = [];
+var tableNumber = document.getElementById("tableNumberPlaceholder").textContent; // Table Number
+sessionStorage.setItem('tableNumber', tableNumber);
+// Gather additional information
+var currentDateAndTime = new Date().toISOString(); // Current date and time in ISO 8601 format
+var customerEmail = '<%=(String) session.getAttribute("userEmailPlaceholder")%>'; // Customer's email (assuming it's retrieved from the session)
+<%for (Menu menu : menus) {%>
+var quantityField<%=menu.getId()%> = document.getElementById("quantity<%=menu.getId()%>");
+var currentQuantity<%=menu.getId()%> = parseInt(quantityField<%=menu.getId()%>.value);
+if (currentQuantity<%=menu.getId()%> > 0) {
+// Add menu item details to the order
+var imageURL<%=menu.getId()%> = '<%=menu.getImageURL()%>';
+orderDetails.push({
+id: <%=menu.getId()%>,
+name: "<%=menu.getMenu()%>",
+price: <%=menu.getPrice()%>,
+quantity: currentQuantity<%=menu.getId()%>,
+imageURL: imageURL<%=menu.getId()%> // Include imageURL in the order details
+});
+// Push the menu ID into the order_items array for each selected item
+for (var i = 0; i < currentQuantity<%=menu.getId()%>; i++) {
+order_items.push(<%=menu.getId()%>);
+}
+}
+<%}%>
+// Include additional information in the order details
+orderDetails.push({
+table_number: tableNumber,
+date_and_time: currentDateAndTime, // Include the current date and time
+customer_email: customerEmail
+});
+// Store the orderDetails array in a session variable
+sessionStorage.setItem('orderDetails', JSON.stringify(orderDetails));
+// Store the order_items array in a session variable
+sessionStorage.setItem('order_items', JSON.stringify(order_items));
+// Store the table number in a session variable
+sessionStorage.setItem('tableNumber', tableNumber);
+// Redirect the user to checkout.jsp
+window.location.href = "Checkout?tableNumber="+tableNumber;
+}
+	
+function updateTotalPrice(menuId) {
+var quantityField = document.getElementById("quantity" + menuId);
+var priceField = document.getElementById("menuPrice" + menuId);
+var totalPriceSpan = document.getElementById("totalPrice" + menuId);
+var quantity = parseInt(quantityField.value);
+var price = parseFloat(priceField.value);
+var totalPrice = quantity * price;
+totalPriceSpan.innerText = totalPrice.toFixed(2);
+}
+function updateCart() {
+totalQuantity = 0;
+<%for (Menu menu : menus) {%>
+var quantityField<%=menu.getId()%> = document.getElementById("quantity<%=menu.getId()%>");
+var currentQuantity<%=menu.getId()%> = parseInt(quantityField<%=menu.getId()%>.value);
+totalQuantity += currentQuantity<%=menu.getId()%>;
+<%}%>
+document.getElementById("totalQuantity").innerText = totalQuantity;
+}
+function goToCheckout() {
+// Check if there are items in the cart
+if (totalQuantity > 0) {
+// Gather additional user information (e.g., name, address, payment details)
+var userName = document.getElementById("userName").value;
+var userAddress = document.getElementById("userAddress").value;
+var paymentMethod = document.getElementById("paymentMethod").value;
+// Create an object with the data to send to the server
+var requestData = {
+order_items: selectedMenuItems, // An array of selected menu items
+table_number: userAddress, // The user's table number
+date_and_time: new Date().toISOString(), // Current date and time
+customer_email: userName, // The user's email
+payment_mode: paymentMethod, // The payment mode
+payment_status: "pending" // Default payment status
+};
+// Send the data to the AddOrder servlet using AJAX
+$.ajax({
+type: "POST",
+url: "../AddOrder", // Replace with the actual URL of your servlet
+data: JSON.stringify(requestData),
+contentType: "application/json",
+success: function(response) {
+// Handle the server response (e.g., show a confirmation message)
+alert('Order placed successfully!');
+// Clear the cart
+clearCart();
+},
+error: function(error) {
+// Handle errors (e.g., show an error message)
+console.error('Error:', error);
+}
+});
+} else {
+alert('Your cart is empty. Please add items before checking out.');
+}
+}
+// Open the modal with the clicked image
+function openModal(imgSrc) {
+var modal = document.getElementById("myModal");
+var modalImg = document.getElementById("modalImg");
+modal.style.display = "block";
+modalImg.src = imgSrc;
+}
+// Close the modal
+function closeModal() {
+var modal = document.getElementById("myModal");
+modal.style.display = "none";
+}
+// Retrieve the user's email from the session
+var userEmail = '<%=(String) session.getAttribute("email")%>';
+// Check if the user is logged in and their email is available
+if (userEmail && userEmail.trim() !== '') {
+document.getElementById("userEmailPlaceholder").textContent = userEmail;
+}
+// Retrieve the table number from local storage
+var tableNumber = localStorage.getItem('tableNumber');
+// Check if the table number is available
+if (tableNumber) {
+// Display the table number in the designated element
+document.getElementById("tableNumberPlaceholder").textContent = tableNumber;
+} else {
+// Handle the case when the table number is not available
+console.log('Table Number not found in local storage');
+}
+// Initialize the total quantity on page load
+window.onload = function() {
+updateCart();
+};
+</script>
 				<!-- Back to Top -->
 				<a href="#foodmenu"
 					class="btn btn-lg btn-primary btn-lg-square back-to-top"><i
 					class="bi bi-arrow-up"></i></a>
 			</div>
-
-
-
 			<!-- JavaScript Libraries -->
 			<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 			<script
@@ -443,8 +392,6 @@
 			<script src="lib/tempusdominus/js/moment.min.js"></script>
 			<script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
 			<script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
-
 			<!-- Template Javascript -->
 			<script src="js/main.js"></script>
 		</div>
@@ -507,6 +454,7 @@
 						<!-- 							</div> -->
 					</div>
 				</div>
+
 				<div class="container">
 					<div class="copyright">
 						<div class="row">
@@ -519,6 +467,7 @@
 								<br>
 								<!-- 									Distributed By <a class="border-bottom" -->
 								<!-- 										href="https://themewagon.com" target="_blank">ThemeWagon</a> -->
+
 							</div>
 							<!-- 								<div class="col-md-6 text-center text-md-end"> -->
 							<!-- 									<div class="footer-menu"> -->
@@ -530,8 +479,9 @@
 					</div>
 				</div>
 			</div>
-			<!-- Footer End -->
 
+		</div>
+		<!-- Footer End -->
 
 		<!-- The Modal -->
 		<div id="myModal" class="modal">
@@ -539,6 +489,7 @@
 				class="modal-content" id="modalImg">
 		</div>
 </body>
-
-
 </html>
+
+
+

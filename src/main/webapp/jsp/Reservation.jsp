@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>RF - Table Reservation</title>
+<title>Restoran - Bootstrap Restaurant Template</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="" name="keywords">
 <meta content="" name="description">
@@ -53,6 +53,32 @@
 
 .tooltip-container:hover .tooltip {
 	display: block;
+}
+
+#tableCheckboxes td {
+	padding: 10px;
+	text-align: center;
+}
+
+#tableCheckboxes label {
+	font-size: 1rem;
+	margin-left: 5px;
+	vertical-align: middle; /* Aligns the text with the checkbox */
+}
+
+#tableCheckboxes input[type="checkbox"]:hover {
+	cursor: pointer;
+}
+
+#tableCheckboxes input[type="checkbox"]:checked+label {
+	background-color: #555; /* A darker shade when checked */
+	border-radius: 4px;
+	padding: 2px 4px;
+}
+
+#tableCheckboxes tr:nth-child(odd) {
+	background-color: rgba(255, 255, 255, 0.1);
+	/* slightly light background for every alternate row for better visualization */
 }
 </style>
 <body>
@@ -150,32 +176,33 @@
 											for="phoneNumber">Your Phone Number</label>
 									</div>
 								</div>
-								
-								<div class="col-md-6">
-    <div class="form-floating date" id="reservationDate" data-target-input="nearest">
-        <input type="date" name="reservationDate" class="form-control" id="date" placeholder="Date" data-target="#reservationDate" min="" />
-        <label for="date">Date</label>
-    </div>
-</div>
 
-<div class="col-md-6">
-    <div class="form-floating">
-        <select name="reservationTime" class="form-control" id="time">
-            <option value="08:00:00">08:00</option>
-            <option value="10:00:00">10:00</option>
-            <option value="12:00:00">12:00</option>
-            <option value="14:00:00">14:00</option>
-            <option value="16:00:00">16:00</option>
-            <option value="18:00:00">18:00</option>
-            <option value="20:00:00">20:00</option>
-            <option value="22:00:00">22:00</option>
-        </select>
-        <label for="time">Time</label>
-    </div>
-</div>
-
-								
 								<div class="col-md-6">
+									<div class="form-floating date" id="reservationDate"
+										data-target-input="nearest">
+										<input type="date" name="reservationDate" class="form-control"
+											id="date" placeholder="Date" data-target="#reservationDate"
+											min="" /> <label for="date">Date</label>
+									</div>
+								</div>
+
+								<div class="col-md-6">
+									<div class="form-floating">
+										<select name="reservationTime" class="form-control" id="time">
+											<option value="08:00:00">08:00</option>
+											<option value="10:00:00">10:00</option>
+											<option value="12:00:00">12:00</option>
+											<option value="14:00:00">14:00</option>
+											<option value="16:00:00">16:00</option>
+											<option value="18:00:00">18:00</option>
+											<option value="20:00:00">20:00</option>
+											<option value="22:00:00">22:00</option>
+										</select> <label for="time">Time</label>
+									</div>
+								</div>
+
+
+								<!--  	<div class="col-md-6">
 									<div class="form-floating">
 										<select name="tableNumber" class="form-control"
 											id="tableNumber">
@@ -184,10 +211,36 @@
 											<option value="3">Table 3</option>
 											<option value="4">Table 4</option>
 											<option value="5">Table 5</option>
-											<!-- Add more options as per your restaurant's tables -->
+											Add more options as per your restaurant's tables 
 										</select> <label for="tableNumber">Table Number</label>
 									</div>
 								</div>
+							-->
+
+								<div class="col-md-8 p-0">
+									<div class="form-group">
+										<label for="tableNumber" class="text-white">Available
+											Tables:</label>
+										<table id="tableCheckboxes">
+											<tbody>
+												<!-- Rows with checkboxes for available tables will be dynamically inserted here -->
+											</tbody>
+										</table>
+										<label for="tableNumber" class="text-white">Table
+											Layout:</label>
+										<!-- Image above the table checkboxes -->
+										<div class="mb-3">
+											<img src="../images/Table Layout.jpg" alt="Table Layout"
+												style="width: 100%; width: 600px;">
+										</div>
+
+									</div>
+								</div>
+
+
+
+
+
 
 								<div class="col-12">
 									<div class="form-floating">
@@ -343,7 +396,7 @@
 
 		}
 	</script>
-	
+
 	<script>
 	document.addEventListener("DOMContentLoaded", function(event) { 
 	    var today = new Date();
@@ -355,6 +408,140 @@
 	});
 
 	</script>
+
+	<script>
+    document.getElementById("date").addEventListener("change", function() {
+        fetchAvailableTimesAndTables();
+    });
+
+    document.getElementById("time").addEventListener("change", function() {
+        fetchAvailableTables();
+    });
+
+    function fetchAvailableTimesAndTables() {
+        const selectedDate = document.getElementById("date").value;
+
+        fetch(`../GetAvailableTime?date=${selectedDate}`)
+            .then(response => response.json())
+            .then(data => {
+                const availableTimes = data.availableTime.split(",");
+                const timeElement = document.getElementById("time");
+                timeElement.innerHTML = ""; 
+
+                availableTimes.forEach(time => {
+                    const option = document.createElement("option");
+                    option.value = time + ":00";
+                    option.innerText = time + ":00";
+                    timeElement.appendChild(option);
+                });
+
+                fetchAvailableTables();
+            });
+    }
+
+    function fetchAvailableTables() {
+        const selectedDate = document.getElementById("date").value;
+        const selectedTime = document.getElementById("time").value;
+
+        fetch(`../GetAvailableTable?date=${selectedDate}&time=${selectedTime}`)
+            .then(response => response.json())
+            .then(tableNumbers => {
+                const tableCheckboxContainer = document.getElementById("tableCheckboxes").querySelector("tbody");
+                tableCheckboxContainer.innerHTML = "";
+
+                if (!tableNumbers.length) {
+                    let row = document.createElement("tr");
+                    let cell = document.createElement("td");
+                    cell.setAttribute("colspan", "8");
+                    cell.innerText = "No tables available for the selected time.";
+                    row.appendChild(cell);
+                    tableCheckboxContainer.appendChild(row);
+                    return;
+                }
+
+                let currentRow = document.createElement("tr");
+
+                tableNumbers.forEach((tableId, index) => {
+                    if (index % 8 === 0 && index !== 0) {
+                        tableCheckboxContainer.appendChild(currentRow);
+                        currentRow = document.createElement("tr");
+                    }
+
+                    const cell = document.createElement("td");
+                    const checkbox = document.createElement("input");
+                    checkbox.type = "checkbox";
+                    checkbox.name = "tableNumber";
+                    checkbox.value = tableId;
+                    checkbox.id = "table" + tableId;
+
+                    const label = document.createElement("label");
+                    label.htmlFor = "table" + tableId;
+                    label.innerText = "Table " + tableId + " ";
+                    label.style.color = "white";
+
+                    cell.appendChild(checkbox);
+                    cell.appendChild(label);
+                    currentRow.appendChild(cell);
+                });
+
+                if (currentRow.hasChildNodes()) {
+                    tableCheckboxContainer.appendChild(currentRow);
+                }
+            });
+    }
+
+    document.querySelector("form").addEventListener("submit", function(e) {
+        let selectedTables = document.querySelectorAll("input[name='tableNumber']:checked");
+        if (selectedTables.length === 0) {
+            alert("Please select at least one table for reservation.");
+            e.preventDefault(); // Prevent form submission
+        }
+    });
+
+
+
+
+
+    fetchAvailableTimesAndTables();
+</script>
+
+
+
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+    $(document).ready(function() {
+        $("#date, #time").change(function() {
+            fetchAvailableTables();
+        });
+
+        function fetchAvailableTables() {
+            var selectedDate = $("#date").val();
+            var selectedTime = $("#time").val();
+            
+            $.ajax({
+                url: '../GetAvailableTable', 
+                method: 'GET',
+                data: {
+                    date: selectedDate,
+                    time: selectedTime
+                },
+                success: function(response) {
+                    var tableNumbers = JSON.parse(response);
+                    var tableOptions = '';
+                    
+                    for(var i=0; i<tableNumbers.length; i++) {
+                        tableOptions += '<option value="' + tableNumbers[i] + '">Table ' + tableNumbers[i] + '</option>';
+                    }
+
+                    $("#tableNumber").html(tableOptions);
+                }
+            });
+        }
+    });
+</script>
+
+
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script

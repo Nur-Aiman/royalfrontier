@@ -1,15 +1,15 @@
 package com.restaurant_management_system.controller;
 
-import java.io.IOException;
-import java.sql.Timestamp;
+import com.restaurant_management_system.beans.Reservation;
+import com.restaurant_management_system.model.ReservationDB;
+import com.restaurant_management_system.model.TableDB;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.restaurant_management_system.beans.Reservation;
-import com.restaurant_management_system.model.ReservationDB;
-import com.restaurant_management_system.model.TableDB;
+import java.io.IOException;
+import java.sql.Timestamp;
 
 public class MakeReservation extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -30,65 +30,51 @@ public class MakeReservation extends HttpServlet {
         String email = request.getParameter("email");
         String phoneNumber = request.getParameter("phoneNumber");
 
-        // Handling reservationDate and reservationTime separately
         String reservationDateStr = request.getParameter("reservationDate");
         String reservationTimeStr = request.getParameter("reservationTime");
 
         Timestamp dateAndTime = null;
         if (reservationDateStr != null && !reservationDateStr.isEmpty() && reservationTimeStr != null && !reservationTimeStr.isEmpty()) {
-            String combinedDateAndTimeStr = reservationDateStr + " " + reservationTimeStr ;
-            System.out.println("Combined Date-Time String: " + combinedDateAndTimeStr);
-
-            try {
-                dateAndTime = Timestamp.valueOf(combinedDateAndTimeStr);
-            } catch (IllegalArgumentException e) {
-                response.getWriter().append("Invalid date and time format.");
-                return;
-            }
+            String combinedDateAndTimeStr = reservationDateStr + " " + reservationTimeStr + ":00";
+            dateAndTime = Timestamp.valueOf(combinedDateAndTimeStr);
         }
 
-        // Handling tableNumber
-        String tableNumberStr = request.getParameter("tableNumber");
-        int tableNumber = 0;
-        if (tableNumberStr != null && !tableNumberStr.isEmpty()) {
-            try {
-                tableNumber = Integer.parseInt(tableNumberStr);
-            } catch (NumberFormatException e) {
-                response.getWriter().append("Invalid table number format.");
-                return;
-            }
-        }
+        String[] tableNumbersStr = request.getParameterValues("tableNumber");  
 
         String specialRequest = request.getParameter("specialRequest");
 
-        // Creating reservationBean with the fetched data
-        Reservation reservationBean = new Reservation(name, email, phoneNumber, dateAndTime, tableNumber, specialRequest);
-
-        // Save to database
         ReservationDB reservationDB = new ReservationDB();
-        String status = reservationDB.insertReservation(reservationBean);
-
-        // Check and update the `table` table for availability
         TableDB tableDB = new TableDB();
+        
+        String status = null;
+        for (String tableNumberStr : tableNumbersStr) {
+            int tableNumber = Integer.parseInt(tableNumberStr);
+            
+            // Create reservationBean for each table and insert into the database
+            Reservation reservationBean = new Reservation(name, email, phoneNumber, dateAndTime, tableNumber, specialRequest);
+            status = reservationDB.insertReservation(reservationBean);
 
-        String extractedReservationDate = dateAndTime.toLocalDateTime().toLocalDate().toString();
-        String extractedReservationTime = String.format("%02d", dateAndTime.toLocalDateTime().getHour());
+            // Update the `table` availability
+            String extractedReservationDate = dateAndTime.toLocalDateTime().toLocalDate().toString();
+            String extractedReservationTime = String.format("%02d", dateAndTime.toLocalDateTime().getHour());
+            String availableTimes = tableDB.getAvailableTimeByTableIdAndDate(tableNumber, extractedReservationDate);
 
-        System.out.println("Extracted Date: " + extractedReservationDate);
-        System.out.println("Extracted Time: " + extractedReservationTime);
-
-        String availableTimes = tableDB.getAvailableTimeByTableIdAndDate(tableNumber, extractedReservationDate);
-
-        if (availableTimes == null) {
-            String allTimes = "08,10,12,14,16,18,20,22";
-            allTimes = allTimes.replace(extractedReservationTime, "").replace(",,", ",").replaceAll(",$", "").replaceAll("^,", "");
-            tableDB.insertNewTableDate(tableNumber, extractedReservationDate, allTimes);
-        } else if (availableTimes.contains(extractedReservationTime)) {
-            availableTimes = availableTimes.replace(extractedReservationTime, "").replace(",,", ",").replaceAll(",$", "").replaceAll("^,", "");
-            tableDB.updateAvailableTimeByTableIdAndDate(tableNumber, extractedReservationDate, availableTimes);
+            if (availableTimes == null) {
+                String allTimes = "08,10,12,14,16,18,20,22";
+                for (int i = 1; i <= 19; i++) { // Loop through all tables
+                    String timesForThisTable = allTimes;
+                    if (i == tableNumber) { // If it's the table being reserved, remove the time slot
+                        timesForThisTable = timesForThisTable.replace(extractedReservationTime, "").replace(",,", ",").replaceAll(",$", "").replaceAll("^,", "");
+                    }
+                    tableDB.insertNewTableDate(i, extractedReservationDate, timesForThisTable);
+                }
+            } else if (availableTimes.contains(extractedReservationTime)) {
+                availableTimes = availableTimes.replace(extractedReservationTime, "").replace(",,", ",").replaceAll(",$", "").replaceAll("^,", "");
+                tableDB.updateAvailableTimeByTableIdAndDate(tableNumber, extractedReservationDate, availableTimes);
+            }
         }
 
         request.getSession().setAttribute("reservationStatus", status);
-        response.sendRedirect("/royalfrontier/jsp/Reservation.jsp"); 
+        response.sendRedirect("/royalfrontier/jsp/Reservation.jsp");
     }
 }
