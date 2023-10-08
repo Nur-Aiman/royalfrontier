@@ -50,6 +50,7 @@ public class AddOrder extends HttpServlet {
 
         String result = orderDB.insertOrder(order);
         response.getWriter().write(result);
+        response.sendRedirect("jsp/Checkout2.jsp");
     }
 
 }
