@@ -1,13 +1,11 @@
-
 <!doctype html>
 <html lang="en">
-
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta http-equiv="Content-Language" content="en">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Admin Dashboard</title>
+<title>Sales Report</title>
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
@@ -26,10 +24,9 @@
 	Double year = (Double) request.getAttribute("totalSalesYear");
 	Double lifetime = (Double) request.getAttribute("totalSalesLifetime");
 	%>
-
 	<div class="app-header header-shadow">
 		<div class="app-header__logo">
-			<div class="logo-src"></div>
+<!-- 			<div class="logo-src"></div> -->
 			<div class="header__pane ml-auto">
 				<div>
 					<button type="button"
@@ -62,26 +59,20 @@
 		</div>
 		<div class="app-header__content">
 			<div class="app-header-left">
-
-				<h4>Royal Frontier Admin System</h4>
+				<h4>Sales Report</h4>
 				<div class="search-wrapper">
 					<!-- -- <div class="input-holder">
-                            <input type="text" class="search-input" placeholder="Type to search">
-                            <button class="search-icon"><span></span></button> 
-                        </div>---->
+<input type="text" class="search-input" placeholder="Type to search">
+<button class="search-icon"><span></span></button>
+</div>---->
 					<button class="close"></button>
 				</div>
-
-
 			</div>
 			<div class="app-header-right">
 				<div class="header-btn-lg pr-0">
 					<div class="widget-content p-0">
 						<div class="widget-content-wrapper">
-
-
-
-							<div class="widget-content-left  ml-3 header-user-info">
+							<div class="widget-content-left ml-3 header-user-info">
 								<div class="widget-heading">Muhammad Nur Aiman</div>
 								<div class="widget-subheading">Admin 1</div>
 							</div>
@@ -443,12 +434,12 @@
 			<div class="scrollbar-sidebar">
 				<div class="app-sidebar__inner">
 					<ul class="vertical-nav-menu">
-						<li class="app-sidebar__heading">Dashboards</li>
-						<li><a href="#" class="mm-active"> <i
-								class="metismenu-icon"></i> Sales Dashboard
+						<li class="app-sidebar__heading">Royal Frontier</li>
+						<li><a href="jsp/AdminManageOrder.jsp" class="mm-active"> <i
+								class="metismenu-icon"></i>Manage Order
 						</a></li>
-						<li><a href="GetMenu.jsp" class="mm-active"> <i
-								class="metismenu-icon"> </i>Menu page
+						<li><a href="jsp/Index.jsp" class="mm-active"> <i
+								class="metismenu-icon"> </i>Logout
 						</a></li>
 						<li>
 					</ul>
@@ -460,19 +451,17 @@
 				<div class="app-page-title">
 					<div class="page-title-wrapper">
 						<div class="page-title-heading">
-							<!--  <div class="page-title-icon">
+							<!-- <div class="page-title-icon">
 										add logo here
-                                    </div> -->
+</div> -->
 							<div>
-								Sales Dashboard
-								<div class="page-title-subheading">"Empowering Restaurant
-									Management Excellence"</div>
+								Royal Frontier Dashboard
+<!-- 								<div class="page-title-subheading">"Empowering Restaurant -->
+<!-- 									Management Excellence"</div> -->
 							</div>
 						</div>
 					</div>
 				</div>
-
-
 				<div class="container">
 					<div class="row">
 						<div class="col-md-6 col-xl-4">
@@ -486,7 +475,7 @@
 										<div class="widget-numbers text-white">
 											<span>
 												<%
-												out.println(daily);
+												out.println(String.format("RM %.2f", daily));
 												%>
 											</span>
 										</div>
@@ -505,7 +494,7 @@
 										<div class="widget-numbers text-white">
 											<span>
 												<%
-												out.println(week);
+												out.println(String.format("RM %.2f", week));
 												%>
 											</span>
 										</div>
@@ -513,7 +502,6 @@
 								</div>
 							</div>
 						</div>
-
 						<div class="col-md-6 col-xl-4">
 							<div class="card mb-3 widget-content bg-grow-early">
 								<div class="widget-content-wrapper text-white">
@@ -525,7 +513,7 @@
 										<div class="widget-numbers text-white">
 											<span>
 												<%
-												out.println(month);
+												out.println(String.format("RM %.2f", month));
 												%>
 											</span>
 										</div>
@@ -546,7 +534,7 @@
 										<div class="widget-numbers text-white">
 											<span>
 												<%
-												out.println(year);
+												out.println(String.format("RM %.2f", year));
 												%>
 											</span>
 										</div>
@@ -565,7 +553,7 @@
 										<div class="widget-numbers text-warning">
 											<span>
 												<%
-												out.println(lifetime);
+												out.println(String.format("RM %.2f", lifetime));
 												%>
 											</span>
 										</div>
@@ -671,11 +659,9 @@
 						</div>
 					</div>
 				</div>
-
 				<div class="app-wrapper-footer">
 					<div class="app-footer">
 						<div class="app-footer__inner">
-
 							<div class="app-footer-right">
 								<ul class="nav">
 									<li class="nav-item"><a href="javascript:void(0);"
@@ -693,9 +679,5 @@
 		src="https://demo.dashboardpack.com/architectui-html-free/assets/scripts/main.js"></script>
 </body>
 </html>
-
-
-
 Resources1× 0.5× 0.25×Rerun
-
 

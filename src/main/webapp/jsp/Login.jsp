@@ -3,7 +3,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Login /sdswfer</title>
+<title>Login / SignUp </title>
 
 
 <link
@@ -28,9 +28,9 @@
 <body>
 
 
-	<a  href="../index.jsp" class="logo" target="_blank"> <img style="width: 20%; height: 20%;"
-		src="https://i.imgur.com/jLxNPym.png" alt="">
-	</a>
+<!-- 	<a  href="../index.jsp" class="logo" target="_blank"> <img style="width: 20%; height: 20%;" -->
+<!-- 		src="https://i.imgur.com/jLxNPym.png" alt=""> -->
+<!-- 	</a> -->
 
 
 	<!--             <form action="../Login" method="post"> -->
@@ -62,7 +62,7 @@
 								<div class="card-front">
 									<div class="center-wrap">
 										<div class="section text-center">
-											<h4 class="mb-4 pb-3"  style="color:white;">Log In</h4>
+											<h4 class="mb-4 pb-3"  style="color:white;">Login Royal Frontier</h4>
 											<form action="../Login" method="post">
 
 												<div class="form-group">
@@ -78,7 +78,7 @@
 														autocomplete="off"> <i
 														class="input-icon uil uil-lock-alt"></i>
 												</div>
-												<input  style="background-color:yellow;  color:black" type="submit" class="btn btn-primary" value="Login">
+												<input  style="background-color:orange;  color:black" type="submit" class="btn btn-primary" value="Login">
 												<!-- 											<a href="#" class="btn mt-4">submit</a> -->
 											</form>
 <!-- 											<p class="mb-0 mt-4 text-center"> -->
@@ -114,7 +114,7 @@
 														placeholder="Your Phone Number" id="logemail" autocomplete="off">
 													<i class="input-icon uil uil-at"></i>
 												</div>
-												<input  style="color:black; background-color:yellow;" type="submit" value="Register" class="btn mt-4">
+												<input  style="color:black; background-color:orange;" type="submit" value="Register" class="btn mt-4">
 											</form>
 										</div>
 									</div>
