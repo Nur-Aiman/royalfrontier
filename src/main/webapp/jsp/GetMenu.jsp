@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>RF - Order Menu</title>
+<title>Order Menu</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="" name="keywords">
 <meta content="" name="description">
@@ -45,6 +45,13 @@
 <title>Menu</title>
 <!-- Include your CSS stylesheets for a fancy and elegant design -->
 <link rel="stylesheet" href="css/style.css">
+
+<style>
+    .custom-font {
+        font-family: 'Georgia', serif;
+        /* Replace 'Your-Desired-Font' with the actual font you want to use */
+    }
+</style>
 </head>
 <body>
 	<!-- Navbar & Hero Start -->
@@ -53,7 +60,7 @@
 			class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
 			<a href="" class="navbar-brand p-0">
 				<h1 class="text-primary m-0">
-					<i class="fa fa-utensils me-3"></i>Restoran
+					<i class="fa fa-utensils me-3"></i>Royal Frontier
 				</h1> <!-- <img src="../img/logo.png" alt="Logo"> -->
 			</a>
 			<button class="navbar-toggler" type="button"
@@ -62,101 +69,71 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<div class="navbar-nav ms-auto py-0 pe-4">
-					<div class="nav-item dropdown">
-						<a href="#" class="nav-link dropdown-toggle"
-							data-bs-toggle="dropdown">Menu</a>
-						<div class="dropdown-menu m-0">
-							<a href="booking.html" class="dropdown-item">Appetizers</a> <a
-								href="team.html" class="dropdown-item">Main Courses</a> <a
-								href="testimonial.html" class="dropdown-item">Desserts</a>
-						</div>
-					</div>
-					<a href="ContactUs.jsp" class="nav-item nav-link">Contact Us</a> <a
-						href="Login.jsp" class="nav-item nav-link">Logout</a>
+<!-- 					<a href="jsp/Index.jsp" class="nav-item nav-link" -->
+<!-- 						style="font-weight: bold;">Home</a> -->
+					<div class="nav-item dropdown"></div>
+					<a href="jsp/ContactUs.jsp" class="nav-item nav-link"
+						style="font-weight: bold;">Contact</a>
 				</div>
+				<a href="jsp/Index.jsp" class="btn btn-primary py-2 px-4"
+					style="color: black;">Logout </a>
+					
+				
+			</div>
 		</nav>
 		<div class="container-xxl py-5 bg-dark hero-header mb-5">
 			<div class="container text-center my-5 pt-5 pb-4">
-				<h1 class="display-3 text-white mb-3 animated slideInDown">Food
+				<h1 class="display-3 text-white mb-3 animated slideInDown">Order
 					Menu</h1>
-				<!-- 						<nav aria-label="breadcrumb"> -->
-				<!-- 							<ol class="breadcrumb justify-content-center text-uppercase"> -->
-				<!-- 								<li class="breadcrumb-item"><a href="#">Home</a></li> -->
-				<!-- 								<li class="breadcrumb-item"><a href="#">Pages</a></li> -->
-				<!-- 								<li class="breadcrumb-item text-white active" -->
-				<!-- 									aria-current="page">Menu</li> -->
-				<!-- 							</ol> -->
-				<!-- 						</nav> -->
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb justify-content-center text-uppercase">
+						<li class="breadcrumb-item text-white" aria-current="page">Home</li>
+						<li class="breadcrumb-item text-white active" aria-current="page">Menu</li>
+					</ol>
+				</nav>
 			</div>
 		</div>
 	</div>
 	<!-- Navbar & Hero End -->
 	<!-- Menu Start -->
-	<div class="container-xxl py-5">
+	<div class="container-xxl py-0">
 		<div class="container">
-			<div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-				<h5
-					class="section-title ff-secondary text-center text-primary fw-normal"
-					id="foodmenu">Food Menu</h5>
-			</div>
-			<div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
-				<ul
-					class="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
-					<li class="nav-item"><a
-						class="d-flex align-items-center text-start mx-3 ms-0 pb-3 active"
-						data-bs-toggle="pill" href="#tab-1"> <i
-							class="fa fa-coffee fa-2x text-primary"></i>
-							<div class="ps-3">
-								<small class="text-body">Popular</small>
-								<h6 class="mt-n1 mb-0">Appetizers</h6>
-							</div>
-					</a></li>
-					<li class="nav-item"><a
-						class="d-flex align-items-center text-start mx-3 pb-3"
-						data-bs-toggle="pill" href="#tab-2"> <i
-							class="fa fa-hamburger fa-2x text-primary"></i>
-							<div class="ps-3">
-								<small class="text-body">Special</small>
-								<h6 class="mt-n1 mb-0">Main Courses</h6>
-							</div>
-					</a></li>
-					<li class="nav-item"><a
-						class="d-flex align-items-center text-start mx-3 me-0 pb-3"
-						data-bs-toggle="pill" href="#tab-3"> <i
-							class="fa fa-utensils fa-2x text-primary"></i>
-							<div class="ps-3">
-								<small class="text-body">Lovely</small>
-								<h6 class="mt-n1 mb-0">Desserts</h6>
-							</div>
-					</a></li>
-				</ul>
+
+			<div class="tab-class text-right wow fadeInUp" data-wow-delay="0.1s">
+
 				<!-- Add this within the HTML body where you want to display the user's email -->
-				<div class="user-email">
-					Welcome, <span id="userEmailPlaceholder"></span>
+				<div class="user-email custom-font">
+					<h4>Welcome To Royal Frontier : <span id="userEmailPlaceholder"></span></h4>
 				</div>
-				<br>
+
+				
+				
 				<div class="table-number">
-					Table Number: <span id="tableNumberPlaceholder"></span>
+					<h5>Table Number : <span id="tableNumberPlaceholder"></span></h5>
 				</div>
 				<div class="total-quantity">
-					Total Quantity: <span id="totalQuantity">0</span>
-					<button class="cart-button" onclick="checkout()">Checkout</button>
+					<h4>Total Quantity : <span id="totalQuantity">0</span>
+					<button class="cart-button" onclick="checkout()">Checkout</button></h4>
 				</div>
-				<br>
-				<br>
+				<br> <br>
 				<div class="menu-container">
-					<h1>Our Menu</h1>
-					<!-- Search and Sort Section -->
-					<div class="search-sort">
-						<input type="text" id="searchInput"
-							placeholder="Search by menu name" oninput="searchMenus()">
-						<label for="sortSelect">Sort by:</label> <select id="sortSelect"
-							onchange="sortMenus()">
-							<option value="menu">Menu Name</option>
-							<option value="price">Price (Low to High)</option>
-							<option value="availability">Availability</option>
-						</select>
+					<div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+						<h5
+							class="section-title ff-secondary text-center text-primary fw-normal"
+							id="foodmenu">Please Order The Menu</h5>
 					</div>
+
+					<!-- Search and Sort Section -->
+					<!-- 					<div class="search-sort"> -->
+					<!-- 						<input type="text" id="searchInput" -->
+					<!-- 							placeholder="Search by menu name" oninput="searchMenus()"> -->
+					<!-- 						<label for="sortSelect">Sort by:</label> <select id="sortSelect" -->
+					<!-- 							onchange="sortMenus()"> -->
+					<!-- 							<option value="menu">Menu Name</option> -->
+					<!-- 							<option value="price">Price (Low to High)</option> -->
+					<!-- 							<option value="availability">Availability</option> -->
+					<!-- 						</select> -->
+					<!-- 					</div> -->
 					<div class="menu-boxes">
 						<!-- Your menu items here -->
 					</div>
@@ -179,10 +156,10 @@
 								RM
 								<%=String.format("%.2f", menu.getPrice())%>
 							</p>
-							<p>
-								<!-- 								Availability: -->
-								<%=menu.getAvailability()%>
-							</p>
+<!-- 							<p> -->
+<!-- 																Availability: -->
+<%-- 								<%=menu.getAvailability()%> --%>
+<!-- 							</p> -->
 							<p>
 								<!-- 								Description: -->
 								<%=menu.getDescription()%>
@@ -212,8 +189,8 @@
 					</div>
 				</div>
 				<br> <br>
-				
-				
+
+
 				<script>
 	
 				 // Retrieve the user's email from the session
@@ -396,98 +373,57 @@ updateCart();
 			<script src="js/main.js"></script>
 		</div>
 		<!-- Footer Start -->
-			<div
-				class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn"
-				data-wow-delay="0.1s">
-				<div class="container py-5">
-					<div class="row g-5">
-						<div class="col-lg-3 col-md-6">
-							<h4
-								class="section-title ff-secondary text-start text-primary fw-normal mb-4">Royal Frontier</h4>
-							<a class="btn btn-link" href="Index.jsp">About Us</a>
-								 <a class="btn btn-link" href="ContactUs.jsp">Contact Us</a> <a
-								class="btn btn-link" href="Reservation.jsp">Reservation</a> <a
-								class="btn btn-link" href="PrivacyPolicy.jsp">Privacy Policy</a>
-							<a class="btn btn-link" href="TermsCondition.jsp">Terms & Condition</a>
-						</div>
-						<div class="col-lg-3 col-md-6">
-							<h4
-								class="section-title ff-secondary text-start text-primary fw-normal mb-4">Contact</h4>
-							<p class="mb-2">
-								<i class="fa fa-map-marker-alt me-3"></i>123 GKK, Petaling Jaya, Selangor.
-							
-							</p>
-							<p class="mb-2">
-								<i class="fa fa-phone-alt me-3"></i>+012 345 67890
-							</p>
-							<p class="mb-2">
-								<i class="fa fa-envelope me-3"></i>royalfrontierinfo@gmail.com
-							</p>
-							<!-- 								<div class="d-flex pt-2"> -->
-							<!-- 									<a class="btn btn-outline-light btn-social" href=""><i -->
-							<!-- 										class="fab fa-twitter"></i></a> <a -->
-							<!-- 										class="btn btn-outline-light btn-social" href=""><i -->
-							<!-- 										class="fab fa-facebook-f"></i></a> <a -->
-							<!-- 										class="btn btn-outline-light btn-social" href=""><i -->
-							<!-- 										class="fab fa-youtube"></i></a> <a -->
-							<!-- 										class="btn btn-outline-light btn-social" href=""><i -->
-							<!-- 										class="fab fa-linkedin-in"></i></a> -->
-							<!-- 								</div> -->
-						</div>
-						<div class="col-lg-3 col-md-6">
-							<h4
-								class="section-title ff-secondary text-start text-primary fw-normal mb-4">Opening</h4>
-							<h5 class="text-light fw-normal">Monday - Sunday</h5>
-							<p>08 AM - 10 PM</p>
+		<div
+			class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn"
+			data-wow-delay="0.1s">
+			<div class="container py-0">
+				<div class="row g-5">
+			
+					<div class="col-lg-3 col-md-6">
+						<h4
+							class="section-title ff-secondary text-start text-primary fw-normal mb-4">Opening</h4>
+						<h5 class="text-light fw-normal">Monday - Sunday</h5>
+						<p>08 AM - 10 PM</p>
 
-						</div>
-						<!-- 							<div class="col-lg-3 col-md-6"> -->
-						<!-- 								<h4 -->
-						<!-- 									class="section-title ff-secondary text-start text-primary fw-normal mb-4">Newsletter</h4> -->
-						<!-- 								<p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p> -->
-						<!-- 								<div class="position-relative mx-auto" style="max-width: 400px;"> -->
-						<!-- 									<input class="form-control border-primary w-100 py-3 ps-4 pe-5" -->
-						<!-- 										type="text" placeholder="Your email"> -->
-						<!-- 									<button type="button" -->
-						<!-- 										class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button> -->
-						<!-- 								</div> -->
-						<!-- 							</div> -->
 					</div>
+				
 				</div>
+			</div>
+			<div class="container">
+				<div class="copyright">
+					<div class="row">
+						<div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+							&copy; <a class="border-bottom" href="#">Royal Frontier</a>, All
+							Right Reserved.
 
-				<div class="container">
-					<div class="copyright">
-						<div class="row">
-							<div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-								&copy; <a class="border-bottom" href="#">Royal Frontier</a>, All
-								Right Reserved.
-
-								<!-- 									/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/ -->
-								Designed By <a class="border-bottom" href=#>RF Theme</a><br>
-								<br>
-								<!-- 									Distributed By <a class="border-bottom" -->
-								<!-- 										href="https://themewagon.com" target="_blank">ThemeWagon</a> -->
-
-							</div>
-							<!-- 								<div class="col-md-6 text-center text-md-end"> -->
-							<!-- 									<div class="footer-menu"> -->
-							<!-- 										<a href="">Home</a> <a href="">Cookies</a> <a href="">Help</a> -->
-							<!-- 										<a href="">FQAs</a> -->
-							<!-- 									</div> -->
-							<!-- 								</div> -->
+							<!-- 									/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/ -->
+							Designed By <a class="border-bottom" href=#>RF Theme</a><br>
+							<br>
+							<!-- 									Distributed By <a class="border-bottom" -->
+							<!-- 										href="https://themewagon.com" target="_blank">ThemeWagon</a> -->
 						</div>
+						<!-- 								<div class="col-md-6 text-center text-md-end"> -->
+						<!-- 									<div class="footer-menu"> -->
+						<!-- 										<a href="">Home</a> <a href="">Cookies</a> <a href="">Help</a> -->
+						<!-- 										<a href="">FQAs</a> -->
+						<!-- 									</div> -->
+						<!-- 								</div> -->
 					</div>
 				</div>
 			</div>
-
 		</div>
 		<!-- Footer End -->
 
-		<!-- The Modal -->
-		<div id="myModal" class="modal">
-			<span class="close" onclick="closeModal()">&times;</span> <img
-				class="modal-content" id="modalImg">
-		</div>
+<!-- Back to Top -->
+				<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i
+					class="bi bi-arrow-up"></i></a>
+			</div>
+			
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+		<span class="close" onclick="closeModal()">&times;</span> <img
+			class="modal-content" id="modalImg">
+	</div>
 </body>
 </html>
 

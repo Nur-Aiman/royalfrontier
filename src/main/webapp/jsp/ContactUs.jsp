@@ -1,42 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!-- <!DOCTYPE html> -->
-<!-- <html> -->
-<!-- <head> -->
-<!-- <meta charset="UTF-8"> -->
-<!-- <title>Contact Us</title> -->
-<!-- </head> -->
-<!-- <body> -->
-<!-- <h2>Contact Us Form</h2> -->
-<%-- <% --%>
-<!-- // String result = (String) session.getAttribute("result"); -->
-<!-- // if (result != null) { -->
-<!-- // out.print("<p>" + result + "</p>"); -->
-<!-- // session.removeAttribute("result"); -->
-<!-- // } -->
-<%-- %> --%>
-<!-- <form action="../ContactUs" method="post"> -->
-<!-- <label for="name">Name:</label><br> -->
-<!-- <input type="text" id="name" name="name" required><br><br> -->
-<!-- <label for="email">Email:</label><br> -->
-<!-- <input type="email" id="email" name="email" required><br><br> -->
-<!-- <label for="subject">Subject:</label><br> -->
-<!-- <input type="text" id="subject" name="subject" required><br><br> -->
-<!-- <label for="message">Message:</label><br> -->
-<!-- <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br> -->
-<!-- <input type="hidden" id="date" name="date" value=""> -->
-<!-- <input type="submit" value="Submit"> -->
-<!-- </form> -->
-<!-- <script> -->
-<!-- document.getElementById("date").value = new Date().toISOString().slice(0,19);-->
-<!-- </script> -->
-<!-- </body> -->
-<!-- </html> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>RF - Checkout</title>
+<title>Contact Us</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="" name="keywords">
 <meta content="" name="description">
@@ -73,7 +41,7 @@
 			class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
 			<a href="" class="navbar-brand p-0">
 				<h1 class="text-primary m-0">
-					<i class="fa fa-utensils me-3"></i>Restoran
+					<i class="fa fa-utensils me-3"></i>Royal Frontier
 				</h1> <!-- <img src="img/logo.png" alt="Logo"> -->
 			</a>
 			<button class="navbar-toggler" type="button"
@@ -81,33 +49,22 @@
 				<span class="fa fa-bars"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarCollapse">
-				<div class="navbar-nav ms-auto py-0 pe-4">
-					<a href="index.html" class="nav-item nav-link">Home</a> <a
-						href="about.html" class="nav-item nav-link">About</a> <a
-						href="service.html" class="nav-item nav-link">Service</a> <a
-						href="menu.html" class="nav-item nav-link">Menu</a>
-					<div class="nav-item dropdown">
-						<a href="#" class="nav-link dropdown-toggle"
-							data-bs-toggle="dropdown">Pages</a>
-						<div class="dropdown-menu m-0">
-							<a href="booking.html" class="dropdown-item">Booking</a> <a
-								href="team.html" class="dropdown-item">Our Team</a> <a
-								href="testimonial.html" class="dropdown-item">Testimonial</a>
-						</div>
+					<div class="navbar-nav ms-auto py-0 pe-4">
+						<a href="Index.jsp" class="nav-item  nav-link" style="font-weight: bold;">Home</a>
+						<div class="nav-item dropdown"></div>
+						<a href="ContactUs.jsp" class="nav-item active nav-link" style="font-weight: bold;">Contact</a>
 					</div>
-					<a href="contact.html" class="nav-item nav-link active">Contact</a>
+					<a href="HomeMenu.jsp" class="btn btn-primary py-2 px-4" style="font-weight: bold;"
+						style="color: black;">Menu </a>
 				</div>
-				<a href="" class="btn btn-primary py-2 px-4">Book A Table</a>
-			</div>
 		</nav>
 		<div class="container-xxl py-5 bg-dark hero-header mb-5">
 			<div class="container text-center my-5 pt-5 pb-4">
 				<h1 class="display-3 text-white mb-3 animated slideInDown">Contact
-					Us</h1>
+					Info</h1>
 				<nav aria-label="breadcrumb">
 					<ol class="breadcrumb justify-content-center text-uppercase">
-						<li class="breadcrumb-item"><a href="#">Home</a></li>
-						<li class="breadcrumb-item"><a href="#">Pages</a></li>
+					<li class="breadcrumb-item text-white" aria-current="page">Home</li>
 						<li class="breadcrumb-item text-white active" aria-current="page">Contact</li>
 					</ol>
 				</nav>
@@ -116,11 +73,11 @@
 	</div>
 	<!-- Navbar & Hero End -->
 	<!-- Contact Start -->
-	<div class="container-xxl py-5">
+	<div class="container-xxl py-0">
 		<div class="container">
 			<div class="text-center wow fadeInUp" data-wow-delay="0.1s">
 				<h5
-					class="section-title ff-secondary text-center text-primary fw-normal">CONTACT US FOR ANY QUERY</h5> 
+					class="section-title ff-secondary text-center text-primary fw-normal">Contact Us For Any Query</h5> 
 					<br>
 					<br>
 <!-- 				<h1 class="mb-5">Contact For Any Query</h1> -->
@@ -130,23 +87,23 @@
 					<div class="row gy-4">
 						<div class="col-md-4">
 							<h5
-								class="section-title ff-secondary fw-normal text-start text-primary">Booking</h5>
+								class="section-title ff-secondary fw-normal text-start text-primary">Reservation</h5>
 							<p>
-								<i class="fa fa-envelope-open text-primary me-2"></i>royalfrontierbooking@gmail.com
+								<i class="fa fa-envelope-open text-primary me-2"></i>RFreservation@gmail.com
 							</p>
 						</div>
 						<div class="col-md-4">
 							<h5
-								class="section-title ff-secondary fw-normal text-start text-primary">General</h5>
+								class="section-title ff-secondary fw-normal text-start text-primary">General Info</h5>
 							<p>
-								<i class="fa fa-envelope-open text-primary me-2"></i>royalfrontierinfo@gmail.com
+								<i class="fa fa-envelope-open text-primary me-2"></i>RFinfo@gmail.com
 							</p>
 						</div>
 						<div class="col-md-4">
 							<h5
 								class="section-title ff-secondary fw-normal text-start text-primary">Technical</h5>
 							<p>
-								<i class="fa fa-envelope-open text-primary me-2"></i>royalfrontiertech@gmail.com
+								<i class="fa fa-envelope-open text-primary me-2"></i>RFtech@gmail.com
 							</p>
 						</div>
 					</div>
@@ -164,22 +121,21 @@
 								<div class="col-md-6">
 									<div class="form-floating">
 										<input type="text" class="form-control" name="name" id="name"
-											placeholder="Your Name"> <label for="name">Your
-											Name</label>
+											placeholder="Your Name"> <label for="name">
+											Full Name</label>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-floating">
 										<input type="email" class="form-control" name="email"
 											id="email" placeholder="Your Email"> <label
-											for="email">Your Email</label>
+											for="email">Email</label>
 									</div>
 								</div>
 								<div class="col-12">
 									<div class="form-floating">
 										<input type="tel" class="form-control" name="phone" id="phone"
-											placeholder="Your Phone"> <label for="phone">Your
-											Phone</label>
+											placeholder="Your Phone"> <label for="phone">Phone Number</label>
 									</div>
 								</div>
 
@@ -195,7 +151,7 @@
 										<textarea class="form-control"
 											placeholder="Leave a message here" name="message"
 											id="message" style="height: 150px"></textarea>
-										<label for="message">Message</label>
+										<label for="message">Message "I want to.."</label>
 									</div>
 								</div>
 								<div class="col-12">
@@ -212,88 +168,92 @@
 	</div>
 	<!-- Contact End -->
 	<!-- Footer Start -->
-			<div
-				class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn"
-				data-wow-delay="0.1s">
-				<div class="container py-5">
-					<div class="row g-5">
-						<div class="col-lg-3 col-md-6">
-							<h4
-								class="section-title ff-secondary text-start text-primary fw-normal mb-4">Royal Frontier</h4>
-							<a class="btn btn-link" href="Index.jsp">About Us</a>
-								 <a class="btn btn-link" href="ContactUs.jsp">Contact Us</a> <a
-								class="btn btn-link" href="Reservation.jsp">Reservation</a> <a
-								class="btn btn-link" href="PrivacyPolicy.jsp">Privacy Policy</a>
-							<a class="btn btn-link" href="TermsCondition.jsp">Terms & Condition</a>
-						</div>
-						<div class="col-lg-3 col-md-6">
-							<h4
-								class="section-title ff-secondary text-start text-primary fw-normal mb-4">Contact</h4>
-							<p class="mb-2">
-								<i class="fa fa-map-marker-alt me-3"></i>123 GKK, Petaling Jaya, Selangor.
-							
-							</p>
-							<p class="mb-2">
-								<i class="fa fa-phone-alt me-3"></i>+012 345 67890
-							</p>
-							<p class="mb-2">
-								<i class="fa fa-envelope me-3"></i>royalfrontierinfo@gmail.com
-							</p>
-							<!-- 								<div class="d-flex pt-2"> -->
-							<!-- 									<a class="btn btn-outline-light btn-social" href=""><i -->
-							<!-- 										class="fab fa-twitter"></i></a> <a -->
-							<!-- 										class="btn btn-outline-light btn-social" href=""><i -->
-							<!-- 										class="fab fa-facebook-f"></i></a> <a -->
-							<!-- 										class="btn btn-outline-light btn-social" href=""><i -->
-							<!-- 										class="fab fa-youtube"></i></a> <a -->
-							<!-- 										class="btn btn-outline-light btn-social" href=""><i -->
-							<!-- 										class="fab fa-linkedin-in"></i></a> -->
-							<!-- 								</div> -->
-						</div>
-						<div class="col-lg-3 col-md-6">
-							<h4
-								class="section-title ff-secondary text-start text-primary fw-normal mb-4">Opening</h4>
-							<h5 class="text-light fw-normal">Monday - Sunday</h5>
-							<p>08 AM - 10 PM</p>
-
-						</div>
-						<!-- 							<div class="col-lg-3 col-md-6"> -->
-						<!-- 								<h4 -->
-						<!-- 									class="section-title ff-secondary text-start text-primary fw-normal mb-4">Newsletter</h4> -->
-						<!-- 								<p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p> -->
-						<!-- 								<div class="position-relative mx-auto" style="max-width: 400px;"> -->
-						<!-- 									<input class="form-control border-primary w-100 py-3 ps-4 pe-5" -->
-						<!-- 										type="text" placeholder="Your email"> -->
-						<!-- 									<button type="button" -->
-						<!-- 										class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button> -->
-						<!-- 								</div> -->
-						<!-- 							</div> -->
+		<div
+			class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn"
+			data-wow-delay="0.1s">
+			<div class="container py-5">
+				<div class="row g-5">
+					<div class="col-lg-3 col-md-6">
+						<h4
+							class="section-title ff-secondary text-start text-primary fw-normal mb-4">Royal
+							Frontier</h4>
+						<a class="btn btn-link" href="Index.jsp">About Us</a> <a
+							class="btn btn-link" href="ContactUs.jsp">Contact Us</a> <a
+							class="btn btn-link" href="HomeMenu.jsp">Menu</a> <a
+							class="btn btn-link" href="Reservation.jsp">Reservation</a> <a
+							class="btn btn-link" href="PrivacyPolicy.jsp">Privacy Policy</a>
+						<a class="btn btn-link" href="TermsCondition.jsp">Terms &
+							Condition</a>
 					</div>
-				</div>
-				<div class="container">
-					<div class="copyright">
-						<div class="row">
-							<div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-								&copy; <a class="border-bottom" href="#">Royal Frontier</a>, All
-								Right Reserved.
+					<div class="col-lg-3 col-md-6">
+						<h4
+							class="section-title ff-secondary text-start text-primary fw-normal mb-4">Contact</h4>
+						<p class="mb-2">
+							<i class="fa fa-map-marker-alt me-3"></i>123 GKK, Petaling Jaya,
+							Selangor.
 
-								<!-- 									/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/ -->
-								Designed By <a class="border-bottom" href=#>RF Theme</a><br>
-								<br>
-								<!-- 									Distributed By <a class="border-bottom" -->
-								<!-- 										href="https://themewagon.com" target="_blank">ThemeWagon</a> -->
-							</div>
-							<!-- 								<div class="col-md-6 text-center text-md-end"> -->
-							<!-- 									<div class="footer-menu"> -->
-							<!-- 										<a href="">Home</a> <a href="">Cookies</a> <a href="">Help</a> -->
-							<!-- 										<a href="">FQAs</a> -->
-							<!-- 									</div> -->
-							<!-- 								</div> -->
+						</p>
+						<p class="mb-2">
+							<i class="fa fa-phone-alt me-3"></i>+012 345 67890
+						</p>
+						<p class="mb-2">
+							<i class="fa fa-envelope me-3"></i>royalfrontierinfo@gmail.com
+						</p>
+						<!-- 								<div class="d-flex pt-2"> -->
+						<!-- 									<a class="btn btn-outline-light btn-social" href=""><i -->
+						<!-- 										class="fab fa-twitter"></i></a> <a -->
+						<!-- 										class="btn btn-outline-light btn-social" href=""><i -->
+						<!-- 										class="fab fa-facebook-f"></i></a> <a -->
+						<!-- 										class="btn btn-outline-light btn-social" href=""><i -->
+						<!-- 										class="fab fa-youtube"></i></a> <a -->
+						<!-- 										class="btn btn-outline-light btn-social" href=""><i -->
+						<!-- 										class="fab fa-linkedin-in"></i></a> -->
+						<!-- 								</div> -->
+					</div>
+					<div class="col-lg-3 col-md-6">
+						<h4
+							class="section-title ff-secondary text-start text-primary fw-normal mb-4">Opening</h4>
+						<h5 class="text-light fw-normal">Monday - Sunday</h5>
+						<p>08 AM - 10 PM</p>
+
+					</div>
+					<!-- 							<div class="col-lg-3 col-md-6"> -->
+					<!-- 								<h4 -->
+					<!-- 									class="section-title ff-secondary text-start text-primary fw-normal mb-4">Newsletter</h4> -->
+					<!-- 								<p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p> -->
+					<!-- 								<div class="position-relative mx-auto" style="max-width: 400px;"> -->
+					<!-- 									<input class="form-control border-primary w-100 py-3 ps-4 pe-5" -->
+					<!-- 										type="text" placeholder="Your email"> -->
+					<!-- 									<button type="button" -->
+					<!-- 										class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button> -->
+					<!-- 								</div> -->
+					<!-- 							</div> -->
+				</div>
+			</div>
+			<div class="container">
+				<div class="copyright">
+					<div class="row">
+						<div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+							&copy; <a class="border-bottom" href="#">Royal Frontier</a>, All
+							Right Reserved.
+
+							<!-- 									/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/ -->
+							Designed By <a class="border-bottom" href=#>RF Theme</a><br>
+							<br>
+							<!-- 									Distributed By <a class="border-bottom" -->
+							<!-- 										href="https://themewagon.com" target="_blank">ThemeWagon</a> -->
 						</div>
+						<!-- 								<div class="col-md-6 text-center text-md-end"> -->
+						<!-- 									<div class="footer-menu"> -->
+						<!-- 										<a href="">Home</a> <a href="">Cookies</a> <a href="">Help</a> -->
+						<!-- 										<a href="">FQAs</a> -->
+						<!-- 									</div> -->
+						<!-- 								</div> -->
 					</div>
 				</div>
 			</div>
-			<!-- Footer End -->
+		</div>
+		<!-- Footer End -->
 
 	<!-- Back to Top -->
 	<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i
