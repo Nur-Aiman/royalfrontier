@@ -1,15 +1,23 @@
 package com.restaurant_management_system.controller;
 
-import com.restaurant_management_system.beans.Reservation;
-import com.restaurant_management_system.model.ReservationDB;
-import com.restaurant_management_system.model.TableDB;
-
+import java.io.IOException;
+import java.sql.Timestamp;
+import java.util.HashMap;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.sql.Timestamp;
+
+import com.google.gson.Gson;
+import com.restaurant_management_system.beans.Reservation;
+import com.restaurant_management_system.model.ReservationDB;
+import com.restaurant_management_system.model.TableDB;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 public class MakeReservation extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -19,18 +27,13 @@ public class MakeReservation extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.getWriter().append("Reservation service is post-only.");
-    }
-
-    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Fetching form data
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String phoneNumber = request.getParameter("phoneNumber");
         
-     // Ensure phone number starts with 6
+        // Ensure phone number starts with 6
         if (!phoneNumber.startsWith("6")) {
             phoneNumber = "6" + phoneNumber;
         }
@@ -77,9 +80,46 @@ public class MakeReservation extends HttpServlet {
                 availableTimes = availableTimes.replace(extractedReservationTime, "").replace(",,", ",").replaceAll(",$", "").replaceAll("^,", "");
                 tableDB.updateAvailableTimeByTableIdAndDate(tableNumber, extractedReservationDate, availableTimes);
             }
+            
+            // Send data to the webhook
+            sendWebhookData(name, email, phoneNumber, extractedReservationDate, extractedReservationTime, tableNumber, specialRequest);
         }
 
         request.getSession().setAttribute("reservationStatus", status);
         response.sendRedirect("/royalfrontier/jsp/Reservation.jsp");
     }
+
+    private void sendWebhookData(String name, String email, String phoneNumber, String reservationDate, String reservationTime, int tableNumber, String specialRequest) {
+        OkHttpClient client = new OkHttpClient();
+        MediaType mediaType = MediaType.parse("application/json");
+
+        Map<String, String> data = new HashMap<>();
+        data.put("name", name);
+        data.put("email", email);
+        data.put("phoneNumber", phoneNumber);
+        data.put("reservationDate", reservationDate);
+        data.put("reservationTime", reservationTime);
+        data.put("tableNumber", String.valueOf(tableNumber));
+        data.put("specialRequest", specialRequest);
+
+        String json = new Gson().toJson(data);
+
+        RequestBody body = RequestBody.create(json, MediaType.parse("application/json"));
+        Request request = new Request.Builder()
+                .url("https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjUwNTZmMDYzZjA0MzU1MjZjNTUzMDUxMzYi_pc")
+                .post(body)
+                .build();
+
+        try {
+            Response response = client.newCall(request).execute();
+            if (!response.isSuccessful()) {
+                // Handle webhook request failure
+                // You can log or take appropriate action here
+            }
+        } catch (IOException e) {
+            // Handle exception
+            e.printStackTrace();
+        }
+    }
 }
+
