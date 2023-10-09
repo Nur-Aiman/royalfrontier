@@ -101,22 +101,12 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarCollapse">
 					<div class="navbar-nav ms-auto py-0 pe-4">
-						<a href="index.html" class="nav-item nav-link">Home</a> <a
-							href="about.html" class="nav-item nav-link">About</a> <a
-							href="service.html" class="nav-item nav-link">Service</a> <a
-							href="menu.html" class="nav-item nav-link">Menu</a>
-						<div class="nav-item dropdown">
-							<a href="#" class="nav-link dropdown-toggle active"
-								data-bs-toggle="dropdown">Pages</a>
-							<div class="dropdown-menu m-0">
-								<a href="booking.html" class="dropdown-item active">Booking</a>
-								<a href="team.html" class="dropdown-item">Our Team</a> <a
-									href="testimonial.html" class="dropdown-item">Testimonial</a>
-							</div>
-						</div>
-						<a href="contact.html" class="nav-item nav-link">Contact</a>
+						<a href="Index.jsp" class="nav-item active nav-link" style="font-weight: bold;">Home</a>
+						<div class="nav-item dropdown"></div>
+						<a href="ContactUs.jsp" class="nav-item nav-link" style="font-weight: bold;">Contact</a>
 					</div>
-					<a href="" class="btn btn-primary py-2 px-4">Book A Table</a>
+					<a href="HomeMenu.jsp" class="btn btn-primary py-2 px-4" style="font-weight: bold;"
+						style="color: black;">Menu </a>
 				</div>
 			</nav>
 			<div class="container-xxl py-5 bg-dark hero-header mb-5">
