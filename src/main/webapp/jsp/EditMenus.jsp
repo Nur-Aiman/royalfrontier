@@ -219,7 +219,7 @@
 <br><br>
 
 							</form>
-							<form class="delete-form" action="DeleteMenu" method="post">
+							<form class="delete-form" action="../DeleteMenu" method="post">
 								<input type="hidden" name="menuId" value="<%=menu.getId()%>">
 								<button class="delete-button" style="background: none; border: none; color: red; text-decoration: underline; cursor: pointer;">Delete</button>
 

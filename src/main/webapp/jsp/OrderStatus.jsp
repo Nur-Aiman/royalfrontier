@@ -129,7 +129,8 @@ let completeButton = document.createElement('button');
 completeButton.textContent = "Complete";
 // Check if the order status for that item is 'pending'
 if (order.order_status[i] === 'served') {
-completeButton.style.backgroundColor = "red";
+completeButton.style.backgroundColor = "black";
+completeButton.textContent = "Completed";
 // completeButton.disabled = true;
 }
 completeButton.addEventListener('click', function() {

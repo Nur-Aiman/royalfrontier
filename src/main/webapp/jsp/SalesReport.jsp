@@ -572,7 +572,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="row">
+				<!-- <div class="row">
 					<div class="col-md-12">
 						<div class="main-card mb-3 card">
 							<div class="card-header">
@@ -667,7 +667,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 				<div class="app-wrapper-footer">
 					<div class="app-footer">
 						<div class="app-footer__inner">
@@ -688,5 +688,5 @@
 		src="https://demo.dashboardpack.com/architectui-html-free/assets/scripts/main.js"></script>
 </body>
 </html>
-Resources1× 0.5× 0.25×Rerun
+
 
