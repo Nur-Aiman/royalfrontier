@@ -81,9 +81,9 @@
 												<input  style="background-color:orange;  color:black" type="submit" class="btn btn-primary" value="Login">
 												<!-- 											<a href="#" class="btn mt-4">submit</a> -->
 											</form>
-<!-- 											<p class="mb-0 mt-4 text-center"> -->
-<!-- 												<a href="#0" class="link">Forgot your password?</a> -->
-<!-- 											</p> -->
+ 											<p class="mb-0 mt-4 text-center">
+												<a href="ForgotPassword.jsp" class="link">Forgot your password?</a> 
+										</p> 
 										</div>
 									</div>
 								</div>
