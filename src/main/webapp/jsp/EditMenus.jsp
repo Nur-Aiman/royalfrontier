@@ -165,7 +165,7 @@
 						for (Menu menu : menus) {
 						%>
 						<div class="menu-box">
-							<form class="edit-form" action="EditMenu" method="post">
+							<form class="edit-form" action="../EditMenu" method="post">
 								<input type="hidden" name="menuId" value="<%=menu.getId()%>">
 								<input type="hidden" name="description"
 									value="<%=menu.getDescription()%>"> <img
