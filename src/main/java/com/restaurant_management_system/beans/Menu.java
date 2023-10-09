@@ -17,8 +17,9 @@ public class Menu {
         this.menu = menuName;
         this.price = price;
         this.imageURL = imageURL;
-        this.availability = availability;
         this.description = description;
+        this.availability = availability;
+        
     }
 
 

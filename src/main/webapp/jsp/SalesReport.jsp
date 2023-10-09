@@ -38,6 +38,8 @@
 				</div>
 			</div>
 		</div>
+		
+		
 		<div class="app-header__mobile-menu">
 			<div>
 				<button type="button"
@@ -48,6 +50,7 @@
 			</div>
 		</div>
 		<div class="app-header__menu">
+		
 			<span>
 				<button type="button"
 					class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
@@ -435,8 +438,14 @@
 				<div class="app-sidebar__inner">
 					<ul class="vertical-nav-menu">
 						<li class="app-sidebar__heading">Royal Frontier</li>
+						<li><a href="jsp/EditMenus.jsp" class="mm-active"> <i
+								class="metismenu-icon"></i>Edit Menu
+						</a></li>
 						<li><a href="jsp/AdminManageOrder.jsp" class="mm-active"> <i
 								class="metismenu-icon"></i>Manage Order
+						</a></li>
+						<li><a href="jsp/ViewReservation.jsp" class="mm-active"> <i
+								class="metismenu-icon"></i>View Reservation
 						</a></li>
 						<li><a href="jsp/Index.jsp" class="mm-active"> <i
 								class="metismenu-icon"> </i>Logout

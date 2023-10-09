@@ -14,7 +14,7 @@
         <h1>Checkout</h1>
     </header>
     <section class="order-summary">
-        <h2>Order Summary</h2>
+        <h2>Order Summary</h2><br><br>
         <!-- Order Summary -->
         <div id="orderSummary">
             <!-- Order details will be displayed here -->
@@ -22,13 +22,13 @@
         </div>
     </section>
     <section class="payment-method">
-        <h2>Select Payment Method:</h2>
+<!--         <h2>Select Payment Method:</h2> -->
         <form action="AddOrder" method="post">
-            <label class="payment-option"> <input type="radio"
-                                                  name="paymentMethod" value="payAtCounter"> Pay at Counter
-            </label> <label class="payment-option"> <input type="radio"
-                                                          name="paymentMethod" value="senangpay"> Pay using SenangPay
-            </label>
+<!--             <label class="payment-option"> <input type="radio" -->
+<!--                                                   name="paymentMethod" value="payAtCounter"> Pay at Counter -->
+<!--             </label> <label class="payment-option"> <input type="radio" -->
+<!--                                                           name="paymentMethod" value="senangpay"> Pay using SenangPay -->
+<!--             </label> -->
             <!-- Hidden input to store order details as JSON -->
             <input type="hidden" name="orderDetails" id="orderDetails" value="">
             <input type="hidden" name="order_items" id="order_items" value="orderItemsStr">
@@ -38,8 +38,9 @@
              <input type="hidden" name="payment_status" id="payment_status" value="pending">
 
             <!-- Submit button to send the order to the controller -->
+            <br><br>
             <input type="submit" value="Proceed to Payment"
-                   class="proceed-button">
+                   class="proceed-button" ><br><img src="https://app.senangpay.my/public/img/pay.png">
         </form>
     </section>
     <section class="user-info">
@@ -190,7 +191,7 @@ if (tableNumber) {
             // Total price for the item
             var totalItemPrice = item.quantity * item.price;
             var totalPrice = document.createElement("p");
-            totalPrice.textContent = "Total: RM "
+            totalPrice.textContent = "RM "
                 + totalItemPrice.toFixed(2);
             totalPrice.classList.add("total-price");
 
@@ -201,9 +202,9 @@ if (tableNumber) {
             removeText.setAttribute("data-index", i);
 
             // Append elements to the quantity div
-            quantityDiv.appendChild(decreaseButton);
+//             quantityDiv.appendChild(decreaseButton);
             quantityDiv.appendChild(quantityInput);
-            quantityDiv.appendChild(increaseButton);
+//             quantityDiv.appendChild(increaseButton);
 
             // Append elements to the menu item div
             menuDetailsDiv.appendChild(menuName);
@@ -213,10 +214,9 @@ if (tableNumber) {
             menuItemDiv.appendChild(menuDetailsDiv);
             menuDetailsDiv.appendChild(quantityDiv);
             menuDetailsDiv.appendChild(totalPrice);
-            menuDetailsDiv.appendChild(removeText);
             menuItemDiv.appendChild(totalPrice);
-            menuItemDiv.appendChild(removeText);
-
+            menuDetailsDiv.appendChild(removeText);
+            
             // Append the menu item div to the order summary
             orderSummary.appendChild(menuItemDiv);
         }

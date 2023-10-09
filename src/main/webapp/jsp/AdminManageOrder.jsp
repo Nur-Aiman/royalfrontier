@@ -74,7 +74,7 @@ button:hover {
 	<div class="container-fluid bg-light d-flex justify-content-end p-2">
 	
 
-		<a href="EditMenu.jsp" class="btn btn-primary mx-2">Edit Menu</a>
+		<a href="EditMenus.jsp" class="btn btn-primary mx-2">Edit Menu</a>
 		<a href="ViewReservation.jsp" class="btn btn-primary mx-2">View Reservation</a>
 		<a href="../SalesReport" class="btn btn-primary mx-2">Sales Report</a>
 		<a href="Index.jsp" class="btn btn-danger mx-2">Logout</a>

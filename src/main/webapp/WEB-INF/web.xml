@@ -185,5 +185,14 @@
   	<servlet-name>ViewReservation</servlet-name>
   	<url-pattern>/ViewReservation</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>DeleteMenu</servlet-name>
+    <servlet-class>com.restaurant_management_system.controller.DeleteMenu</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>DeleteMenu</servlet-name>
+    <url-pattern>/DeleteMenu</url-pattern>
+</servlet-mapping>
+  
   
 </web-app>
