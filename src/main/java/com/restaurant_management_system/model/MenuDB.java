@@ -48,13 +48,14 @@ public class MenuDB {
        
 
         try {
-            String query = "INSERT INTO menu (menu, price, description, availability) VALUES (?, ?, ?, ?)";
+            String query = "INSERT INTO menu (menu, price, description, availability,imageURL) VALUES (?,?, ?, ?, ?)";
             PreparedStatement pstmt = con.prepareStatement(query);
 
             pstmt.setString(1, menu.getMenu());
             pstmt.setDouble(2, menu.getPrice());
             pstmt.setString(3, menu.getDescription());
             pstmt.setString(4, menu.getAvailability());
+            pstmt.setString(5, menu.getImageURL());
 
             pstmt.executeUpdate();
 
@@ -68,19 +69,16 @@ public class MenuDB {
     }
     
     public String updateMenu(Menu menu) {
-    	myDatabase db = new myDatabase();
+        myDatabase db = new myDatabase();
         Connection con = db.getCon();
         try {
-        	
-            
-            String query = "UPDATE menu SET menu=?, price=?, description=?, availability=? WHERE id=?";
+            String query = "UPDATE menu SET menu=?, price=?,  availability=? WHERE id=?";
             PreparedStatement pstmt = con.prepareStatement(query);
 
             pstmt.setString(1, menu.getMenu());
             pstmt.setDouble(2, menu.getPrice());
-            pstmt.setString(3, menu.getDescription());
-            pstmt.setString(4, menu.getAvailability());
-            pstmt.setInt(5, menu.getId());
+            pstmt.setString(3, menu.getAvailability());
+            pstmt.setInt(4, menu.getId());
 
             int updatedRows = pstmt.executeUpdate();
             if (updatedRows > 0) {
@@ -95,6 +93,7 @@ public class MenuDB {
             db.closeConnection(con);
         }
     }
+
     
     public String setMenuUnavailableById(int id) {
         myDatabase db = new myDatabase();
@@ -119,6 +118,35 @@ public class MenuDB {
             db.closeConnection(con);  
         }
     }
+    public boolean deleteMenu(int id) {
+        myDatabase db = new myDatabase();
+        Connection con = db.getCon();
+
+        try {
+            // Prepare the SQL query to delete the menu item by menuId
+            String query = "DELETE FROM menu WHERE id = ?";
+            PreparedStatement pstmt = con.prepareStatement(query);
+
+            // Set the menuId parameter in the query
+            pstmt.setInt(1, id);
+
+            // Execute the SQL query to delete the menu item
+            int deletedRows = pstmt.executeUpdate();
+
+            // Check if any rows were deleted (i.e., deletion was successful)
+            if (deletedRows > 0) {
+                return true;
+            } else {
+                return false; // Menu with the specified menuId was not found or not deleted
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false; // Error occurred while deleting the menu item
+        } finally {
+            db.closeConnection(con);
+        }
+    }
+
 
 
     
