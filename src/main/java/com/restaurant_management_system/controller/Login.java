@@ -65,7 +65,7 @@ public class Login extends HttpServlet {
 		            dispatcher = request.getRequestDispatcher("jsp/GetMenu.jsp");
 		        } else if (userRole == 1) {
 		            // User role is 1, redirect to EditMenu.jsp
-		            dispatcher = request.getRequestDispatcher("jsp/EditMenu.jsp");
+		            dispatcher = request.getRequestDispatcher("jsp/AdminManageOrder.jsp");
 		        } else if (userRole == 2) {
 		            // User role is 2, redirect to OrderStatus.jsp
 		            dispatcher = request.getRequestDispatcher("jsp/OrderStatus.jsp");
