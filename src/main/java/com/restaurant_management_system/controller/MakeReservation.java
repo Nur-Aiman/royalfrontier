@@ -29,6 +29,11 @@ public class MakeReservation extends HttpServlet {
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String phoneNumber = request.getParameter("phoneNumber");
+        
+     // Ensure phone number starts with 6
+        if (!phoneNumber.startsWith("6")) {
+            phoneNumber = "6" + phoneNumber;
+        }
 
         String reservationDateStr = request.getParameter("reservationDate");
         String reservationTimeStr = request.getParameter("reservationTime");
